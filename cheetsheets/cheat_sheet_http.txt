@@ -1,0 +1,33 @@
+Как запустить локальный сервер:
+Выполнить в папке где лежит server.js
+$ node server.js    (где $ это приглашение к вводу команды, а не часть строки)
+
+Пример с использованием Browser API:
+
+    var xhr = new XMLHttpRequest;
+    xhr.open('GET', 'http://127.0.0.1:3000/');
+    xhr.addEventListener('readystatechange', function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                console.log('success', xhr.responseText);
+            } else {
+                console.log('error');
+            }
+            console.log('complete');
+        }
+    });
+    xhr.send();
+
+Пример с использованием библиотеки jQuery:
+
+    $.ajax({
+        method: 'GET',
+        url: 'http://127.0.0.1:3000/',
+        dataType: 'json'
+    }).done(function(data) {
+        console.log('success', data);
+    }).fail(function() {
+        console.log('error');
+    }).always(function() {
+        console.log('complete');
+    });

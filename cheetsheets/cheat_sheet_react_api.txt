@@ -1,0 +1,80 @@
+Добавляем React на сайт (первый вариант)
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        ReactDOM.render(
+            <h1>Хуй мусорам!</h1>,
+            document.querySelector('#root')
+        );
+    </script>
+
+Создаём новое React-приложение
+    npm i -g create-react-app
+    create-react-app todo (в папке проектов)
+    npm start (в папке проекта)
+
+Добавляем React на сайт (второй вариант)
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+
+    ReactDOM.render(
+        <h1>Хуй мусорам!</h1>,
+        document.querySelector('#root')
+    );
+
+React API
+    React
+        React.createElement(type, props, children)
+            props {
+                disabled: false,
+                checked: true,
+                defaultChecked: true,
+                value,
+                defaultValue,
+                className: '',
+                htmlFor: '',
+                dangerouslySetInnerHTML: {__html: '<h1>Хуй мусорам!</h1>'},
+                onChange: () => {},
+                style: {fontSize: '30px'},
+                children,
+                'data-id': '_t14ha0nc0'
+                https://ru.reactjs.org/docs/dom-elements.html
+            }
+        React.Component
+            props
+            state
+            constructor(props)
+            render()
+            componentDidMount()
+            shouldComponentUpdate(nextProps, nextState)
+            componentDidUpdate(prevProps, prevState)
+            componentWillUnmount()
+            setState(updater)
+                stateChange
+                (state, props) => stateChange
+        React.Fragment
+    ReactDOM
+        ReactDOM.render(reactElement, container)
+
+Поддерживаемые события
+    onKeyDown onKeyPress onKeyUp
+    onFocus onBlur
+    onChange onSubmit
+    onClick onDoubleClick onMouseEnter onMouseLeave onMouseOut onMouseOver
+    https://ru.reactjs.org/docs/events.html
+
+Жизненный цикл компонента
+    Монтирование
+        constructor(props)
+        render()
+        componentDidMount()
+    Обновление
+        shouldComponentUpdate(nextProps, nextState)
+        render()
+        componentDidUpdate(prevProps, prevState)
+    Размонтирование
+        componentWillUnmount()

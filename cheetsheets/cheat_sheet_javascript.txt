@@ -1,0 +1,85 @@
+Типы данных:
+    Число           5, 5.17
+    Строка          'Вася', 'Я люблю Киев'
+    Логический      true, false
+
+    undefined       undefined
+    null            null
+
+    Массив          [1, 2, 3, 4, 5], ['лук', 'капуста', 'огурцы']
+    Объект          { name: 'Вася', age: 18 }
+    Функция         function(a, b) { return a + b; }
+
+Операторы:
+    + - * / % ++ --
+    === !== < <= > >=
+    && || !
+    ?:
+    = *= /= %= += -=
+    . []
+    ()
+    new
+    delete typeof void instanceof in ,
+
+Инструкции:
+    var
+
+    if [else]
+    switch
+
+    while
+    do/while
+    for
+    for/in
+
+    break
+    continue
+    return
+    throw
+    try/catch/finally
+
+    debugger
+    "use strict"
+
+Встроенные переменные:
+    Number
+        Number.prototype: toFixed
+    String
+        String.prototype: charAt, concat, includes, indexOf, lastIndexOf, repeat, replace, slice, split,
+            substr, substring, toLowerCase, toUpperCase, trim
+    Boolean
+    Array
+        Array.prototype: concat, forEach, includes, indexOf, join, lastIndexOf, pop, push, reverse,
+            shift, slice, splice, unshift, length, sort, map, filter, every, some, reduce, reduceRight
+    Object: keys, values, create, assign, entries
+        Object.prototype: hasOwnProperty
+    Function
+        Function.prototype: apply, call, bind
+
+    Date
+        Date.prototype: getFullYear, getMonth, getDate, getDay, getHours, toString
+    RegExp
+        RegExp.prototype: test
+
+    Math: abs, ceil, floor, max, min, pow, random, round, sqrt, trunc
+    JSON: stringify, parse
+
+Регулярные выражения
+    Литерал                         //
+    Класс символов                  [...]       Любой из символов указанный в скобках
+                                                (в классах символов диапазон символов может задаваться при помощи дефиса)
+    Класс символов с отрицанием     [^...]      Любой из символов не указанный в скобках
+    Повторение
+                                    {n, m}      Не менее n и не более m раз
+                                    {n, }       n или более раз
+                                    {n}         n раз
+    Альтернатива                    |
+    Группировка                     ()
+    Позиция соответствия
+                                    ^           Начало строки
+                                    $           Конец строки
+    Флаги
+                                    i           Поиск нечувствительный к регистру
+                                    g           Глобальный поиск (находит все соответствия)
+                                    m           Многострочный режим
+    https://regexper.com/

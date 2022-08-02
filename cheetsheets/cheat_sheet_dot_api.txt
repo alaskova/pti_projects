@@ -1,0 +1,20 @@
+var tempFn = doT.template('Hello, {{= it.name}}!');
+var resultText = tempFn({name: 'Вася'});
+
+{{= }}  for interpolation
+{{? }}  for conditionals
+{{~ }}  for array iteration
+
+Пример:
+
+<div class="todos">
+    {{? it.list.length}}
+        <ul>
+            {{~ it.list :item:index}}
+                <li>{{= item}}</li>
+            {{~}}
+        </ul>
+    {{??}}
+        <p class="empty">Список пуст</p>
+    {{?}}
+</div>

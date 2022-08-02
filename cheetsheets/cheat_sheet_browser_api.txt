@@ -1,0 +1,122 @@
+API браузера
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Console        // На сайте есть русская версия
+console
+console.log()
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Window         // На сайте есть русская версия
+window
+window.setTimeout(function, delay])
+window.clearTimeout(timeoutID)
+window.setInterval(function, delay)
+window.clearInterval(intervalID)
+window.location
+window.location.href
+window.location.pathname
+window.location.search
+window.history
+window.navigator
+window.screen
+window.alert('message')
+window.confirm('message')
+window.prompt('message', 'default message')
+window.open(url, windowName, windowFeatures)
+window.close()
+window.getComputedStyle(element, pseudoElement)
+window.localStorage
+window.sessionStorage
+storage.setItem()
+storage.getItem()
+storage.removeItem()
+storage.clear()
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Node           // На сайте есть русская версия
+    https://developer.mozilla.org/en-US/docs/Web/API/EventTarget    // На сайте есть русская версия
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Document       // На сайте есть русская версия
+document
+document.title
+document.cookie
+document.querySelector('cssSelector')
+document.querySelectorAll('cssSelector')
+document.createElement('tagName')
+document.createDocumentFragment()
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Element        // На сайте есть русская версия
+element.parentNode
+element.childNodes
+element.children
+element.firstChild
+element.lastChild
+element.nextSibling
+element.previousSibling
+element.tagName
+element.id
+element.src
+element.href
+form.action
+form.method
+form.submit()
+element.type
+element.name
+element.value
+element.checked
+element.selected
+element.selectedIndex
+element.options
+element.className
+element.classList.add('className')
+element.classList.remove('className')
+element.classList.contains('className')
+element.classList.toggle('className')
+element.style
+element.style.color
+element.style.backgroundColor
+element.style.fontSize
+element.style.border
+element.dataset
+element.getAttribute('attributeName')
+element.hasAttribute('attributeName')
+element.setAttribute('attributeName', 'value')
+element.removeAttribute('attributeName')
+element.innerHTML
+element.innerText
+element.textContent
+element.cloneNode([deep])
+element.appendChild(childElement)
+element.insertBefore(newChildElement, referenceChildElement)
+element.parentNode.removeChild(childElement)
+element.replaceChild(newChildElement, oldChildElement)
+element.addEventListener('eventType', listener, useCapture)
+element.addEventListener('click', function(event) {
+    // Тело функции-обработчика события
+    // event.target
+});
+element.removeEventListener('eventType', listener, useCapture);
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Event          // На сайте есть русская версия
+event.type
+event.target
+event.currentTarget
+event.preventDefault()
+event.stopPropagation()
+event.stopImmediatePropagation()
+    event.clientX
+    event.clientY
+    event.button
+    event.which
+    event.keyCode
+    event.key
+    event.altKey
+    event.ctrlKey
+    event.shiftKey
+
+    https://developer.mozilla.org/en-US/docs/Web/Events             // На сайте есть русская версия
+focus, blur, click, dblclick, change, keyup, keydown, keypress, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, load, readystatechange, resize, input, orientationchange, submit
+
+    https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest // На сайте есть русская версия
+xhr.open(method, url)
+xhr.send(body)
+xhr.status          // 200
+xhr.readyState      // 4
+xhr.responseText

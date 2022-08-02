@@ -1,0 +1,79 @@
+jQuery API https://api.jquery.com/
+
+Ajax
+    jQuery.ajax()
+    .serialize()
+    .serializeArray()
+
+Attributes
+    .addClass()
+    .attr()
+    .hasClass()
+    .html()
+    .removeAttr()
+    .removeClass()
+    .toggleClass()
+    .val()
+
+Core
+    jQuery()
+    jQuery.noConflict()
+
+CSS
+    .css()
+
+Data
+    .data()
+
+Events
+    .click()
+    .off()
+    .on()
+    .one()
+    .trigger()
+
+Manipulation
+    .after()
+    .append()
+    .appendTo()
+    .before()
+    .clone()
+    .empty()
+    .insertAfter()
+    .insertBefore()
+    .prepend()
+    .prependTo()
+    .remove()
+    .replaceAll()
+    .replaceWith()
+    .text()
+    .unwrap()
+    .wrap()
+    .wrapInner()
+
+Miscellaneous
+    .each()
+    .get()
+    .index()
+    .toArray()
+
+Properties
+    .length
+
+Traversing
+    .add()
+    .children()
+    .closest()
+    .eq()
+    .find()
+    .has()
+    .first()
+    .last()
+    .next()
+    .nextAll()
+    .parent()
+    .prev()
+    .prevAll()
+
+Utilities
+    jQuery.contains()

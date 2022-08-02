@@ -1,0 +1,2 @@
+npm install -g node-sass
+node-sass --watch scss/ -o css/ --output-style compressed

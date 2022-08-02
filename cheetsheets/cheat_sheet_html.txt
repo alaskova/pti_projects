@@ -1,0 +1,110 @@
+**************************** HTML ****************************
+
+<tag attr="value">some text</tag>
+<tag attr="value">
+
+<!-- comment -->
+
+<!DOCTYPE html>
+
+HTML элементы:
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <title>
+    <style>
+    <script src="">
+    <link rel="stylesheet|icon" href="">
+    <body>
+
+    <h1> <h2> <h3> <h4> <h5> <h6>
+    <p>
+    <strong>
+    <b>
+    <em>
+    <i>
+    <a href="#" target="_blank">
+    <img src="" alt="">
+    <br>
+    <hr>
+
+    <ol>
+    <ul>
+    <li>
+    <dl>
+    <dt>
+    <dd>
+
+    <table>
+    <tr>
+    <th colspan="" rowspan="">
+    <td colspan="" rowspan="">
+
+    <form action="" method="">
+    <fieldset>
+    <legend>
+    <label for="">
+    <input name="" placeholder="" type="text|radio|checkbox|password|file|hidden" value="" disabled checked id>
+    <textarea name="" placeholder="" disabled>
+    <select name="" disabled>
+    <option value="" selected disabled>
+    <button type="submit|reset|button" disabled>
+
+    <div>
+    <span>
+
+    <canvas>
+    <iframe src="">
+
+    <header>
+    <nav>
+    <main>
+    <section>
+    <article>
+    <aside>
+    <footer>
+    <template>
+
+Универсальные атрибуты:
+    id
+    class
+    data-*
+    style
+
+Расшифровка сокращенных имен тэгов и атрибутов:
+    p           paragraph
+    h1 - h6     headings
+    b           bold
+    em          emphasis
+    i           italic
+    a           anchor
+    img         image
+    br          line break
+    hr          horizontal rule
+    ol          ordered list
+    ul          unordered list
+    li          list item
+    dl          definition list
+    dt          definition term
+    dd          definition description
+    tr          table row
+    th          table header cell
+    td          table data cell
+    div         division
+    iframe      inline frame
+    nav         navigation
+
+    href        hypertext reference
+    src         source
+    colspan     how many columns the cell extends
+    rowspan     how many rows the cell extends
+    charset     character encoding
+    rel         relationship of the linked document to the current document
+
+Спецсимволы HTML (HTML-код + CSS-код)
+    &nbsp;      \00A0       Неразрывный пробел
+    &lt;        \003C       Знак "меньше чем" (начало тега)
+    &gt;        \003E       Знак "больше чем" (конец тега)
+    &copy;      \00A9       Знак copyright
+    &reg;       \00AE       Знак зарегистрированной торговой марки
+    &trade;     \2122       Знак торговой марки

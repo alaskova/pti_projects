@@ -1,0 +1,75 @@
+Коллекции
+    each
+    map
+    reduce
+    reduceRight
+    find
+    filter
+    where
+    findWhere
+    reject
+    every
+    some
+    contains
+    pluck
+    max
+    min
+    sortBy
+    shuffle
+    sample
+    toArray
+    size
+    partition
+
+Массивы
+    first
+    last
+    rest
+    compact
+    flatten
+    without
+    union
+    intersection
+    difference
+    uniq
+    indexOf
+    lastIndexOf
+    findIndex
+    findLastIndex
+
+Функции
+    bind
+    throttle
+    once
+    compose
+
+Объекты
+    keys
+    values
+    pairs
+    invert
+    create
+    extend
+    pick
+    omit
+    defaults
+    has
+    isEqual
+    isMatch
+    isEmpty
+    isArray
+    isObject
+    isFunction
+    isString
+    isNumber
+    isBoolean
+    isNull
+    isUndefined
+
+Утилиты
+    noConflict
+    noop
+    random
+    uniqueId
+    result
+    now

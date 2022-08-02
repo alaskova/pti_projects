@@ -1,0 +1,93 @@
+// +++++++++++++++++++++++++++++++ Babel
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // your code
+</script>
+
+// +++++++++++++++++++++++++++++++ let & const
+let a = 2;
+for (let i = 0; i < 5; i++) {}
+
+const b = 2;
+const o = {};
+
+// +++++++++++++++++++++++++++++++ Значения параметров функции по умолчанию
+function congrats(name = 'Вася', age = 36) {}
+
+// +++++++++++++++++++++++++++++++ Шаблоннные строки
+`текст ${выражение} текст`
+
+// +++++++++++++++++++++++++++++++ Расширение объектных литералов
+var x = 5, exp = 'size';
+var o = {
+    x,
+    getX() { return this.x; },
+    [exp]: 3,
+    ['pi']() { return 3.14 }
+};
+
+// +++++++++++++++++++++++++++++++ ... spread/rest(gather)
+[...m1, ...m2, ...m3]
+{...defaults, ...options}
+f(...m)
+function f(...args) {}
+
+// +++++++++++++++++++++++++++++++ Стрелочные функции (функции стрелки)
+var f1 = () => {};
+var f2 = (a, b) => a + b;
+var f3 = () => 12;
+var f4 = x => x * x;
+var f5 = () => { return 5; }
+
+// +++++++++++++++++++++++++++++++ Классы
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    poo() {}
+    pee() {}
+
+    ololo = 1;
+    trololo = function() { console.log('trololo'); };
+
+    static cool() { console.log('cool'); }
+}
+
+class Dog extends Animal {
+    constructor(name) {
+        super(name);
+        // some code
+    }
+
+    poo() {
+        super.poo();
+        // some code
+    }
+
+    static awesome() {
+        super.cool();
+        console.log('awesome');
+    }
+}
+
+// +++++++++++++++++++++++++++++++ Модули
+export {a, b, c};           import {a, b, c} from './yo';
+export {a as AA, b, c};     import {AA, b, c} from './yo';
+export default a;           import Aa from './yo';
+export var PI = 3.14;
+                            import Aa, {b, c} from './yo';
+                            import * as all from './yo';
+                            import _ from 'underscore';
+                            import  './side_effect';
+
+// +++++++++++++++++++++++++++++++ Деструктуризация (Деструктурирующее присваивание)
+var dot = {x: 2, y: 4, z: 6};           var point = [2, 4, 6];
+var {x, y} = dot;                       var [x, y] = point;
+                                        var [, y] = point;
+var x, y; ({x, y} = dot);
+var {x: XX, x: XXX} = dot;
+var {d = 20, e: YY = 40} = dot;
+
+var {x, ...rest} = dot;                 var [x, ...rest] = point;
+function f({x, y, z, d = 20} = {}) {}   function f([x, y, d = 20] = []) {}

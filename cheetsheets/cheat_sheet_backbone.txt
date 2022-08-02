@@ -1,0 +1,51 @@
+Backbone.Events         _.extend(myObject, Backbone.Events);
+    on                  .on({})
+    off
+    trigger
+    once
+    listenTo
+    stopListening
+    listenToOnce
+
+    Catalog of Events
+
+Backbone.Model          extend
+    initialize
+    get
+    set
+    idAttribute
+    cid
+    attributes
+    defaults
+    toJSON
+
+    Underscore Methods
+
+Backbone.Collection     extend
+    initialize
+    model
+    models
+    toJSON
+    add
+    remove
+    reset
+    set
+    get
+    length
+    comparator
+
+    Underscore Methods
+
+Backbone.View           extend
+    initialize
+    el
+    $el
+    tagName
+    className
+    id
+    setElement
+    $
+    template
+    render              return this;
+    remove
+    events              {'тип_события селектор': 'callback'}    this -> view

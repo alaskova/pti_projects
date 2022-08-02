@@ -1,0 +1,533 @@
+**************************** HTML ****************************
+
+tag                         тег (именованная метка)
+attr (attribute)            атрибут (свойство)
+value                       значение
+
+comment                     комментарий
+
+DOCTYPE (document type)     тип документа
+
+HTML элементы:
+    html (Hypertext Markup Language)    Язык гипертекстовой разметки
+    head                    голова, заголовок
+    meta
+    title                   название, заглавие
+    style                   стиль
+    script                  сценарий
+    link                    ссылка, связь
+    body                    тело
+
+    heading                 заголовок
+    paragraph               абзац
+    strong                  сильный
+    bold
+    emphasis                акцент, особое внимание
+    italic                  курсивный
+    anchor                  якорь
+    image                   изображение
+    line break              разрыв строки
+    horizontal rule         горизонтальная линейка (линия)
+
+    ordered list            упорядоченный список
+    unordered list          неупорядоченный список
+    list item               элемент списка
+    definition list         список определений
+    definition term         термин определения
+    definition description  описание определения
+
+    table                   таблица
+    table row               строка таблицы
+    table header cell       ячейка заголовка таблицы
+    table data cell         ячейка данных таблицы
+
+    form                    форма, анкета
+    fieldset                набор полей
+    legend                  легенда, надпись
+    label                   метка, этикетка
+    input                   ввод данных
+    textarea                текстовое поле
+    select                  выбирать
+    option                  вариант, опция
+    button                  кнопка
+
+    division                раздел
+    span                    охватывать
+
+    canvas                  холст
+    inline frame            встроенный фрейм (рамка)
+
+    header                  верхний колонтитул
+    navigation              навигация
+    main                    основной
+    section                 раздел, секция
+    article                 статья
+    aside                   в стороне
+    footer                  нижний колонтитул
+    template                шаблон
+
+Атрибуты HTML элементов:
+    charset                 кодировка, набор символов
+    source                  источник
+    relationship            отношение, связь
+    hypertext reference     гипертекстовая ссылка
+    target                  цель
+    alternative             альтернативный
+    column span             ширина столбца
+    row span                диапазон строк
+    action                  действие
+    method                  метод
+    for                     для
+    name                    имя, название
+    placeholder             заполнитель
+    type                    тип
+    value                   значение
+    disabled                отключенный
+    checked                 отмеченный
+    id
+    selected                выбранный
+    class                   класс, тип, категория
+    style                   стиль
+
+Значения атрибутов HTML элементов:
+    stylesheet              таблица стилей
+    icon                    изображение
+
+    blank                   пустой
+
+    text                    текст
+    radio                   радио
+    checkbox                флажок
+    password                пароль
+    file                    файл
+    hidden                  скрытый
+
+    submit                  представлять на рассмотрение
+    reset                   сброс настроек
+    button                  кнопка
+
+**************************** CSS ****************************
+
+selector                    отборщик
+property                    свойство
+value                       значение
+
+comment                     комментарий
+
+CSS селекторы:
+    attr (attribute)            атрибут (свойство)
+    checked                     отмеченный
+    disabled                    отключенный
+    empty                       пустой
+    not                         не
+    focus                       фокус, сосредоточиваться
+    hover                       парение
+    first child                 первый ребенок
+    last child                  последний ребенок
+    nth child                   n-й ребенок
+        odd                         нечетный
+        even                        четный
+    only child                  единственный ребенок
+    before                      до
+    after                       после
+    placeholder                 заполнитель
+
+CSS свойства:
+    font style                  стиль шрифта
+        normal                      обычный, нормальный
+        italic                      курсивный
+    font weight                 толщина шрифта
+        bold
+    font size                   размер шрифта
+    line height                 высота линии
+    font family                 семейство шрифтов
+        serif                   засечки, шрифт с засечками
+        sans serif              без засечек
+        monospace               моноширинный
+    letter spacing              межбуквенное расстояние
+    word spacing                интервал между словами
+    white space
+        no wrap
+    word break                  разрыв слова (перенос слова)
+        break all               сломать все
+        break word              сломать слово (перенос слова)
+    text align                  выравнивание текста
+        left                    налево
+        center                  середина
+        right                   направо
+    text decoration             оформление текста
+        none                    никакой
+        underline               подчеркивать
+        line through            зачеркивать
+    text shadow                 тень текста
+    text transform              преобразование текста
+        uppercase               верхний регистр
+        lowercase               строчная буква
+    text indent                 отступ текста
+    vertical align              вертикальное выравнивание
+        baseline                базисная линия, базовая линия
+        middle                  середина
+        sub-                    под-
+        super
+    color                       цвет
+    opacity                     непрозрачность
+    background color            фоновый цвет
+        transparent             прозрачный
+    background image            фоновое изображение
+        url (Uniform Resource Locator)
+        linear gradient         линейный градиент
+    background repeat           повтор фона
+        repeat                  повторять
+        no repeat               нет повтора
+        repeat-x
+        repeat-y
+    background position         положение фона
+        left                    левый
+        top                     верхний
+    background size             размер фона
+        cover                   покрывать, охватывать
+        contain                 содержать, вмещать
+    margin
+    padding
+    border                      граница
+    border width                ширина рамки
+    border style                стиль границы
+        solid                   сплошной
+        dotted
+        dashed
+    border color                цвет границы
+    border radius               радиус границы
+    height                      высота
+    width                       ширина
+    max height                  максимальная высота
+    max width                   максимальная ширина
+    min height                  минимальная высота
+    min width                   минимальная ширина
+    box sizing                  размер коробки
+        content-box
+        border-box
+    box shadow                  тень коробки
+        inset
+    overflow                    переполнение
+        visible                 видимый
+        hidden                  скрытый
+        automatic               автоматический
+    display                     отображать
+        inline
+        block
+        inline-block
+        flex
+    list style type             тип стиля списка
+        disc                    диск, круг
+        circle                  круг, окружность
+        square                  квадрат
+        decimal                 десятичный
+        lower alpha (alphabet)  нижний алфавит
+        upper roman             верхний римский
+    list style position         позиция стиля списка
+        outside                 снаружи
+        inside                  внутри
+    list style image            изображение стиля списка
+    cursor                      курсор, указатель
+        pointer                 указатель
+        default                 умолчание
+    outline                     контур
+    visibility                  видимость
+        visible                 видимый
+    transform                   изменять, трансформировать, превращать
+        translate               перемещать
+        rotate                  вращать
+        scale                   масштаб
+    content                     содержимое
+    float                       плавающий
+    clear                       очищать
+        both                    оба
+    position                    положение
+        static                  статический, стационарный
+        relative                относительный
+        absolute                абсолютный
+        fixed                   фиксированный, закрепленный
+    top                         верхний
+    bottom                      нижний
+    left                        левый
+    right                       правый
+    z-index
+    border collapse             коллапс границы
+        separate                отдельный
+        collapse                сплющиваться
+    border spacing              расстояние (интервал) границ
+    table layout                макет (планировка) таблицы
+    transition property         свойство перехода
+    transition duration         продолжительность перехода
+    transition timing function  функция времени перехода
+    transition delay            задержка перехода
+    animation name              название анимации
+    animation duration          продолжительность анимации
+    animation timing function   функция времени анимации
+    animation delay             задержка анимации
+    animation iteration count   количество итераций анимации
+        infinite                бесконечный
+    animation direction         направление анимации
+        reverse                 обратный
+        alternate               чередующийся
+    flex direction              flex направление
+        row                     строка
+        column                  столбец, колонка
+    justify content             выровнять содержимое
+        start                   начало
+        end                     конец
+        center                  центр, середина
+        space between           пространство между
+        space around            пространство вокруг
+        space evenly            пространство равномерно
+    align items                 выровнять элементы
+        stretch                 растягивать
+    align self                  выровнять себя
+    media
+    font face
+    keyframes                   ключевые кадры
+
+**************************** JS *****************************
+Типы данных:                    data types
+    number                      число
+    string                      строка
+        char                    символ
+        concat (concatenate)    соединять
+        includes                включает
+        index                   индекс
+        last index              последний индекс
+        repeat                  повторять
+        replace                 заменять
+        slice                   ломтик, часть
+        split                   расколоть
+        substring               подстрока
+        to lower case           в нижний регистр
+        to upper case           в верхний регистр
+        trim                    подстригать
+    boolean                     логический
+    true                        истинный
+    false                       ложный
+    undefined                   неопределенный
+    null                        нулевой, пустой
+    array                       множество, массив
+        for each                для каждого
+        join                    присоединиться
+        pop                     хлопать
+        push                    толкать
+        reverse                 обратный
+        shift                   сдвиг
+        unshift                 не сдвигать
+        splice                  сращивать
+        length                  длина
+        sort                    cортировать
+        map                     карта
+        filter                  фильтр
+        every                   каждый
+        some                    некоторый
+        reduce                  сокращать, сводить
+    object                      объект
+        keys                    ключи
+        values                  значения
+        create                  создавать
+        assign                  назначать
+        has own property        имеет собственное свойство
+    function                    функция
+        apply                   применять
+        call                    вызывать
+        bind                    связывать
+Операторы:
+    new                         новый
+    delete                      удалять
+    type                        тип
+    void                        пустота
+    instance                    экземпляр
+    in                          в
+Инструкции:
+    var (variable)              переменная
+    if                          если
+    else                        иначе
+    switch                      переключатель
+    while                       до тех пор пока
+    do                          делать
+    for
+    break
+    continue                    продолжать
+    return                      возвращать
+    throw                       бросать
+    try                         попытка
+    catch                       ловить
+    finally                     в конечном счете
+    debugger                    отладчик
+    use strict                  использовать строгий
+Встроенные переменные:
+    date                        дата
+        get full year           получить полный год
+        get month               получить месяц
+        get date                получить дату
+        get day                 получить день
+        get hours               получить часы
+        to string
+    RegExp (regular expression) регулярное выражение
+        test                    тест
+    math                        математика
+        abs
+        ceil                    потолок
+        floor                   пол
+        max
+        min
+        pow
+        random                  случайный
+        round                   округлять
+        sqrt
+        trunc                   усечение
+    JSON
+        stringify
+        parse                   разбирать, структурный анализ
+
+**************************** API браузера *******************
+console                         консоль
+    log                         регистрационный журнал
+
+window                          окно
+    set timeout
+    clear timeout
+    set interval                установить интервал
+    clear interval              очистить интервал
+    location                    место расположения
+        href
+        pathname
+        search                  поиск
+    history                     история
+    navigator
+    screen                      экран
+    alert                       тревога
+    confirm                     подтверждать
+    prompt
+    open                        открыть
+    close                       закрыть
+    get сomputed style
+    local storage               локальное хранилище
+    session storage
+        set item                установить элемент (пункт, запись)
+        get item                получить элемент (пункт, запись)
+        remove item             убрать элемент (пункт, запись)
+        clear                   очищать
+
+document
+    title
+    cookie                      печенье
+    query selector
+    query selector all
+    create element              создать элемент
+    create document fragment    создать фрагмент документа
+
+element                         элемент
+    parent node                 родительский узел
+    child nodes                 дочерние узлы
+    children                    дети
+    first child                 первый ребенок
+    last child                  последний ребенок
+    next sibling                следующий брат (или сестра)
+    previous sibling            предыдущий брат (или сестра)
+    tag name                    название (имя) тэга
+form
+    action                      действие
+    method                      метод
+    submit                      представлять на рассмотрение
+element
+    type
+    name
+    value
+    checked
+    selected
+    selected index
+    options
+    class name
+    class list                  список классов
+        add                     добавлять
+        remove                  удалять
+        contains                содержит
+        toggle                  переключать
+    dataset
+    get attribute               получить атрибут
+    has attribute               имеет атрибут
+    set attribute               установить атрибут
+    remove attribute            удалить атрибут
+    innerHTML
+    innerText
+    textContent
+    clone node                  клонировать узел
+    append child                добавить ребенка
+    insert before               вставить перед
+    remove child                удалить ребенка
+    replace child               заменить ребенка
+    add event listener          добавить слушателя событий
+    remove event listener       удалить слушателя событий
+
+event                           событие
+    type                        тип
+    target                      цель
+    current target              текущая цель
+    prevent default
+    stop propagation            остановить распространение
+    stop immediate propagation
+
+    clientX
+    clientY
+    button
+    which
+    keyCode
+    key
+    altKey
+    ctrlKey
+    shiftKey
+
+focus
+blur
+click
+change
+keyup
+keydown
+keypress
+mousedown
+mouseup
+mousemove
+mouseover
+mouseout
+mouseenter
+mouseleave
+load
+readystatechange
+
+xhr
+    open
+    send
+    status
+    readyState
+    responseText
+
+**************************** General ************************
+
+commit                          фиксировать
+push                            толкать
+pull                            тянуть
+fetch                           приносить
+
+task                            задача
+issue                           проблема
+bug                             ошибка, жук
+reproduce                       воспроизводить
+investigate                     расследовать, изучать
+log                             регистрационный журнал
+assign                          назначать
+deploy                          развертывать, развертывание
+build
+RFD
+RFT
+code review                     обзор кода
+fix                             исправлять, чинить
+share                           делиться
+desktop                         настольный
+mobile                          мобильный, передвижной
+tablet                          планшет, дощечка
+required                        требуемый, необходимый
