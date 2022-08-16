@@ -1,0 +1,345 @@
+/*----------------------------------------------------------------------------------------------HEADER*/
+h1 {
+    color: #DC143C;
+    font-size: 30px;
+    margin: 50px;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    text-align: center;
+    text-shadow: 2px 2px 5px #7c7475;
+    font-family: arianaVioleta, serif;
+}
+
+#begin {
+    line-height: 16px;
+    text-align: left;
+    text-indent: 30px;
+    letter-spacing: 1px;
+    animation-name: textChange;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 3;
+    animation-direction: normal;
+}
+
+div h2 {
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 1px 1px 3px #7c7475;
+    word-spacing: 3px;
+    letter-spacing: 3px;
+}
+
+.intro {
+    margin: 40px 200px;
+    border: 2px solid #8B0000;
+    border-radius: 20px;
+    padding: 20px 30px;
+    box-shadow: 5px 5px 30px 2px #cb7d0f;
+    min-width: 300px;
+    min-height: 300px;
+    position: relative;
+}
+
+p > span {
+    white-space: nowrap;
+    border: 2px solid black;
+    width: 200px;
+    display: inline-block;
+}
+
+p a:only-child {
+    background-color: #69b2b2;
+}
+
+/*----------------------------------------------------------------------------------------------MAIN CONTENT*/
+* {
+    box-sizing: border-box;
+}
+
+p {
+    line-height: 26px;
+}
+
+.heading {
+    color: #DC143C;
+    margin: 30px;
+    text-shadow: 2px 2px 4px #655f5f;
+    text-align: center;
+    font-size: 35px;
+}
+
+p strong {
+    text-transform: uppercase;
+}
+
+.firstParagraph {
+    color: #8B0000;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 17px;
+    word-break: break-all;
+}
+
+body {
+    background-image: url("../img/book.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+    font-family: "Fira Code", monospace;
+}
+
+.chapter {
+    margin: 20px 50px;
+    text-indent: 30px;
+}
+
+dl {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+img:not(.bookIcon) {
+    transform: rotate(9deg);
+}
+
+/*----------------------------------------------------------------------------------FLEX TABLE OF CONTENTS AND LINK*/
+table {
+    margin: 10px 80px;
+    border-collapse: collapse;
+}
+
+caption {
+    margin: 10px 20px;
+    font-size: 20px;
+    text-shadow: 1px 1px 3px #7c7475;
+}
+
+th,
+td {
+    color: #DC143C;
+    font-style: italic;
+    border: 2px solid #a8987a;
+    padding: 8px 35px;
+    box-shadow: 5px 5px 30px 2px #f1c092;
+}
+
+tr > th {
+    background-color: #f1c092;
+}
+
+.flexEl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexTable {
+    width: 30%;
+    border: 2px solid #7e7d7d;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    height: 400px;
+    overflow: auto;
+}
+
+.original {
+    font-size: 22px;
+}
+
+.link {
+    width: 30%;
+    border: 2px solid #7e7d7d;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+tr:first-child {
+    background-color: #8adc80;
+}
+
+/*---------------------------------------------------------------------------------------------------FORM*/
+.testForm {
+    background-image: linear-gradient(45deg, #f7f7f7, transparent);
+    border: 3px solid #7e7d7d;
+    margin: 20px 300px;
+    border-radius: 30px;
+    padding: 20px 40px;
+    min-width: 400px;
+    box-sizing: border-box;
+    line-height: 27px;
+}
+
+label {
+    font-weight: bold;
+    color: #DC143C;
+}
+
+[type="reset"], [type="submit"] {
+    font-weight: bold;
+    font-size: 18px;
+    height: 32px;
+    vertical-align: middle;
+    margin: 15px;
+}
+
+button {
+    cursor: pointer;
+}
+
+input {
+    vertical-align: middle;
+    height: 24px;
+}
+
+form > [type=file] {
+    background-color: lightgrey;
+}
+
+:checked {
+    width: 20px;
+}
+
+:disabled {
+    background-color: #2E8B57;
+}
+
+[type="text"]:empty {
+    outline: 2px solid #cb7d0f;
+}
+
+button:not([type="submit"]) {
+    background: #afafaf;
+}
+
+:focus {
+    box-shadow: 2px 2px 5px 3px #736f6f;
+}
+
+button:hover {
+    background-color: #ecc488;
+}
+
+input::placeholder {
+    color: #4848e8;
+}
+
+/*-------------------------------------------------------------------------------------------BOOKLIST*/
+.booksHeader {
+    color: #DC143C;
+    font-weight: normal;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.bookList {
+    margin: 20px 40px;
+    border: 2px solid #cb7d0f;
+    border-radius: 40px;
+    padding: 20px 30px;
+    box-shadow: 5px 5px 30px 2px #88827c;
+    background-image: url("../img/books.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    opacity: 0.6;
+    min-width: 390px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.first + li {
+    color: darkred;
+}
+
+.allNeighbours ~ li {
+    background-color: #8B008B;
+}
+
+li:last-child {
+    background-color: #c3baba;
+}
+
+li:first-child {
+    background-color: #efb2b2;
+}
+
+li:nth-child(5) {
+    background-color: #2E8B57;
+}
+/*-------------------------------------------------------------------------------------------------LINKS*/
+[href] {
+    line-height: 30px;
+    font-style: italic;
+    font-weight: bold;
+    color: #044b05;
+}
+
+li::before {
+    content: "=";
+}
+
+li::after {
+    content: "=";
+}
+
+ul {
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+/*-----------------------------------------------------------------------------------------------BOOK ICON*/
+.bookIcon {
+    width: 24%;
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    z-index: 1;
+}
+
+.bookIcon:hover {
+    cursor: pointer;
+    transition-property: transform;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    transform: rotate(180deg);
+}
+
+/*----------------------------------------------------------------------------------------------ANIMATION*/
+@keyframes textChange {
+    0% {
+        color: #000000;
+    }
+
+    50% {
+        color: #c532c5;
+        font-size: 22px;
+        line-height: 20px;
+    }
+
+    100% {
+        color: #fa1e95;
+        font-size: 26px;
+        line-height: 24px;
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------FONTS*/
+@font-face {
+    font-family: arianaVioleta;
+    src: url("../fonts/ArianaVioleta.ttf");
+}

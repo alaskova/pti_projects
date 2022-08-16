@@ -1,0 +1,325 @@
+/*-------------------------------------------------------------------------------------------------HEADINGS*/
+h1 {
+    color: #8B0000;
+    font-size: 45px;
+    text-decoration: underline;
+    text-shadow: 2px 2px 5px #8B0000;
+    letter-spacing: 3px;
+    font-family: america, fantasy, monospace;
+    animation-name: headingRotate;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+h2 {
+    font-size: 17px;
+}
+
+div > h3 {
+    text-indent: 50px;
+}
+
+.begin {
+    text-align: center;
+}
+
+/*--------------------------------------------------------------------------------------------------MAIN CONTENT*/
+* {
+    box-sizing: border-box;
+}
+
+.chorus {
+    line-height: 18px;
+    font-style: italic;
+    color: #8B0000;
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+.song {
+    border: 2px solid #8b0000;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 30px 6px #8b0000;
+    background-image: linear-gradient(268deg, #b24141, #ffffff);
+    line-height: 18px;
+    text-align: center;
+    width: 30%;
+    opacity: 0.7;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.image {
+    width: 70%;
+}
+
+.flexContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.photo {
+    margin: 20px 400px;
+    width: 700px;
+}
+
+.wordBreak {
+    word-break: break-all;
+}
+
+dl {
+    line-height: 26px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+/*------------------------------------------------------------------------------------------------TABLE*/
+.weather {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-image: url(../img/red.svg);
+    border: 2px solid #8b0000;
+    border-radius: 15px;
+    box-shadow: 5px 5px 30px 6px #8b0000;
+    width: 100%;
+    border-spacing: 20px;
+    table-layout: fixed;
+}
+
+th,
+td {
+    color: #8B0000;
+    border: 2px solid #8b0000;
+    padding: 10px 10px;
+    margin: 10px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.month {
+    text-transform: uppercase;
+}
+
+.allNeighbours ~ td {
+    background-color: #69b2b2;
+}
+
+tr:last-child {
+    background-color: #f5ff79;
+}
+
+/*-------------------------------------------------------------------------------------------REGISTRATION FORM*/
+.trip {
+    color: #8B0000;
+}
+
+.form {
+    border: 3px solid #8b0000;
+    border-radius: 20px;
+    margin: 20px 300px 20px 300px;
+    padding: 20px 50px;
+    box-shadow: 5px 5px 35px 6px #8b0000;
+    background-image: url(../img/red.svg);
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    text-align: center;
+    min-height: 600px;
+    min-width: 400px;
+    line-height: 34px;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+[for="ivan"] {
+    text-decoration: line-through;
+}
+
+[placeholder] {
+    font-weight: bold;
+    background-color: #d3d3d3;
+}
+
+#city {
+    background-color: #d3d3d3;
+}
+
+button {
+    color: #FF0000;
+    font-size: 24px;
+    background-color: #d3d3d3;
+    vertical-align: super;
+    min-height: 38px;
+    cursor: pointer;
+}
+
+[type="checkbox"]:checked {
+    outline: 4px solid #FF0000;
+}
+
+:disabled {
+    background-color: #69b2b2;
+}
+
+input:empty {
+    background-color: slategrey;
+}
+
+button:not([type="submit"]) {
+    background: #464444;
+}
+
+:focus {
+    box-shadow: 2px 2px 5px 3px #736f6f;
+}
+
+button:hover {
+    background-color: #a47979;
+}
+
+input::placeholder {
+    color: #0c2377;
+}
+
+button[type="button"]:hover {
+    transition-property: left;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    position: absolute;
+    left: 100px;
+}
+
+button[type="submit"]:hover {
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    transform: scale(3);
+}
+
+/*-----------------------------------------------------------------------------------------FLEX IMAGE AND LINKS*/
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+#links > li {
+    font-style: italic;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+p + p {
+    color: purple;
+}
+
+/*-----------------------------------------------------------------------------------------LINKS IN FOOTER*/
+.links {
+    margin: 5px 10px;
+    background-image: url("../img/places.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+li a[href] {
+    color: #8b0000;
+    line-height: 30px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+li::before {
+    content: "*";
+}
+
+li::after {
+    content: "*";
+}
+
+ul {
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+/*---------------------------------------------------------------------------------------TEST POSITION ITEMS*/
+.test {
+    position: relative;
+}
+
+.example {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+.green {
+    background-color: #26a103;
+    position: absolute;
+    left: 200px;
+    top: 120px;
+    z-index: 5;
+}
+
+.red {
+    background-color: #af2828;
+    position: absolute;
+    left: 150px;
+    top: 90px;
+    z-index: 1;
+}
+
+.blue {
+    background-color: teal;
+    position: absolute;
+    left: 100px;
+    top: 60px;
+}
+
+.yellow {
+    background-color: #e0e066;
+    position: absolute;
+    left: 50px;
+    top: 30px;
+}
+
+/*----------------------------------------------------------------------------------------------ANIMATION*/
+@keyframes headingRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    30% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(30deg);
+    }
+
+    70% {
+        transform: rotate(200deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------FONTS*/
+@font-face {
+    font-family: america;
+    src: url("../fonts/america.ttf");
+}

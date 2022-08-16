@@ -1,0 +1,308 @@
+/*------------------------------------------------------------------------------------------------HEADER*/
+h1 {
+    color: #e3e4eb;
+    font-size: 45px;
+    text-decoration: underline;
+    letter-spacing: 2px;
+    font-family: devroye, Gabriola, sans-serif;
+    text-align: center;
+}
+
+.begin {
+    margin: 50px;
+    line-height: 26px;
+    background-color: #f1f1f1;
+    border: 2px solid #708090;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.whiteSpace {
+    white-space: nowrap;
+    border: 2px solid black;
+    width: 100px;
+    display: inline-block;
+}
+
+p strong {
+    font-style: italic;
+}
+
+p a:only-child {
+    background-color: #c9ef45;
+}
+
+/*----------------------------------------------------------------------------------------------MAIN CONTENT*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../img/term.jpg");
+}
+
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.film > .flexImg {
+    width: 100%;
+}
+
+.flexImg:hover {
+    transform: scale(150%);
+    transition-property: transform;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+
+.film {
+    border: 2px solid #708090;
+    padding: 30px;
+    background-color: #f1f1f1;
+    box-shadow: 7px 7px 30px 10px slategrey;
+    border-radius: 20px;
+    max-height: 650px;
+    /*overflow: auto;*/
+    width: 450px;
+}
+
+.filmInfo {
+    line-height: 28px;
+    font-size: 18px;
+    color: #8B008B;
+    font-weight: bold;
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.filmInfo li::marker {
+    color: #e7d737;
+}
+
+div h2 {
+    text-transform: uppercase;
+    font-size: 22px;
+    color: #696969;
+    text-shadow: 2px 2px 4px #696969;
+    text-align: center;
+}
+
+p {
+    word-spacing: 3px;
+    text-indent: 30px;
+}
+
+h3 {
+    color: #4b4026;
+}
+
+.wordBreak {
+    word-break: break-all;
+}
+
+.filmInfo + .first {
+    color: #26a103;
+}
+
+dt {
+    font-weight: bold;
+}
+
+/*-------------------------------------------------------------------------------------------TABLE*/
+.filmsByYear {
+    border: 2px solid #708090;
+    margin-top: 20px;
+    padding: 30px;
+    background-color: whitesmoke;
+    background-image: url("../img/films.jpg");
+    background-repeat: repeat;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+th,
+td {
+    font-weight: bold;
+    font-style: italic;
+    border: 1px solid #708090;
+    margin: 40px;
+    padding: 10px;
+}
+
+#years {
+    color: #800080;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.hidden ~ td {
+    background-color: #69b2b2;
+}
+
+/*--------------------------------------------------------------------------------------------------FORM*/
+.registration {
+    border: 2px solid #708090;
+    border-radius: 20px;
+    box-shadow: 4px 4px 20px 5px slategrey;
+    margin: 30px 50px;
+    padding: 30px;
+    background-color: #f1f1f1;
+    background-image: linear-gradient(293deg, #364250, transparent);
+    min-width: 400px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 36px;
+}
+
+[for] {
+    font-weight: bold;
+    color: dimgrey;
+    font-size: 20px;
+}
+
+[for="country"] {
+    color: #440a44;
+}
+
+legend {
+    font-weight: bold;
+}
+
+#comment {
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+button {
+    background-color: #9ca9b4;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+input {
+    vertical-align: sub;
+}
+
+.registration > textarea {
+    background-color: #26a103;
+}
+
+:checked {
+    box-shadow: 4px 4px 5px 3px #464444;
+}
+
+:disabled {
+    outline: 3px solid #2F4F4F;
+}
+
+textarea:empty {
+    box-shadow: 2px 2px 3px 3px #cb7d0f;
+}
+
+button:not([type="submit"]) {
+    background: #464444;
+}
+
+:focus {
+    box-shadow: 2px 2px 5px 3px #736f6f;
+}
+
+button:hover {
+    background-color: #477c8f;
+}
+
+td:first-child {
+    background-color: #c56fc5;
+}
+
+th:last-child {
+    background-color: #7deeee;
+}
+
+td:nth-child(2) {
+    background-color: #8adc80;
+}
+
+input::placeholder {
+    color: firebrick;
+}
+
+/*-------------------------------------------------------------------------------------------------LINKS*/
+[href] {
+    line-height: 30px;
+    font-style: italic;
+    font-weight: bold;
+    color: purple;
+    font-size: 18px;
+}
+
+.links {
+    margin: 30px;
+    line-height: 26px;
+    background-color: #f1f1f1;
+    border: 2px solid #708090;
+    border-radius: 20px;
+    padding: 30px;
+    background-image: url("../img/filmBack.jpg");
+    background-repeat: no-repeat;
+    background-size: 75%;
+    background-position: right;
+}
+
+.footerLinks li::before {
+    content: "000";
+}
+
+.footerLinks li::after {
+    content: "end";
+}
+
+/*------------------------------------------------------------------------------------------------FIXED ICON*/
+.termIcon {
+    position: fixed;
+    z-index: 1;
+    animation-name: iconChange;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/*----------------------------------------------------------------------------------------------ANIMATION*/
+@keyframes iconChange {
+    0% {
+        transform: scale(1);
+        top: 0;
+        left: 0;
+    }
+
+    50% {
+        transform: scale(1.5);
+        top: 25%;
+        left: 25%;
+    }
+
+    100% {
+        transform: scale(2);
+        top: 50%;
+        left: 50%;
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------FONTS*/
+@font-face {
+    font-family: devroye;
+    src: url("../fonts/DEVROYE.ttf");
+}

@@ -1,0 +1,285 @@
+/*----------------------------------------------------------------------------------------------HEADER*/
+h1 {
+    color: #2E8B57;
+    font-style: italic;
+    font-size: 42px;
+    margin: 30px 130px;
+    text-shadow: 2px 2px 3px #2E8B57;
+    font-family: america, Arial Black, serif;
+    text-align: center;
+}
+
+p.intro {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+    margin: 30px;
+    letter-spacing: 1px;
+}
+
+/*----------------------------------------------------------------------------------------------MAIN CONTENT*/
+* {
+    box-sizing: border-box;
+}
+
+div h2 {
+    word-spacing: 4px;
+    text-shadow: 2px 2px 3px #2E8B57;
+}
+
+p {
+    line-height: 26px;
+    text-indent: 30px;
+}
+
+.hotels {
+    border: 2px solid #2E8B57;
+    border-radius: 4px;
+    margin: 30px;
+    padding: 20px 30px;
+    box-shadow: 5px 5px 20px 3px #517050;
+    background-color: #ccdfdb;
+    overflow: auto;
+}
+
+body {
+    background-image: url("../img/yellow.jpg");
+    background-repeat: repeat;
+}
+
+div img {
+    width: 70%;
+}
+
+.whiteSpace {
+    white-space: nowrap;
+    border: 2px solid black;
+    width: 300px;
+    display: inline-block;
+}
+
+.wordBreak {
+    word-break: break-all;
+}
+
+/*-------------------------------------------------------------------------------------------TABLE*/
+#titles {
+    color: #808000;
+    font-style: italic;
+}
+
+#caption {
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #2E8B57;
+    font-size: 20px;
+}
+
+table {
+    text-align: center;
+    border-spacing: 20px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+th,
+td {
+    border: 2px solid #7d7d7d;
+    padding: 20px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+td:nth-child(2n+2) {
+    background-color: azure;
+}
+
+th:nth-child(even) {
+    background-color: darkred;
+}
+
+/*---------------------------------------------------------------------------------------------------FORM*/
+form {
+    border: 2px solid #7d7d7d;
+    margin: 20px 40px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px 3px #7d7d7d;
+    background-image: linear-gradient(305deg, #4d4646, transparent);
+    min-width: 400px;
+    box-sizing: border-box;
+}
+
+[for] {
+    line-height: 34px;
+    color: #2E8B57;
+    font-weight: bold;
+}
+
+[type="text"] {
+    font-weight: bold;
+}
+
+button {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    height: 40px;
+    padding: 17px 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+form > [type="reset"] {
+    background-color: #d2d1d1;
+}
+
+[type="reset"] + button {
+    background-color: #860404;
+}
+
+[type="checkbox"]:checked {
+    box-shadow: 3px 3px 3px 3px #464444;
+}
+
+:disabled {
+    outline: 3px solid #8cc26f;
+}
+
+[type="password"]:empty {
+    box-shadow: 2px 2px 3px 3px #624747;
+}
+
+button:not([type="reset"]) {
+    background: #464444;
+}
+
+:focus {
+    box-shadow: 2px 2px 5px 2px #7a7c83;
+}
+
+button:hover {
+    background-color: #956c9d;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    transform: scale(1.5);
+}
+
+input::placeholder {
+    color: #8adc80;
+}
+
+/*-------------------------------------------------------------------------------------------------FOOTER*/
+.flexContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.links {
+    border: 3px solid #7d7d7d;
+    padding: 30px;
+    background-color: #ececec;
+    border-radius: 20px;
+    width: 40%;
+    opacity: 0.5;
+}
+
+[href] {
+    line-height: 26px;
+    text-transform: uppercase;
+    font-style: italic;
+    color: #24252a;
+}
+
+.allNeighbours ~ li a {
+    color: #DC143C;
+}
+
+ol li::before {
+    content: "=";
+}
+
+ol li::after {
+    content: "=";
+}
+
+ol {
+    list-style-type: lower-alpha;
+    list-style-position: inside;
+}
+
+h4 {
+    font-size: 30px;
+    text-align: center;
+}
+
+dl {
+    line-height: 34px;
+    font-size: 18px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+ul li::marker {
+    content: "	\2600";
+}
+
+/*------------------------------------------------------------------------------------------------FIXED ICON*/
+.hotelIcon {
+    position: absolute;
+    width: 5%;
+    left: 0;
+    top: 90%;
+    opacity: 0.6;
+    animation-name: iconChange;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+/*----------------------------------------------------------------------------------------------ANIMATION*/
+@keyframes iconChange {
+    30% {
+        opacity: 0.8;
+        top: 0;
+        left: 90%;
+        transform: rotate(45deg);
+    }
+
+    50% {
+        opacity: 1;
+        left: 0;
+        top: 0;
+        transform: rotate(120deg);
+    }
+
+    70% {
+        opacity: 0.8;
+        left: 90%;
+        top: 90%;
+        transform: rotate(220deg);
+    }
+
+    100% {
+        opacity: 0.6;
+        top: 90%;
+        left: 0;
+        transform: rotate(360deg);
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------FONTS*/
+@font-face {
+    font-family: america;
+    src: url("../fonts/america.ttf");
+}
