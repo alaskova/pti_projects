@@ -6,7 +6,6 @@
 
 body {
     width: 706px;
-    min-height: 781px;
     margin: 0 auto;
     font: 11px Tahoma, sans-serif;
     background-color: #e7e5c8;
@@ -16,8 +15,7 @@ body {
 h1,
 h2,
 h3 {
-    font: 14px "Times New Roman", serif;
-    font-weight: bold;
+    font: bold 14px "Times New Roman", serif;
     color: #6e6b3d;
 }
 
@@ -30,25 +28,23 @@ h2 {
     padding-bottom: 14px;
 }
 
-.main-container {
-    width: 706px;
-    min-height: 781px;
-}
-
 .first-letter {
     color: #90aa1f;
 }
 
-.text-link {
+a {
     color: #90aa1f;
-
 }
 
 a:hover {
     text-decoration: none;
 }
 
-/*-----------------------------------------------------------------------HEADER*/
+p {
+    margin-bottom: 10px;
+}
+
+/* ---------------------------------------- Header */
 .header {
     height: 87px;
     position: relative;
@@ -69,106 +65,55 @@ a:hover {
     right: -26px;
     width: 274px;
     height: 88px;
-}
-
-.phones {
-    position: absolute;
-    top: 25px;
-    right: 67px;
+    z-index: 1;
+    text-indent: -13px;
     color: #f9f9f2;
     font-weight: bold;
+    padding: 25px 0 0 119px;
 }
 
-.phones p:not(p:first-child) {
-    text-indent: 13px;
+.header::after {
+    content: '';
+    border-top: 1px solid #c0bd9a;
+    border-bottom: 1px solid #f1f0e0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 /*----------------------------------------------------------------ABOUT COMPANY AND MAIN PHOTO*/
+.about-container {
+    background: url("../images/ho.jpg") no-repeat 32px 48px;
+    padding: 18px 0 0 390px;
+    min-height: 345px;
+    position: relative;
+}
+
 .about-container::after {
-    clear: both;
-    content: "";
-    display: block;
-}
-
-.main-image {
-    float: left;
-    width: 342px;
-    height: 265px;
-    background-image: url("../images/ho.jpg");
-    margin-top: 32px;
-    margin-bottom: 32px;
-    margin-right: 48px;
-}
-
-.about-company {
-    padding-top: 18px;
-    float: left;
-    width: 311px;
-}
-
-.paragraph-1 {
-    padding-bottom: 9px;
-}
-
-.paragraph-2,
-.paragraph-3 {
-    padding-bottom: 10px;
-}
-
-/*------------------------------------------------------------------------------------LINES*/
-.horizontal-line1 {
-    width: 706px;
+    content: '';
     border-top: 1px solid #c0bd9a;
-}
-
-.horizontal-line2 {
-    width: 706px;
-    border-top: 1px solid #f1f0e0;
-    margin-bottom: 2px;
-}
-
-.vertical-line {
-    height: 164px;
-}
-
-.vertical-line-1 {
-    border-left: 1px solid #f1f0e0;
-    /*left: 243px;*/
-}
-
-.vertical-line-2 {
-    border-right: 1px solid #c0bd9a;
-    /*left: 244px;*/
-}
-
-.vertical-line-3 {
-    border-left: 1px solid #f1f0e0;
-    /*right: 219px;*/
-}
-
-.vertical-line-4 {
-    border-left: 1px solid #c0bd9a;
-    /*right: 218px;*/
+    border-bottom: 1px solid #f1f0e0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 /*---------------------------------------------------------------------------SECTION WITH 3 SECTIONS*/
 .sections {
-    width: 706px;
-    height: 180px;
     background-color: #dedbbb;
     position: relative;
     display: flex;
-    padding-top: 7px;
+    padding: 7px 0;
     border-radius: 3px;
 }
 
 /*----------------------------------------------------------------------GALLERY SECTION*/
 .section-gallery {
     width: 242px;
-}
-
-.gallery-photos {
-    margin-left: 16px;
+    border-right: 1px solid #f1f0e0;
+    padding-left: 16px;
 }
 
 .gallery-photo {
@@ -177,8 +122,7 @@ a:hover {
     height: 54px;
     border-radius: 4px;
     display: inline-block;
-    margin-bottom: 6px;
-    margin-right: 4px;
+    margin: 0 4px 6px 0;
 }
 
 .room {
@@ -211,6 +155,8 @@ a:hover {
     width: 243px;
     padding-left: 16px;
     padding-right: 15px;
+    border-left: 1px solid #c0bd9a;
+    border-right: 1px solid #f1f0e0;
 }
 
 .offer-photo {
@@ -224,12 +170,13 @@ a:hover {
     margin-bottom: 12px;
 }
 
-.first-word {
+i {
     color: #90aa1f;
     font-weight: bold;
+    font-style: normal;
 }
 
-.second-word {
+b {
     font-weight: bold;
 }
 
@@ -237,6 +184,7 @@ a:hover {
 .section-our-services {
     width: 217px;
     padding-left: 16px;
+    border-left: 1px solid #c0bd9a;
 }
 
 .section-our-services::after {
@@ -252,7 +200,6 @@ ul {
 
 li {
     text-decoration: underline;
-    cursor: pointer;
     line-height: 16px;
 }
 
@@ -279,7 +226,6 @@ li:last-child {
 
 /*----------------------------------------------------------------------------FOOTER*/
 .footer {
-    white-space: nowrap;
     position: relative;
 }
 
@@ -321,19 +267,3 @@ h3 {
     top: 12px;
     right: 203px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
