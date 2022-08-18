@@ -1,6 +1,339 @@
-/*
-    Этот комментарий удалить в конце разработки
-    Семейство шрифтов используемых на сайте:
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 706px;
+    min-height: 781px;
+    margin: 0 auto;
     font: 11px Tahoma, sans-serif;
+    background-color: #e7e5c8;
+    color: #6a684d;
+}
+
+h1,
+h2,
+h3 {
     font: 14px "Times New Roman", serif;
-*/
+    font-weight: bold;
+    color: #6e6b3d;
+}
+
+h1 {
+    padding-bottom: 15px;
+    text-indent: 38px;
+}
+
+h2 {
+    padding-bottom: 14px;
+}
+
+.main-container {
+    width: 706px;
+    min-height: 781px;
+}
+
+.first-letter {
+    color: #90aa1f;
+}
+
+.text-link {
+    color: #90aa1f;
+
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*-----------------------------------------------------------------------HEADER*/
+.header {
+    height: 87px;
+    position: relative;
+}
+
+.header-logo {
+    position: absolute;
+    top: 28px;
+    left: 22px;
+}
+
+.header-phones {
+    background-image: url("../images/phone.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 1px;
+    right: -26px;
+    width: 274px;
+    height: 88px;
+}
+
+.phones {
+    position: absolute;
+    top: 25px;
+    right: 67px;
+    color: #f9f9f2;
+    font-weight: bold;
+}
+
+.phones p:not(p:first-child) {
+    text-indent: 13px;
+}
+
+/*----------------------------------------------------------------ABOUT COMPANY AND MAIN PHOTO*/
+.about-container::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.main-image {
+    float: left;
+    width: 342px;
+    height: 265px;
+    background-image: url("../images/ho.jpg");
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-right: 48px;
+}
+
+.about-company {
+    padding-top: 18px;
+    float: left;
+    width: 311px;
+}
+
+.paragraph-1 {
+    padding-bottom: 9px;
+}
+
+.paragraph-2,
+.paragraph-3 {
+    padding-bottom: 10px;
+}
+
+/*------------------------------------------------------------------------------------LINES*/
+.horizontal-line1 {
+    width: 706px;
+    border-top: 1px solid #c0bd9a;
+}
+
+.horizontal-line2 {
+    width: 706px;
+    border-top: 1px solid #f1f0e0;
+    margin-bottom: 2px;
+}
+
+.vertical-line {
+    height: 164px;
+}
+
+.vertical-line-1 {
+    border-left: 1px solid #f1f0e0;
+    /*left: 243px;*/
+}
+
+.vertical-line-2 {
+    border-right: 1px solid #c0bd9a;
+    /*left: 244px;*/
+}
+
+.vertical-line-3 {
+    border-left: 1px solid #f1f0e0;
+    /*right: 219px;*/
+}
+
+.vertical-line-4 {
+    border-left: 1px solid #c0bd9a;
+    /*right: 218px;*/
+}
+
+/*---------------------------------------------------------------------------SECTION WITH 3 SECTIONS*/
+.sections {
+    width: 706px;
+    height: 180px;
+    background-color: #dedbbb;
+    position: relative;
+    display: flex;
+    padding-top: 7px;
+    border-radius: 3px;
+}
+
+/*----------------------------------------------------------------------GALLERY SECTION*/
+.section-gallery {
+    width: 242px;
+}
+
+.gallery-photos {
+    margin-left: 16px;
+}
+
+.gallery-photo {
+    background-color: #b7b192;
+    width: 95px;
+    height: 54px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 6px;
+    margin-right: 4px;
+}
+
+.room {
+    width: 74px;
+    height: 48px;
+    margin: 3px 10px 3px 3px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+}
+
+.room1 {
+    background-image: url("../images/room_1.jpg");
+}
+
+.room2 {
+    background-image: url("../images/room_2.jpg");
+}
+
+.room3 {
+    background-image: url("../images/room_3.jpg");
+}
+
+.room4 {
+    background-image: url("../images/room_4.jpg");
+}
+
+/*-----------------------------------------------------------------------OUR OFFER SECTION*/
+.section-our-offer {
+    width: 243px;
+    padding-left: 16px;
+    padding-right: 15px;
+}
+
+.offer-photo {
+    width: 211px;
+    min-height: 54px;
+    border: 3px solid #b7b192;
+    border-radius: 4px;
+    background-image: url("../images/tree.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 12px;
+}
+
+.first-word {
+    color: #90aa1f;
+    font-weight: bold;
+}
+
+.second-word {
+    font-weight: bold;
+}
+
+/*-------------------------------------------------------------------OUR SERVICES SECTION*/
+.section-our-services {
+    width: 217px;
+    padding-left: 16px;
+}
+
+.section-our-services::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+ul {
+    padding-left: 13px;
+    position: relative;
+}
+
+li {
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 16px;
+}
+
+li a {
+    color: #6a684d;
+}
+
+li:last-child {
+    white-space: nowrap;
+}
+
+.services-paragraph {
+    padding-top: 18px;
+}
+
+.elephant-photo {
+    width: 79px;
+    height: 144px;
+    background-image: url("../images/elephant.jpg");
+    float: right;
+    margin-left: 5px;
+    transform: translate(-3px, -10px);
+}
+
+/*----------------------------------------------------------------------------FOOTER*/
+.footer {
+    white-space: nowrap;
+    position: relative;
+}
+
+.footer::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.map {
+    display: inline-block;
+    float: right;
+    margin-top: 28px;
+    transform: translate(-7px, 0);
+}
+
+h3 {
+    text-indent: 4px;
+    padding-bottom: 4px;
+}
+
+.welcome-photo {
+    background-image: url("../images/welcome.jpg");
+    width: 44px;
+    height: 73px;
+    margin-left: 11px;
+    display: inline-block;
+    text-align: left;
+    position: absolute;
+    top: 19px;
+}
+
+.butterfly-photo {
+    background-image: url("../images/map.jpg");
+    width: 63px;
+    height: 62px;
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 203px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
