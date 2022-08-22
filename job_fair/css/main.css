@@ -43,30 +43,22 @@ p {
 
 /*------------------------------------------------------------------Header links*/
 .header-links-container {
-    width: 100%;
     background-color: #ececec;
-    min-height: 27px;
 }
 
 .header-links {
-    font-size: 12px;
+    font-size: 11px;
     width: 1012px;
     margin: 0 auto;
+    padding: 6px 12px 8px 0;
 }
 
-.header-links li {
-    display: inline-block;
-    padding: 6px 12px 4px 0;
+.header-links a {
+    margin-right: 12px;
 }
 
-li.help-link {
+.header-links .help-link {
     float: right;
-}
-
-.header-links::after {
-    clear: both;
-    content: "";
-    display: block;
 }
 
 /*-------------------------------------------------------------------Header items*/
@@ -86,13 +78,13 @@ li.help-link {
     margin: 3px 6px 11px 8px;
 }
 
-.fresh-news {
+.module-news {
     width: 370px;
     height: 27px;
     border: 3px solid #ffffff;
     border-radius: 6px;
     display: inline-block;
-    font-size: 12px;
+    font-size: 11px;
     padding: 2px 10px;
     text-align: center;
     position: relative;
@@ -100,7 +92,7 @@ li.help-link {
     color: #ffffff;
 }
 
-.fresh-news::before {
+.module-news::before {/* TODO: buttons with hover */
     content: "";
     position: absolute;
     left: 2px;
@@ -112,7 +104,7 @@ li.help-link {
     border-right: 7px solid #ffffff;
 }
 
-.fresh-news::after {
+.module-news::after {
     content: "";
     position: absolute;
     right: 2px;
@@ -147,52 +139,74 @@ li.help-link {
     background-image: url("../images/registration-button-background.gif");
 }
 
-/*-----------------------------------------------------------------Navigation tabs*/
-.navigation-tabs {
+/*----------------------------------------------------------------Main content*/
+.page {
     width: 1012px;
+    min-height: 715px;
     margin: 0 auto;
-    position: relative;
+    background-color: #043a4f;
+    border-radius: 0 0 4px 4px;
+    padding: 6px;
 }
 
-.navigation-tabs li {
+/*-----------------------------------------------------------------Navigation tabs*/
+.navigation-tabs {
+    margin: -37px -6px 6px;
+}
+
+.navigation-tabs a {
     display: inline-block;
     background-color: #0b6588;
     width: 128px;
     min-height: 31px;
     border-radius: 7px 7px 0 0;
-    margin-top: 22px;
     text-align: center;
     padding: 7px 0 7px 0;
     font-weight: bold;
     color: #ffffff;
+    text-decoration: none;
 }
 
-li.active-tab {
-    background-color: #043a4f;
+.navigation-tabs a:hover {
+    text-decoration: underline;
 }
 
-li.personal-cabinet {
+.navigation-tabs a.personal-cabinet {
     width: 143px;
     background-color: #89c160;
 }
 
-li.logout {
+.navigation-tabs a.logout {
     width: 92px;
     background-color: #74b8d2;
     margin: 0 0 0 54px;
 }
 
-.collapse-button {
+.navigation-tabs a.active {
+    background-color: #043a4f;
+}
+
+/*---------------------------------------------------------------- Module: Banner */
+.module-banner {
+    min-height: 187px;
+    background-color: #1f617a;
+    color: #ffffff;
+    border-radius: 6px 0 6px 6px;
+    position: relative;
+}
+
+.module-banner .toggler {
     width: 28px;
     height: 17px;
     background-color: #1f617a;
     position: absolute;
-    top: 42px;
-    right: 6px;
+    top: -17px;
+    right: 0;
+    border: none;
     border-radius: 5px 5px 0 0;
 }
 
-.collapse-button::before {
+.module-banner .toggler::before {
     content: "";
     position: absolute;
     right: 7px;
@@ -204,31 +218,13 @@ li.logout {
     border-top: 9px solid #cdf1ff;
 }
 
-/*----------------------------------------------------------------Main content*/
-.main-content {
-    width: 1012px;
-    min-height: 715px;
-    margin: 0 auto;
-    background-color: #043a4f;
-    border-radius: 0 0 4px 4px;
-    padding: 6px;
-}
-
-.description {
-    min-height: 187px;
-    background-color: #1f617a;
-    color: #ffffff;
-    border-radius: 6px 0 6px 6px;
-    position: relative;
-}
-
-.page-numbers-list {
+.module-banner .pagination {
     position: absolute;
     top: 13px;
     right: 132px;
 }
 
-.page-number {
+.module-banner .pagination .item {
     width: 25px;
     height: 25px;
     background-color: #218fbb;
@@ -237,39 +233,44 @@ li.logout {
     text-align: center;
     padding: 4px 0;
     font-weight: bold;
+    border: none;
+    color: #fff;
+    cursor: pointer;
 }
 
-.active-page-number {
+.module-banner .pagination .item.active,
+.module-banner .pagination .item:hover {
     background-color: #2fbaf1;
 }
 
-.additional {
-    min-height: 510px;
-    background-color: #ffffff;
-    margin-top: 6px;
-    border-radius: 6px;
-}
-
-.navigation-button {
+.module-banner .previous,
+.module-banner .next {
     width: 25px;
     height: 25px;
     background-color: #218fbb;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
 }
 
-.previous-button {
+.module-banner .previous:hover,
+.module-banner .next:hover {
+    background-color: #2fbaf1;
+}
+
+.module-banner .previous {
     position: absolute;
     top: 152px;
     left: 7px;
 }
 
-.next-button {
+.module-banner .next {
     position: absolute;
     top: 152px;
     right: 7px;
 }
 
-.previous-button::before {
+.module-banner .previous::before {
     content: "";
     position: absolute;
     left: 3px;
@@ -281,7 +282,7 @@ li.logout {
     border-right: 17px solid #ffffff;
 }
 
-.next-button::before {
+.module-banner .next::before {
     content: "";
     position: absolute;
     right: 3px;
@@ -293,29 +294,28 @@ li.logout {
     border-left: 17px solid #ffffff;
 }
 
-/*------------------------------------------------------------------------Footer*/
+/*---------------------------------------------------------------- Module: XXX */
+.module-xxx {
+    min-height: 510px;
+    background-color: #ffffff;
+    margin-top: 6px;
+    border-radius: 6px;
+}
+
+/*------------------------------------------------------------------------ Footer */
 .footer {
     width: 1012px;
     margin: 0 auto;
     font: 11px Tahoma;
+    padding: 25px 10px 20px 16px;
 }
 
-.footer li {
-    display: inline-block;
-    padding: 25px 37px 20px 16px;
+.footer a {
+    margin-right: 37px;
 }
 
-li.legal-agreements {
+.footer .legal-agreements {
     float: right;
-    padding-right: 10px;
-}
-
-.legal-agreements a {
     color: #043a4f;
-}
-
-ul::after {
-    clear: both;
-    content: "";
-    display: block;
+    margin-right: 0;
 }
