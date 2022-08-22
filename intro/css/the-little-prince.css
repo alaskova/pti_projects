@@ -189,7 +189,8 @@ label {
     color: #DC143C;
 }
 
-[type="reset"], [type="submit"] {
+[type="reset"],
+[type="submit"] {
     font-weight: bold;
     font-size: 18px;
     height: 32px;
@@ -218,7 +219,7 @@ form > [type=file] {
     background-color: #2E8B57;
 }
 
-[type="text"]:empty {
+tr:empty {
     outline: 2px solid #cb7d0f;
 }
 

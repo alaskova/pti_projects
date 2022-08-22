@@ -206,8 +206,9 @@ input {
     outline: 3px solid #2F4F4F;
 }
 
-textarea:empty {
-    box-shadow: 2px 2px 3px 3px #cb7d0f;
+span:empty {
+    height: 30px;
+    box-shadow: 2px 2px 3px 3px #1fc51f;
 }
 
 button:not([type="submit"]) {

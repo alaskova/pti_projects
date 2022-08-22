@@ -229,8 +229,10 @@ legend {
     outline: 2px solid #DC143C;
 }
 
-[type="checkbox"]:empty {
-    box-shadow: 2px 2px 3px 2px #DC143C;
+div:empty {
+    background-color: #d8a2e3;
+    width: 100%;
+    height: 30px;
 }
 
 button:not([type="submit"]) {

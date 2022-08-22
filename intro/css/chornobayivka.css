@@ -171,8 +171,10 @@ button {
     background-color: #69b2b2;
 }
 
-input:empty {
-    background-color: slategrey;
+div:empty {
+    background-color: #748493;
+    width: 100%;
+    height: 30px;
 }
 
 button:not([type="submit"]) {
