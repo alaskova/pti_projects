@@ -58,20 +58,14 @@ a:hover {
     margin: 7px 20px;
 }
 
-/*-----------------------------------------------------------------------Main banner*/
-.main a.banner {
-    margin: 0 auto;
-    width: 719px;
-    display: block;
-    height: 125px;
-}
-
 /*-----------------------------------------------------------------------Main*/
 .main {
     flex-grow: 1;
     background-image: url("../images/main-background.gif");
     border-top: 1px solid #6a4101;
     border-bottom: 1px solid #6a4101;
+    display: flex;
+    flex-direction: column;
 }
 
 .main .links {
@@ -93,11 +87,19 @@ a:hover {
     padding-right: 6px;
 }
 
+/*-----------------------------------------------------------------------Main banner*/
+.main a.banner {
+    margin: 0 auto;
+    width: 719px;
+    display: block;
+    height: 125px;
+}
+
 /*----------------------------------------------------------------------Page menu*/
 .page {
     margin: 0 auto;
     width: 719px;
-    min-height: 838px;
+    flex-grow: 1;
     background-color: #000000;
     border-left: 1px solid #a36917;
     border-right: 1px solid #a36917;
@@ -125,9 +127,9 @@ a:hover {
     border-right: none;
 }
 
+.page .menu a.active,
 .page .menu a:hover {
     color: #c59e52;
-
 }
 
 /*-----------------------------------------------------------------------Content*/
@@ -135,13 +137,8 @@ a:hover {
     flex-grow: 1;
 }
 
-.page-content img {
-    float: left;
-    margin: 0 15px 10px 0;
-}
-
-.page-content .text p {
-    padding-bottom: 18px;
+.page-content p {
+    margin-bottom: 18px;
     font-size: 11px;
 }
 
