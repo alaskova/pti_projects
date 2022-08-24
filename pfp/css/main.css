@@ -8,3 +8,172 @@
     Для меню выше и ниже контента используется
     font-family: "Times New Roman", serif;
 */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font: 12px Verdana, sans-serif;
+    color: #cccccc;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.main a {
+    font-family: "Times New Roman", serif;
+}
+
+.main .page .content {
+    font-family: Tahoma, sans-serif;
+}
+
+/*----------------------------------------------------------------------Header*/
+.header {
+    min-height: 31px;
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.header .dropdown {
+    border: none;
+    margin: 7px 20px;
+}
+
+/*-----------------------------------------------------------------------Main banner*/
+.main a.banner {
+    margin: 0 auto;
+    width: 719px;
+    display: block;
+    height: 125px;
+}
+
+/*-----------------------------------------------------------------------Main*/
+.main {
+    flex-grow: 1;
+    background-image: url("../images/main-background.gif");
+    border-top: 1px solid #6a4101;
+    border-bottom: 1px solid #6a4101;
+}
+
+.main .links {
+    width: 719px;
+    min-height: 30px;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 11px;
+}
+
+.main .links a {
+    padding: 8px 0 8px 10px;
+    display: inline-block;
+}
+
+.main .links .basket_image::before {
+    content: url("../images/basket.gif");
+    vertical-align: middle;
+    padding-right: 6px;
+}
+
+/*----------------------------------------------------------------------Page menu*/
+.page {
+    margin: 0 auto;
+    width: 719px;
+    min-height: 838px;
+    background-color: #000000;
+    border-left: 1px solid #a36917;
+    border-right: 1px solid #a36917;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 0 15px;
+}
+
+.page .menu {
+    min-height: 46px;
+}
+
+.page .menu a {
+    display: inline-block;
+    margin: 12px 0 20px 0;
+    padding: 0 38px;
+    text-transform: uppercase;
+    border-right: 1px solid #c59e52;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.page .menu a:last-child {
+    border-right: none;
+}
+
+.page .menu a:hover {
+    color: #c59e52;
+
+}
+
+/*-----------------------------------------------------------------------Content*/
+.page-content {
+    flex-grow: 1;
+}
+
+.page-content img {
+    float: left;
+    margin: 0 15px 10px 0;
+}
+
+.page-content .text p {
+    padding-bottom: 18px;
+    font-size: 11px;
+}
+
+/*-----------------------------------------------------------------------Content links*/
+.content-links {
+    min-height: 39px;
+    align-self: center;
+    background-color: #0f0900;
+}
+
+.content-links a {
+    margin-top: 13px;
+    display: inline-block;
+    padding: 0 4px 0 0;
+    color: #9f845b;
+    line-height: 11px;
+}
+
+.content-links a:not(:last-child) {
+    border-right: 1px solid #d08900;
+}
+
+/*-----------------------------------------------------------------------Footer*/
+.footer {
+    min-height: 30px;
+    background-color: #000000;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 22px;
+}
+
+.footer a {
+    padding-left: 12px;
+}
