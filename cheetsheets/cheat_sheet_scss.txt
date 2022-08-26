@@ -1,2 +1,50 @@
 npm install -g node-sass
+
 node-sass --watch scss/ -o css/ --output-style compressed
+node-sass --watch index.scss -o ./ --output-style compressed
+
+// +++++++++++++++++++++++++++++++ Переменные
+$imagesFolder: '../images/';
+$primaryButtonColor: #000000;
+$primaryButtonBgColor: #FFDB01;
+
+// +++++++++++++++++++++++++++++++ Примеси
+@mixin icon($imageURL: 'default.svg', $size: 2.5em) {
+    display: inline-block;
+    height: $size;
+    width: $size;
+    background: transparent url($imagesFolder + $imageURL) no-repeat 0 0;
+    background-size: 100%;
+}
+
+// +++++++++++++++++++++++++++++++ Вложенности
+.btn {
+    color: $primaryButtonColor;
+    background-color: $primaryButtonBgColor;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0.2rem;
+    padding: 5px 10px;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5);
+
+    &:hover {
+        background-color: #E8B20B;
+    }
+
+    &.settings::before {
+        content: '';
+        @include icon('settings.svg', 1.5em);
+        margin-right: 5px;
+    }
+
+    .mobile & {
+        width: 100%;
+    }
+
+    & span {
+        // TODO
+        /*
+            TODO
+        */
+    }
+}
