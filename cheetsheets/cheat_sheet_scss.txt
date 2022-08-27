@@ -3,6 +3,10 @@ npm install -g node-sass
 node-sass --watch scss/ -o css/ --output-style compressed
 node-sass --watch index.scss -o ./ --output-style compressed
 
+npm install -g sass
+
+sass --watch scss/main.scss css/main.css --style=compressed
+
 // +++++++++++++++++++++++++++++++ Переменные
 $imagesFolder: '../images/';
 $primaryButtonColor: #000000;
