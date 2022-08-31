@@ -22,7 +22,6 @@ $contentColor: #c2c2c2;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: $primaryColor;
 }
 
 html,
@@ -32,6 +31,7 @@ body {
 
 body {
     font-family: Arial, sans-serif;
+    color: $primaryColor;
     background: #473B38;
     font-size: 12px;
 }
@@ -46,8 +46,12 @@ body {
     flex-direction: column;
 }
 
-a:hover {
-    text-decoration: none;
+a {
+    color: $primaryColor;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 button:hover {
@@ -56,6 +60,7 @@ button:hover {
 
 h2 {
     font: bold 15px Verdana, sans-serif;
+    margin-bottom: 25px;
 }
 
 input:focus,
@@ -64,7 +69,6 @@ button:focus {
 }
 
 /* ---------------------------------------- Header */
-
 .header {
     width: 100%;
     border-bottom: 1px solid #6A5455;
@@ -76,7 +80,6 @@ button:focus {
 }
 
 /* ---------------------------------------- Page menu */
-
 .menu {
     position: absolute;
     top: 69px;
@@ -86,31 +89,34 @@ button:focus {
         text-decoration: none;
         margin-left: 19px;
         padding: 4px 0;
-    }
 
-    a.active {
-        border-top: 8px solid $activeLinkColor;
+        &.active {
+            border-top: 8px solid $activeLinkColor;
+        }
     }
 }
 
-/* ---------------------------------------- Content container*/
-
+/* ---------------------------------------- Content container */
 .content-container {
-    flex-grow: 1;
+    display: flex;
     padding: 30px 10px 10px 0;
-    background-image: url("../images/credit-card-image.jpg");
-    background-repeat: no-repeat;
-    background-position: 320px 40px;
+
+    .column-left {
+        width: 30%;
+    }
+
+    .column-right {
+        width: 70%;
+        padding-left: 32px;
+    }
 
     h2 {
         color: $h2color;
         font: bold 15px Verdana, sans-serif;
     }
 
-    /* ---------------------------------------- Heading */
-
-    .heading {
-        display: inline-block;
+    /* ---------------------------------------- Module: Motto */
+    .module-motto {
         transform: translate(-120px, 0);
         width: 400px;
         min-height: 140px;
@@ -134,12 +140,13 @@ button:focus {
         }
     }
 
-    /* ---------------------------------------- Join form */
-
-    .join-form {
-        display: inline-block;
+    /* ---------------------------------------- Module: Application */
+    .module-application {
+        background: url("../images/credit-card-image.jpg") no-repeat 0 0;
+        margin-bottom: 45px;
+        padding: 0 0 0 298px;
+        min-height: 191px;
         text-align: right;
-        transform: translate(64%, 10%);
 
         h2 {
             margin-bottom: 17px;
@@ -164,17 +171,11 @@ button:focus {
         }
     }
 
-    /* ---------------------------------------- Contact info */
-
-    .contact-info {
-        display: inline-block;
-        width: 280px;
-        min-height: 375px;
+    /* ---------------------------------------- Module: Contacts */
+    .module-contacts {
         background-color: #3c322f;
         border-radius: 7px;
         padding: 20px 10px;
-        float: left;
-        margin-right: 32px;
 
         p {
             color: #a28c8b;
@@ -195,12 +196,8 @@ button:focus {
         }
     }
 
-    /* ---------------------------------------- Content */
-
-    .content {
-        display: inline-block;
-        margin-top: 45px;
-        width: 628px;
+    /* ---------------------------------------- Module: Content */
+    .module-content {
         line-height: 20px;
 
         h2 {
@@ -215,7 +212,7 @@ button:focus {
         }
 
         p {
-            margin-top: 25px;
+            margin-bottom: 25px;
             color: $contentColor;
         }
 
@@ -226,14 +223,10 @@ button:focus {
         }
 
         ol {
-            margin-top: 25px;
+            margin-bottom: 25px;
 
             li {
                 color: $contentColor;
-            }
-
-            li:first-child {
-                margin-top: 25px;
             }
         }
 
@@ -254,7 +247,6 @@ button:focus {
 }
 
 /* ---------------------------------------- Footer */
-
 .footer {
     position: absolute;
     bottom: 0;
