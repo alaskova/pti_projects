@@ -1,0 +1,273 @@
+﻿$primaryColor: #decacb;
+$activeLinkColor: #594546;
+$h2color: #95d0d9;
+$contentColor: #c2c2c2;
+
+@mixin button {
+    width: 250px;
+    min-height: 35px;
+    background-image: linear-gradient(0deg, #148ea0, #55c1d1);
+    border-radius: 6px;
+    border-top: 1px solid #b5e4eb;
+    border-left: 1px solid #6dc0cc;
+    border-right: 1px solid #358e9b;
+    border-bottom: 1px solid #0d5e6a;
+    text-shadow: -1px -1px 0px #1b5159;
+    font: 15px bold;
+    font-family: inherit;
+    color: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: $primaryColor;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #473B38;
+    font-size: 12px;
+}
+
+.page {
+    width: 950px;
+    margin: 0 auto;
+    min-height: 100%;
+    padding-bottom: 120px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h2 {
+    font: bold 15px Verdana, sans-serif;
+}
+
+input:focus,
+button:focus {
+    outline: none;
+}
+
+/* ---------------------------------------- Header */
+
+.header {
+    width: 100%;
+    border-bottom: 1px solid #6A5455;
+    height: 100px;
+
+    .logo img {
+        margin: 16px 2px;
+    }
+}
+
+/* ---------------------------------------- Page menu */
+
+.menu {
+    position: absolute;
+    top: 69px;
+    right: 0;
+
+    a {
+        text-decoration: none;
+        margin-left: 19px;
+        padding: 4px 0;
+    }
+
+    a.active {
+        border-top: 8px solid $activeLinkColor;
+    }
+}
+
+/* ---------------------------------------- Content container*/
+
+.content-container {
+    flex-grow: 1;
+    padding: 30px 10px 10px 0;
+    background-image: url("../images/credit-card-image.jpg");
+    background-repeat: no-repeat;
+    background-position: 320px 40px;
+
+    h2 {
+        color: $h2color;
+        font: bold 15px Verdana, sans-serif;
+    }
+
+    /* ---------------------------------------- Heading */
+
+    .heading {
+        display: inline-block;
+        transform: translate(-120px, 0);
+        width: 400px;
+        min-height: 140px;
+        background-color: #594546;
+        border: 1px solid #7f5e60;
+        padding: 17px 14px 20px 100px;
+        margin-bottom: 28px;
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 span {
+            font-size: 28px;
+        }
+
+        p {
+            color: #cac4c1;
+            font-size: 14px;
+        }
+    }
+
+    /* ---------------------------------------- Join form */
+
+    .join-form {
+        display: inline-block;
+        text-align: right;
+        transform: translate(64%, 10%);
+
+        h2 {
+            margin-bottom: 17px;
+            text-align: center;
+        }
+
+        input {
+            margin: 0 0 10px 25px;
+            border: 1px solid #95d0d9;
+            min-height: 20px;
+            color: #000000;
+        }
+
+        label {
+            color: #c2c2c2;
+            font-size: 13px;
+        }
+
+        button {
+            @include button;
+            margin: 15px 0 0 0;
+        }
+    }
+
+    /* ---------------------------------------- Contact info */
+
+    .contact-info {
+        display: inline-block;
+        width: 280px;
+        min-height: 375px;
+        background-color: #3c322f;
+        border-radius: 7px;
+        padding: 20px 10px;
+        float: left;
+        margin-right: 32px;
+
+        p {
+            color: #a28c8b;
+            line-height: 19px;
+        }
+
+        .address {
+            margin: 25px 0;
+            color: #ffffff;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        button {
+            @include button;
+            margin: 49px 5px 0 5px;
+        }
+    }
+
+    /* ---------------------------------------- Content */
+
+    .content {
+        display: inline-block;
+        margin-top: 45px;
+        width: 628px;
+        line-height: 20px;
+
+        h2 {
+            font-size: 18px;
+        }
+
+        h3 {
+            color: #e8e6e6;
+            font-size: 15px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-top: 25px;
+            color: $contentColor;
+        }
+
+        & > a {
+            display: inline-block;
+            float: right;
+            margin-right: 26px;
+        }
+
+        ol {
+            margin-top: 25px;
+
+            li {
+                color: $contentColor;
+            }
+
+            li:first-child {
+                margin-top: 25px;
+            }
+        }
+
+        .tiles {
+            .tile {
+                display: inline-block;
+            }
+
+            .tile img {
+                display: inline-block;
+                margin: 0 16px 16px 0;
+                border: 10px solid #3c312f;
+                width: 105px;
+                height: 105px;
+            }
+        }
+    }
+}
+
+/* ---------------------------------------- Footer */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #6A5455;
+    height: 120px;
+    background-image: url("../images/footer-image.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 15px;
+
+    a {
+        display: inline-block;
+        transform: translate(100px, 48px);
+        color: #ffffff;
+    }
+}
