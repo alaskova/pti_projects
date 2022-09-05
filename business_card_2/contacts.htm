@@ -8,28 +8,80 @@
 </head>
 
 <body>
-    Feel free to contact us
-    Name
-    Email
-    Subject
-    Message
-    Submit
+    <div class="page">
+        <div class="header-menu">
+            <div class="menu-item menu-home">
+                <a href="index.htm">
+                    <img src="images/menu_home.png" alt="Menu Home">
+                </a>
+            </div>
+            <div class="menu-item menu-portfolio">
+                <a href="portfolio.htm">
+                    <img src="images/menu_portfolio.png" alt="Menu Portfolio">
+                </a>
+            </div>
+            <div class="menu-item menu-contacts">
+                <img src="images/menu_contacts.png" alt="Menu Contacts">
+            </div>
+            <div class="menu-item menu-pricing">
+                <a href="pricing.htm">
+                    <img src="images/menu_pricing.png" alt="Menu Pricing">
+                </a>
+            </div>
+        </div>
 
-    Testimonials
-    “These guys really knows their work, highly recommended!”
-    Joe Buckster
+        <div class="flex-content">
+            <div class="column-left">
+                <div class="module-changing-content">
+                    <h3>Feel free to contact us</h3>
+                    <form action="#" method="post" class="contact-us-form">
+                        <input type="text" name="Name" placeholder="Name"><br>
+                        <input type="text" name="Email" placeholder="Email"><br>
+                        <input type="text" name="Subject" placeholder="Subject"><br>
+                        <textarea name="Message" placeholder="Message"></textarea>
+                        <button type="submit" name="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
 
-    “I was tired looking for experienced and responsible developers, and that’s the one!”
-    Some guy
+            <div class="column-right">
+                <div class="module-testimonials">
+                    <h3>Testimonials</h3>
+                    <div class="content-testimonials">
+                        <p>
+                            “These guys really knows their work, highly recommended!”<br>
+                            <span>Joe Buckster</span>
+                        </p>
+                        <p>
+                            “I was tired looking for experienced and responsible developers, and that’s the one!”<br>
+                            <span>Some guy</span>
+                        </p>
+                    </div>
+                </div>
 
-    Recent Projects
-    Client: <a href="#">silent-company.com</a>
-    Client: <a href="#">silent-company.com</a>
+                <div class="module-recent-projects">
+                    <h3>Recent Projects</h3>
+                    <div class="content-recent-projects">
+                        <p class="link">
+                            Client: <a href="#">silent-company.com</a>
+                        </p>
+                        <img src="images/pic_2_small.gif" alt="Picture">
+                        <p class="link">
+                            Client: <a href="#">silent-company.com</a>
+                        </p>
+                        <img src="images/pic_3_small.gif" alt="Picture">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <a href="index.htm">Home</a>
-    <a href="portfolio.htm">Portfolio</a>
-    <a href="faq.htm">FAQ</a>
-    <a href="contacts.htm">Contacts</a>
-    <a href="pricing.htm">Pricing</a>
+    <div class="footer">
+        <a href="index.htm">Home</a>
+        <a href="portfolio.htm">Portfolio</a>
+        <a href="faq.htm">FAQ</a>
+        <a href="contacts.htm">Contacts</a>
+        <a href="pricing.htm">Pricing</a>
+    </div>
 </body>
 </html>

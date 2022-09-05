@@ -1,0 +1,452 @@
+$linkPrimaryColor: #e5cfa5;
+
+@mixin headingImagePosition($left) {
+    font-weight: normal;
+    position: absolute;
+    top: 85px;
+    left: $left;
+}
+
+@mixin module {
+    background-color: #5f5c5c;
+    border-top: 6px solid #7e7e7e;
+    padding: 9px 8px;
+}
+
+@mixin clearfix {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+@mixin imageStyle {
+    width: 206px;
+    height: 136px;
+    border: 5px solid #ede1d2;
+}
+
+@mixin triangle {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #a7a7a7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    color: #f3f3f3;
+    font-family: Tahoma, sans-serif;
+    background: #535050;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    width: 778px;
+    margin: 0 auto;
+    padding-top: 70px;
+    flex: 1 1 auto;
+}
+
+h3 {
+    margin-bottom: 5px;
+    color: #e5cfa5;
+    font-weight: normal;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+p.link {
+    margin-bottom: 8px;
+}
+
+a {
+    color: $linkPrimaryColor;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.flex-content {
+    display: flex;
+    justify-content: space-between;
+
+    .column-left {
+        width: 63%;
+
+        .module-changing-content {
+            width: 484px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .column-right {
+        width: 37%;
+    }
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/* --------------------------------------------- General elements */
+/* --------------------------------------------- Header Menu */
+.header-menu {
+    display: flex;
+    height: 164px;
+    margin-bottom: 15px;
+
+    .menu-item {
+        width: 196px;
+        position: relative;
+
+        &.menu-home {
+            background-image: url("../images/menu_1.gif");
+
+            img {
+                @include headingImagePosition(14px);
+            }
+        }
+
+        &.menu-portfolio {
+            background-image: url("../images/menu_2.gif");
+
+            img {
+                @include headingImagePosition(19px);
+            }
+        }
+
+        &.menu-contacts {
+            background-image: url("../images/menu_3.gif");
+
+            img {
+                @include headingImagePosition(32px);
+            }
+        }
+
+        &.menu-pricing {
+            background-image: url("../images/menu_4.gif");
+
+            img {
+                @include headingImagePosition(53px);
+            }
+        }
+    }
+}
+
+/* --------------------------------------------- Module: Testimonials */
+.module-testimonials {
+    width: 280px;
+    display: inline-block;
+    min-height: 220px;
+    float: right;
+    margin-bottom: 7px;
+
+    h3 {
+        color: #90c6dd;
+    }
+
+    .content-testimonials {
+        border-top: 6px solid #7e7e7e;
+        padding: 13px 13px 4px 13px;
+        font-size: 13px;
+        line-height: 20px;
+
+        p {
+            margin-right: 43px;
+
+            span {
+                display: block;
+                color: #90c6dd;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: right;
+                margin: 9px -24px 9px 0;
+            }
+        }
+    }
+}
+
+/* --------------------------------------------- Module: Recent Projects */
+.module-recent-projects {
+    width: 280px;
+    min-height: 409px;
+    float: right;
+    display: inline-block;
+    margin-bottom: 15px;
+
+    .content-recent-projects {
+        @include module;
+        padding: 13px 13px 7px 13px;
+
+        img {
+            @include imageStyle;
+        }
+    }
+}
+
+/* --------------------------------------------- Footer */
+.footer {
+    height: 47px;
+    background-color: #585555;
+    border-top: 1px solid #4d4a4a;
+    text-align: center;
+    flex: 0 0 auto;
+    padding-top: 5px;
+
+    a {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+}
+
+/* --------------------------------------------- Portfolio Page */
+.our-projects {
+    @include module;
+
+    .row {
+        display: flex;
+    }
+
+    img {
+        @include imageStyle;
+        margin: 0 15px 10px 0;
+    }
+
+    .text {
+        padding: 0 31px 5px 10px;
+    }
+}
+
+/* --------------------------------------------- Contacts Page */
+.contact-us-form {
+    @include module;
+
+    input {
+        width: 200px;
+        height: 28px;
+        border: 2px solid #7e7e7e;
+        margin-bottom: 9px;
+        padding: 4px 0 0 7px;
+        font-size: 15px;
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+
+    textarea {
+        width: 469px;
+        border: 2px solid #7e7e7e;
+        height: 214px;
+        margin-bottom: 9px;
+        resize: vertical;
+        padding: 4px 0 0 7px;
+        font-size: 15px;
+        font-family: Tahoma, sans-serif;
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+
+    button {
+        width: 196px;
+        min-height: 25px;
+        background-color: #7e7e7e;
+        border: 2px solid #ffffff;
+        font-size: 15px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+/* --------------------------------------------- Pricing Page */
+.pricing {
+    @include module;
+    color: #5a972c;
+
+    .product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 463px;
+        height: 136px;
+        border-radius: 9px;
+        margin-bottom: 16px;
+        background-image: url("../images/pricing_desk.gif");
+        background-size: cover;
+        padding: 5px;
+
+        .product-info {
+            margin: 0 10px 0 37px;
+
+            h4 {
+                font-size: 23px;
+                font-weight: normal;
+                color: #548e44;
+                text-indent: -12px;
+                margin-bottom: 2px;
+            }
+
+            ul {
+                list-style-position: inside;
+                list-style-type: none;
+                line-height: 20px;
+                margin-bottom: 5px;
+
+                li {
+                    position: relative;
+                    padding-left: 28px;
+                    line-height: 20px;
+                    color: #6ca83e;
+                    font-size: 16px;
+                }
+
+                li::before {
+                    content: "";
+                    width: 15px;
+                    height: 15px;
+                    background-image: url("../images/dot.png");
+                    position: absolute;
+                    top: 2px;
+                    left: 0;
+                }
+            }
+        }
+
+        .purchase {
+            text-align: center;
+            margin-right: 30px;
+
+            p {
+                font-size: 18px;
+                line-height: 28px;
+            }
+
+            span {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+/* --------------------------------------------- FAQ Page */
+.faq {
+    @include module;
+    line-height: 20px;
+    font-size: 14px;
+
+    dl {
+        margin-left: 15px;
+
+        dt {
+            color: #a7a7a0;
+            text-decoration: underline;
+            margin-bottom: 5px;
+            position: relative;
+
+            &::before {
+                content: "";
+                width: 0;
+                height: 0;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-left: 5px solid #a7a7a7;
+                position: absolute;
+                left: -13px;
+                top: 5px;
+            }
+        }
+
+        dd {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+/* --------------------------------------------- Homepage */
+/* --------------------------------------------- Module: About */
+.content {
+    padding-bottom: 10px;
+
+    &::after {
+        @include clearfix;
+    }
+}
+
+.module-about {
+    width: 468px;
+    display: inline-block;
+    margin-right: 25px;
+    min-height: 152px;
+    margin-bottom: 15px;
+
+    .content-about {
+        @include module;
+        padding: 13px 13px 7px 13px;
+    }
+}
+
+/* --------------------------------------------- Homepage */
+/* --------------------------------------------- Module: Featured Project */
+.module-featured-project {
+    width: 422px;
+    min-height: 191px;
+    float: left;
+    display: inline-block;
+    margin-bottom: 15px;
+
+    .content-featured-project {
+        @include module;
+
+        .row {
+            display: flex;
+
+            img {
+                @include imageStyle;
+                margin: 0 15px 10px 0;
+            }
+
+            .text {
+                padding: 0 15px 5px 0;
+            }
+        }
+    }
+}
+
+/* --------------------------------------------- Homepage */
+/* --------------------------------------------- Module: Recent Projects */
+.module-home-recent-projects {
+    width: 332px;
+    min-height: 409px;
+    float: right;
+    display: inline-block;
+    margin-bottom: 15px;
+
+    .content-recent-projects {
+        @include module;
+
+        img {
+            @include imageStyle;
+        }
+    }
+}
