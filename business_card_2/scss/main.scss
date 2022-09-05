@@ -1,12 +1,5 @@
 $linkPrimaryColor: #e5cfa5;
 
-@mixin headingImagePosition($left) {
-    font-weight: normal;
-    position: absolute;
-    top: 85px;
-    left: $left;
-}
-
 @mixin module {
     background-color: #5f5c5c;
     border-top: 6px solid #7e7e7e;
@@ -56,7 +49,7 @@ body {
     width: 778px;
     margin: 0 auto;
     padding-top: 70px;
-    flex: 1 1 auto;
+    flex-grow: 1;
 }
 
 h3 {
@@ -81,88 +74,104 @@ a {
     }
 }
 
-.flex-content {
+.columns {
     display: flex;
     justify-content: space-between;
 
+    &.layout-home {
+        padding-bottom: 10px;
+        display: block;
+
+        &::after {
+            @include clearfix;
+        }
+
+        .column1 {
+            width: 468px;
+            float: left;
+        }
+
+        .column2 {
+            width: 285px;
+            float: right;
+        }
+
+        .column3 {
+            width: 449px;
+            float: left;
+        }
+
+        .column4 {
+            width: 303px;
+            float: right;
+        }
+    }
+
     .column-left {
         width: 63%;
-
-        .module-changing-content {
-            width: 484px;
-            margin-bottom: 15px;
-        }
     }
 
     .column-right {
         width: 37%;
+        padding-left: 15px;
     }
 }
 
-input:focus,
-textarea:focus,
-button:focus {
-    outline: none;
+input,
+textarea,
+button {
+    &:focus {
+        outline: none;
+    }
 }
 
-/* --------------------------------------------- General elements */
 /* --------------------------------------------- Header Menu */
 .header-menu {
     display: flex;
     height: 164px;
     margin-bottom: 15px;
 
-    .menu-item {
+    a {
         width: 196px;
         position: relative;
+        text-indent: -999px;
 
         &.menu-home {
-            background-image: url("../images/menu_1.gif");
-
-            img {
-                @include headingImagePosition(14px);
-            }
+            background: url("../images/menu_home.png") no-repeat 14px 85px, url("../images/menu_1.gif");
         }
 
         &.menu-portfolio {
-            background-image: url("../images/menu_2.gif");
-
-            img {
-                @include headingImagePosition(19px);
-            }
+            background: url("../images/menu_portfolio.png") no-repeat 19px 85px, url("../images/menu_2.gif");
         }
 
         &.menu-contacts {
-            background-image: url("../images/menu_3.gif");
-
-            img {
-                @include headingImagePosition(32px);
-            }
+            background: url("../images/menu_contacts.png") no-repeat 32px 85px, url("../images/menu_3.gif");
         }
 
         &.menu-pricing {
-            background-image: url("../images/menu_4.gif");
-
-            img {
-                @include headingImagePosition(53px);
-            }
+            background: url("../images/menu_pricing.png") no-repeat 53px 85px, url("../images/menu_4.gif");
         }
     }
 }
 
+/* --------------------------------------------- Module global styles */
+.module {
+    margin-bottom: 15px;
+}
+
+.module-content {
+    @include module;
+}
+
 /* --------------------------------------------- Module: Testimonials */
 .module-testimonials {
-    width: 280px;
-    display: inline-block;
-    min-height: 220px;
-    float: right;
     margin-bottom: 7px;
 
     h3 {
         color: #90c6dd;
     }
 
-    .content-testimonials {
+    .module-content {
         border-top: 6px solid #7e7e7e;
         padding: 13px 13px 4px 13px;
         font-size: 13px;
@@ -185,14 +194,7 @@ button:focus {
 
 /* --------------------------------------------- Module: Recent Projects */
 .module-recent-projects {
-    width: 280px;
-    min-height: 409px;
-    float: right;
-    display: inline-block;
-    margin-bottom: 15px;
-
-    .content-recent-projects {
-        @include module;
+    .module-content {
         padding: 13px 13px 7px 13px;
 
         img {
@@ -201,221 +203,186 @@ button:focus {
     }
 }
 
-/* --------------------------------------------- Footer */
-.footer {
-    height: 47px;
-    background-color: #585555;
-    border-top: 1px solid #4d4a4a;
-    text-align: center;
-    flex: 0 0 auto;
-    padding-top: 5px;
-
-    a {
-        margin-right: 10px;
-        font-size: 13px;
-    }
-}
-
-/* --------------------------------------------- Portfolio Page */
-.our-projects {
-    @include module;
-
-    .row {
-        display: flex;
-    }
-
-    img {
-        @include imageStyle;
-        margin: 0 15px 10px 0;
-    }
-
-    .text {
-        padding: 0 31px 5px 10px;
-    }
-}
-
-/* --------------------------------------------- Contacts Page */
-.contact-us-form {
-    @include module;
-
-    input {
-        width: 200px;
-        height: 28px;
-        border: 2px solid #7e7e7e;
-        margin-bottom: 9px;
-        padding: 4px 0 0 7px;
-        font-size: 15px;
-
-        &:focus::placeholder {
-            color: transparent;
+/* --------------------------------------------- Module: Our projects */
+.module-our-projects {
+    .module-content {
+        .row {
+            display: flex;
         }
-    }
 
-    textarea {
-        width: 469px;
-        border: 2px solid #7e7e7e;
-        height: 214px;
-        margin-bottom: 9px;
-        resize: vertical;
-        padding: 4px 0 0 7px;
-        font-size: 15px;
-        font-family: Tahoma, sans-serif;
-
-        &:focus::placeholder {
-            color: transparent;
+        img {
+            @include imageStyle;
+            margin: 0 15px 10px 0;
         }
-    }
 
-    button {
-        width: 196px;
-        min-height: 25px;
-        background-color: #7e7e7e;
-        border: 2px solid #ffffff;
-        font-size: 15px;
-
-        &:hover {
-            cursor: pointer;
+        .text {
+            padding: 0 31px 5px 10px;
         }
     }
 }
 
-/* --------------------------------------------- Pricing Page */
-.pricing {
-    @include module;
-    color: #5a972c;
+/* --------------------------------------------- Module: Contact Us */
+.module-contact-us {
+    .module-content {
+        input {
+            width: 200px;
+            height: 28px;
+            border: 2px solid #7e7e7e;
+            margin-bottom: 9px;
+            padding: 4px 0 0 7px;
+            font-size: 15px;
 
-    .product {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 463px;
-        height: 136px;
-        border-radius: 9px;
-        margin-bottom: 16px;
-        background-image: url("../images/pricing_desk.gif");
-        background-size: cover;
-        padding: 5px;
-
-        .product-info {
-            margin: 0 10px 0 37px;
-
-            h4 {
-                font-size: 23px;
-                font-weight: normal;
-                color: #548e44;
-                text-indent: -12px;
-                margin-bottom: 2px;
+            &:focus::placeholder {
+                color: transparent;
             }
+        }
 
-            ul {
-                list-style-position: inside;
-                list-style-type: none;
-                line-height: 20px;
-                margin-bottom: 5px;
+        textarea {
+            width: 469px;
+            border: 2px solid #7e7e7e;
+            height: 214px;
+            margin-bottom: 9px;
+            resize: vertical;
+            padding: 4px 0 0 7px;
+            font-size: 15px;
+            font-family: Tahoma, sans-serif;
 
-                li {
-                    position: relative;
-                    padding-left: 28px;
+            &:focus::placeholder {
+                color: transparent;
+            }
+        }
+
+        button {
+            width: 196px;
+            min-height: 25px;
+            background-color: #7e7e7e;
+            border: 2px solid #ffffff;
+            font-size: 15px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+/* --------------------------------------------- Module: Pricing */
+.module-pricing {
+    .module-content {
+        color: #5a972c;
+
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 463px;
+            height: 136px;
+            border-radius: 9px;
+            margin-bottom: 16px;
+            background-image: url("../images/pricing_desk.gif");
+            background-size: cover;
+            padding: 5px;
+
+            .product-info {
+                margin: 0 10px 0 37px;
+
+                h4 {
+                    font-size: 23px;
+                    font-weight: normal;
+                    color: #548e44;
+                    text-indent: -12px;
+                    margin-bottom: 2px;
+                }
+
+                ul {
+                    list-style-position: inside;
+                    list-style-type: none;
                     line-height: 20px;
-                    color: #6ca83e;
-                    font-size: 16px;
+                    margin-bottom: 5px;
+
+                    li {
+                        position: relative;
+                        padding-left: 28px;
+                        line-height: 20px;
+                        color: #6ca83e;
+                        font-size: 16px;
+                    }
+
+                    li::before {
+                        content: "";
+                        width: 15px;
+                        height: 15px;
+                        background-image: url("../images/dot.png");
+                        position: absolute;
+                        top: 2px;
+                        left: 0;
+                    }
+                }
+            }
+
+            .purchase {
+                text-align: center;
+                margin-right: 30px;
+
+                p {
+                    font-size: 18px;
+                    line-height: 28px;
                 }
 
-                li::before {
+                span {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}
+
+/* --------------------------------------------- Module: FAQ */
+.module-faq {
+    .module-content {
+        line-height: 20px;
+        font-size: 14px;
+
+        dl {
+            margin-left: 15px;
+
+            dt {
+                color: #a7a7a0;
+                text-decoration: underline;
+                margin-bottom: 5px;
+                position: relative;
+
+                &::before {
                     content: "";
-                    width: 15px;
-                    height: 15px;
-                    background-image: url("../images/dot.png");
+                    width: 0;
+                    height: 0;
+                    border-top: 5px solid transparent;
+                    border-bottom: 5px solid transparent;
+                    border-left: 5px solid #a7a7a7;
                     position: absolute;
-                    top: 2px;
-                    left: 0;
+                    left: -13px;
+                    top: 5px;
                 }
             }
-        }
 
-        .purchase {
-            text-align: center;
-            margin-right: 30px;
-
-            p {
-                font-size: 18px;
-                line-height: 28px;
-            }
-
-            span {
-                font-size: 30px;
+            dd {
+                margin-bottom: 15px;
             }
         }
     }
 }
 
-/* --------------------------------------------- FAQ Page */
-.faq {
-    @include module;
-    line-height: 20px;
-    font-size: 14px;
-
-    dl {
-        margin-left: 15px;
-
-        dt {
-            color: #a7a7a0;
-            text-decoration: underline;
-            margin-bottom: 5px;
-            position: relative;
-
-            &::before {
-                content: "";
-                width: 0;
-                height: 0;
-                border-top: 5px solid transparent;
-                border-bottom: 5px solid transparent;
-                border-left: 5px solid #a7a7a7;
-                position: absolute;
-                left: -13px;
-                top: 5px;
-            }
-        }
-
-        dd {
-            margin-bottom: 15px;
-        }
-    }
-}
-
-/* --------------------------------------------- Homepage */
 /* --------------------------------------------- Module: About */
-.content {
-    padding-bottom: 10px;
-
-    &::after {
-        @include clearfix;
-    }
-}
-
 .module-about {
-    width: 468px;
-    display: inline-block;
-    margin-right: 25px;
-    min-height: 152px;
-    margin-bottom: 15px;
-
-    .content-about {
+    .module-content {
         @include module;
         padding: 13px 13px 7px 13px;
     }
 }
 
-/* --------------------------------------------- Homepage */
 /* --------------------------------------------- Module: Featured Project */
 .module-featured-project {
-    width: 422px;
-    min-height: 191px;
-    float: left;
-    display: inline-block;
-    margin-bottom: 15px;
-
-    .content-featured-project {
+    .module-content {
         @include module;
 
         .row {
@@ -433,20 +400,16 @@ button:focus {
     }
 }
 
-/* --------------------------------------------- Homepage */
-/* --------------------------------------------- Module: Recent Projects */
-.module-home-recent-projects {
-    width: 332px;
-    min-height: 409px;
-    float: right;
-    display: inline-block;
-    margin-bottom: 15px;
+/* --------------------------------------------- Footer */
+.footer {
+    height: 47px;
+    background-color: #585555;
+    border-top: 1px solid #4d4a4a;
+    text-align: center;
+    padding-top: 5px;
 
-    .content-recent-projects {
-        @include module;
-
-        img {
-            @include imageStyle;
-        }
+    a {
+        margin-right: 10px;
+        font-size: 13px;
     }
 }
