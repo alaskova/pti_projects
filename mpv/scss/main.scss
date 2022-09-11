@@ -10,47 +10,71 @@ body {
 }
 
 body {
-    color: white;
-    font-family: Tahoma, sans-serif;
-    font-size: 12px;
+    color: #fff;
+    font: 12px Tahoma, sans-serif;
     letter-spacing: 0.7px;
-    overflow-x: hidden;
-}
-
-.page {
-    min-height: 100%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, #2f3339 11px, #17181b 80px, #000000 80px, #000000 233px, #2f3339 233px, #16181b 321px, #000000);
+    background: #000;
+    min-width: 1014px;
 }
 
 .content-container {
-    max-width: 1014px;
+    width: 1014px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 h2 {
     color: #fd6703;
+    font: bold 18px Arial, sans-serif;
     margin-bottom: 20px;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    font-weight: bold;
 }
 
 h3 {
-    font-family: Arial, sans-serif;
     color: #fd6703;
+    font: 18px Arial, sans-serif;
     margin-bottom: 10px;
-    font-size: 18px;
 }
 
 p {
     margin-bottom: 15px;
 }
 
+ul {
+    color: #d6d5d5;
+    font-weight: bold;
+    margin-left: 27px;
+    list-style: none;
+
+    li {
+        position: relative;
+        margin-bottom: 16px;
+
+        &::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            position: absolute;
+            top: 3px;
+            left: -20px;
+            background-image: url("../images/list-dot.png");
+        }
+    }
+}
+
+a {
+    color: #e5e5e5;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 /* -------------------------------------------------- Header */
 .header {
+    background: linear-gradient(180deg, #2f3339 11px, #17181b 80px, #000000 80px, #000000 233px, #2f3339 233px, #16181b 321px, #000000);
+
     .content-container {
         min-height: 284px;
         background: url("../images/auto.png") no-repeat 82% 36%;
@@ -66,10 +90,14 @@ p {
 
 /* -------------------------------------------------- Navigation */
 .navigation {
-    min-height: 39px;
     background: linear-gradient(180deg, #fd6c03, #fd5103);
     margin-bottom: 26px;
-    border: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+
+    .content-container {
+        min-height: 39px;
+    }
 
     .navigation-menu {
         a {
@@ -90,7 +118,6 @@ p {
 
             &.active,
             &:hover {
-                margin-top: -1px;
                 color: #fd6703;
                 border: 1px solid #000000;
                 border-top: none;
@@ -105,19 +132,14 @@ p {
     background-color: #2f3239;
     flex-grow: 1;
     display: flex;
-    flex-wrap: wrap;
 
     .content-container {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
 
         .column {
-            width: 33.3%;
+            width: 33.333%;
             padding: 10px 20px;
             border-right: 1px dashed #a9a9a9;
-            position: relative;
-            flex-grow: 1;
         }
 
         .column:first-child {
@@ -126,84 +148,34 @@ p {
     }
 }
 
-/* -------------------------------------------------- Column: About Company */
-.column-about-company {
-    color: #e5e5e5;
+/* -------------------------------------------------- Gallery */
+.gallery {
+    text-align: center;
 
-    p {
-        a {
-            color: #e5e5e5;
+    a {
+        text-decoration: none;
 
-            &:hover {
-                text-decoration: none;
-            }
+        img {
+            width: 133px;
+            height: 90px;
+            border: 6px solid #fbfcfc;
+            margin: 0 4px 18px 0;
         }
-    }
-}
 
-/* -------------------------------------------------- Column: Our Services */
-.column-our-services {
-    p {
-        color: #fefcfc;
-        margin-bottom: 27px;
-    }
-
-    ul {
-        color: #d6d5d5;
-        font-weight: bold;
-        margin-left: 27px;
-        list-style-type: none;
-
-        li {
-            position: relative;
-            margin-bottom: 16px;
-
-            &::before {
-                content: "";
-                width: 9px;
-                height: 9px;
-                position: absolute;
-                top: 3px;
-                left: -20px;
-                background-image: url("../images/list-dot.png");
-            }
-        }
-    }
-}
-
-/* -------------------------------------------------- Column: Gallery */
-.column-gallery {
-    .gallery {
-        text-align: center;
-
-        a {
-            text-decoration: none;
-
-            img {
-                width: 133px;
-                height: 90px;
-                border: 6px solid #fbfcfc;
-                margin: 0 4px 18px 0;
-
-                &.last-in-row {
-                    margin-right: 0;
-                }
-            }
+        &:nth-child(even) img {
+            margin-right: 0;
         }
     }
 }
 
 /* -------------------------------------------------- Footer */
 .footer {
-    min-height: 108px;
+    color: #d6d5d5;
     border-bottom: 9px solid #fd6a03;
 
     .content-container {
-        padding: 10px;
-
-        p {
-            max-width: 280px;
-            color: #d6d5d5;
-        }
+        min-height: 108px;
+        padding-top: 20px;
+        padding-left: 40px;
     }
 }
