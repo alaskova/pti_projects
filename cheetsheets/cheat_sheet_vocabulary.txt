@@ -21,7 +21,7 @@ HTML элементы:
     heading                 заголовок
     paragraph               абзац
     strong                  сильный
-    bold
+    bold                    жирный (о шрифте)
     emphasis                акцент, особое внимание
     italic                  курсивный
     anchor                  якорь
@@ -73,7 +73,7 @@ HTML элементы:
     hypertext reference     гипертекстовая ссылка
     target                  цель
     alternative             альтернативный
-    column span             ширина столбца
+    column span             диапазон столбцов
     row span                диапазон строк
     action                  действие
     method                  метод
@@ -84,7 +84,7 @@ HTML элементы:
     value                   значение
     disabled                отключенный
     checked                 отмеченный
-    id
+    id (identification)     идентификация, установление личности
     selected                выбранный
     class                   класс, тип, категория
     style                   стиль
@@ -137,7 +137,7 @@ CSS свойства:
         normal                      обычный, нормальный
         italic                      курсивный
     font weight                 толщина шрифта
-        bold
+        bold                    жирный (о шрифте)
     font size                   размер шрифта
     line height                 высота линии
     font family                 семейство шрифтов
@@ -146,7 +146,7 @@ CSS свойства:
         monospace               моноширинный
     letter spacing              межбуквенное расстояние
     word spacing                интервал между словами
-    white space
+    whitespace                  пробел
         no wrap
     word break                  разрыв слова (перенос слова)
         break all               сломать все
@@ -168,7 +168,7 @@ CSS свойства:
         baseline                базисная линия, базовая линия
         middle                  середина
         sub-                    под-
-        super
+        super-                  над-
     color                       цвет
     opacity                     непрозрачность
     background color            фоновый цвет
@@ -179,22 +179,22 @@ CSS свойства:
     background repeat           повтор фона
         repeat                  повторять
         no repeat               нет повтора
-        repeat-x
-        repeat-y
+        repeat-x                повторять (по оси x)
+        repeat-y                повторять (по оси y)
     background position         положение фона
         left                    левый
         top                     верхний
     background size             размер фона
         cover                   покрывать, охватывать
         contain                 содержать, вмещать
-    margin
-    padding
+    margin                      поле (страницы)
+    padding                     набивка
     border                      граница
     border width                ширина рамки
     border style                стиль границы
-        solid                   сплошной
-        dotted
-        dashed
+        solid                   сплошная
+        dotted                  пунктирная
+        dashed                  штриховая
     border color                цвет границы
     border radius               радиус границы
     height                      высота
@@ -204,19 +204,19 @@ CSS свойства:
     min height                  минимальная высота
     min width                   минимальная ширина
     box sizing                  размер коробки
-        content-box
-        border-box
+        content box             содержимое коробка
+        border box              граница коробка
     box shadow                  тень коробки
-        inset
+        inset                   вкладка, вклейка, вставлять, вкладывать
     overflow                    переполнение
         visible                 видимый
         hidden                  скрытый
         automatic               автоматический
     display                     отображать
-        inline
-        block
+        in line                 в строке
+        block                   блок
         inline-block
-        flex
+        flex                    гнуть, сгибать
     list style type             тип стиля списка
         disc                    диск, круг
         circle                  круг, окружность
@@ -258,11 +258,11 @@ CSS свойства:
     border spacing              расстояние (интервал) границ
     table layout                макет (планировка) таблицы
     transition property         свойство перехода
-    transition duration         продолжительность перехода
+    transition duration         продолжительность (длительность) перехода
     transition timing function  функция времени перехода
     transition delay            задержка перехода
     animation name              название анимации
-    animation duration          продолжительность анимации
+    animation duration          продолжительность (длительность) анимации
     animation timing function   функция времени анимации
     animation delay             задержка анимации
     animation iteration count   количество итераций анимации
@@ -350,7 +350,7 @@ CSS свойства:
     while                       до тех пор пока
     do                          делать
     for
-    break
+    break                       перерыв, прерывать
     continue                    продолжать
     return                      возвращать
     throw                       бросать
@@ -373,15 +373,15 @@ CSS свойства:
         abs
         ceil                    потолок
         floor                   пол
-        max
-        min
-        pow
+        max (maximum)           максимум
+        min (minimum)           минимум
+        pow (power)             степень
         random                  случайный
         round                   округлять
-        sqrt
+        sqrt (square root)      квадратный корень
         trunc                   усечение
     JSON
-        stringify
+        stringify               создать строку
         parse                   разбирать, структурный анализ
 
 **************************** API браузера *******************
@@ -402,10 +402,10 @@ window                          окно
     screen                      экран
     alert                       тревога
     confirm                     подтверждать
-    prompt
+    prompt                      подсказка
     open                        открыть
     close                       закрыть
-    get сomputed style
+    get сomputed style          получить вычисляемый стиль
     local storage               локальное хранилище
     session storage
         set item                установить элемент (пункт, запись)
@@ -414,10 +414,10 @@ window                          окно
         clear                   очищать
 
 document
-    title
+    title                       название, заглавие
     cookie                      печенье
-    query selector
-    query selector all
+    query selector              запрос отборщик
+    query selector all          запрос отборщик все
     create element              создать элемент
     create document fragment    создать фрагмент документа
 
@@ -435,27 +435,27 @@ form
     method                      метод
     submit                      представлять на рассмотрение
 element
-    type
-    name
-    value
-    checked
-    selected
+    type                        тип
+    name                        название
+    value                       значение
+    checked                     отмеченный галочкой
+    selected                    выбранный
     selected index
-    options
-    class name
+    options                     варианты, опции
+    class name                  имя класса
     class list                  список классов
         add                     добавлять
         remove                  удалять
         contains                содержит
         toggle                  переключать
-    dataset
+    data set                    набор данных
     get attribute               получить атрибут
     has attribute               имеет атрибут
     set attribute               установить атрибут
     remove attribute            удалить атрибут
-    innerHTML
-    innerText
-    textContent
+    inner HTML                  внутренний HTML
+    inner text                  внутренний текст
+    text content                текстовое содержимое
     clone node                  клонировать узел
     append child                добавить ребенка
     insert before               вставить перед
@@ -468,9 +468,9 @@ event                           событие
     type                        тип
     target                      цель
     current target              текущая цель
-    prevent default
+    prevent default             предотвращать умолчание
     stop propagation            остановить распространение
-    stop immediate propagation
+    stop immediate propagation  остановить немедленный распространение
 
     clientX
     clientY
@@ -482,29 +482,186 @@ event                           событие
     ctrlKey
     shiftKey
 
-focus
-blur
-click
-change
-keyup
-keydown
-keypress
-mousedown
-mouseup
-mousemove
-mouseover
-mouseout
-mouseenter
-mouseleave
-load
-readystatechange
+focus                           сосредоточивать
+blur                            размытие
+click                           щелчок
+change                          изменение
+key up                          клавиша вверх
+key down                        клавиша вниз
+key press                       клавиша нажимать (давить)
+mouse down                      мышь вниз
+mouse up                        мышь вверх
+mouse move                      мышь двигать
+mouse over                      мышь над
+mouse out                       мышь вне
+mouse enter                     мышь входить
+mouse leave                     мышь уходить
+load                            грузить
+ready state change              изменение состояния готовности
 
 xhr
     open                        открывать
     send                        отправлять
     status                      статус
-    readyState
-    responseText
+    ready state                 состояние готовности
+    response text               текст ответа
+
+**************************** Underscore ************************
+
+Коллекции
+    each                каждый
+    map (mapping)       отображение, преобразование, соответствие
+    reduce              сокращать, сводить
+    reduceRight
+    find                находить
+    filter              фильтровать
+    where               где
+    find where          найти где
+    reject              отклонять, отвергать, отказываться
+    every               каждый, все
+    some                некоторый, какой-то
+    contains            содержит
+    pluck               ощипывать, срывать
+    max (maximum)       максимум
+    min (minimum)       минимум
+    sort by             сортировать по
+    shuffle             тасовать
+    sample              образец
+    to array            в массив
+    size                размер
+    partition           перегородка
+
+Массивы
+    first               первый
+    last                последний
+    rest                остаток
+    compact             компактный
+    flatten             выравнивать, разглаживать
+    without             без
+    union               объединение
+    intersection        пересечение, перекресток
+    difference          разница, различие
+    uniq (unique)       уникальный
+    index of            индекс (чего-либо)
+    last index of       последний индекс (чего-либо)
+    find index          найти индекс
+    find last index     найти последний индекс
+
+Функции
+    bind                связывать
+    throttle            дроссель (ограничитель)
+    once                один раз
+    compose             сочинять, составлять
+
+Объекты
+    keys                ключи
+    values              значения
+    pairs               пары
+    invert              инвертировать
+    create              создавать
+    extend              расширять
+    pick                выбирать, собирать
+    omit                пропускать
+    defaults            значения по умолчанию
+    has                 имеет
+    is equal            равный
+    is match            соответствует
+    is empty            пустой
+    is array            массив
+    is object           объект
+    is function         функция
+    is string           строка
+    is number           число
+    is boolean          логический
+    is null
+    is undefined
+
+Утилиты
+    no conflict         нет конфликта
+    noop (no operation) нет операции
+    random              случайный
+    unique id           уникальный идентификатор
+    result              результат
+    now                 сейчас, настоящее время, данный момент
+
+**************************** jQuery ****************************
+
+Ajax
+    ajax
+    serialize           сериализовать (преобразовать)
+    serialize array
+
+Attributes
+    add class           добавить класс
+    attr (attribute)    атрибут (свойство)
+    has class           имеет класс
+    html
+    remove attr         удалить атрибут
+    remove class        удалить класс
+    toggle class        переключить класс
+    val (value)         значение
+
+Core
+    no conflict         нет конфликта
+
+CSS
+    css
+
+Data
+    data                данные
+
+Events
+    click               щелчок
+    off                 выкл
+    on                  вкл
+    one                 один
+    trigger             триггер, спусковой крючок
+
+Manipulation
+    after               после
+    append              добавлять, присоединять
+    append to           добавить к
+    before              до, перед
+    clone               клонировать
+    empty               пустой
+    insert after        вставить после
+    insert before       вставить перед
+    prepend             предварять
+    prepend to
+    remove              удалять
+    replace all         заменить all
+    replace with        заменить with
+    text                текст
+    unwrap              разворачивать, развертывать
+    wrap                обертывать, заворачивать
+    wrap inner
+
+Miscellaneous
+    each                каждый
+    get                 получать
+    index               индекс
+    to array            в массив
+
+Properties
+    length              длина
+
+Traversing
+    add                 добавлять
+    children            дети
+    closest             ближайший
+    eq (equivalent)     эквивалентный
+    find                находить
+    has                 имеет
+    first               первый
+    last                последний
+    next                следующий
+    next all
+    parent              родитель
+    prev (previous)     предыдущий, предшествующий
+    prev all
+
+Utilities
+    contains            содержит
 
 **************************** General IT ************************
 
@@ -520,7 +677,7 @@ investigate                     расследовать, изучать
 log                             регистрационный журнал
 assign                          назначать
 deploy                          развертывать, развертывание
-build
+build                           сборка (строить, создавать)
 RFD (ready for deploy)          готов к развертыванию
 RFT (ready for testing)         готов к тестированию
 STR (steps to reproduce)        шаги по воспроизведению
@@ -553,8 +710,7 @@ approve                         одобрять
 SSO (single sign-on)            Технология единого входа — технология, при использовании которой пользователь переходит из одного раздела портала в другой, либо из одной системы в другую, не связанную с первой системой, без повторной аутентификации
 identity                        личность
 identification                  идентификация
-agile                           гибкий
-Гибкая методология разработки программного обеспечения (англ. agile software development, agile-разработка)
+agile                           гибкий; Гибкая методология разработки программного обеспечения (англ. agile software development, agile-разработка)
 SCRUM — методология управления проектами
 estimate                        оценивать, оценка
 confirm                         подтверждать
@@ -592,6 +748,11 @@ interaction                     взаимодействие
 performance                     производительность, эффективность
 roll back                       откат
 credentials                     реквизиты для входа (почта, телефон, пароль)
+sync (synchronize)              синхронизировать
+adjust                          регулировать, приспосабливать
+rough                           грубый, приблизительный
+roughly                         грубо, приблизительно
+conclusion                      вывод, умозаключение
 
 **************************** Словник молодіжного сленгу ************************
 Аб'юз – фізичне або психологічне насильство в сім'ї або відносинах.
