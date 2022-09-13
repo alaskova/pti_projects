@@ -24,70 +24,70 @@
 
 
 // 3. Создать 10 объектов представляющих объекты реального мира. В каждом объекте должно быть не меньше 4 свойств.
-book = {
+var book = {
     name: "Hobbit",
     year: 1937,
     author: "John Ronald Reuel Tolkien",
     isFilmed: true
 };
 
-house = {
+var house = {
     material: "wood",
     windows: 8,
     square: 60,
     isOld: false
 };
 
-cat = {
+var cat = {
     paws: "fluffy",
     sound: "meow",
     isMainInThisHouse: true,
     age: 5
 };
 
-phone = {
+var phone = {
     brand: "iPhone",
     year: 2019,
     memory: 256,
     color: "dark green"
 };
 
-film = {
+var film = {
     name: "Interstellar",
     year: 2014,
     duration: 169,
     isThriller: false
 };
 
-car = {
+var car = {
     brand: "Jaguar",
     price: 195000,
     year: 2017,
     color: "red"
 };
 
-html = {
+var html = {
     isProgrammingLanguage: false,
     year: 1993,
     version: "HTML5",
     developer: "W3C"
 };
 
-notebook = {
+var notebook = {
     isRetina: true,
     brand: "Dell",
     year: 2021,
     screenSize: 15.6
 };
 
-city = {
+var city = {
     name: "Chernihiv",
     founded: 907,
     isBeautiful: true,
     population: 280070
 };
 
-tree = {
+var tree = {
     kind: "peach",
     height: 2.5,
     isSweet: true,
@@ -95,16 +95,16 @@ tree = {
 };
 
 // 4. Создать 10 массивов представляющих массивы некоторых значений из реальной жизни. В каждом массиве должно быть не меньше 4 элементов.
-films = ["Terminator", "Titanic", "Lord of The Rings", "Interstellar"];
-materials = ["gold", "metal", "silver", "wood"];
-years = [1990, 2007, 2017, 907];
-fruits = ["apples", "peaches", "strawberry", "apricots"];
-book1984 = [true, "George Orwell", 1949, "english"];
-Mazda6 = [4800, 2004, "Kyiv", 267000];
-cities = ["Kyiv", "Chernihiv", "Odessa", "Kharkiv"];
-phones = ["Nokia", "iPhone", "Xiaomi", "Samsung"];
-seasons = ["summer", "spring", "autumn", "winter"];
-coffee = ["Ferarra Caffe", 415, "Arabica", false];
+var films = ["Terminator", "Titanic", "Lord of The Rings", "Interstellar"];
+var materials = ["gold", "metal", "silver", "wood"];
+var years = [1990, 2007, 2017, 907];
+var fruits = ["apples", "peaches", "strawberry", "apricots"];
+var book1984 = [true, "George Orwell", 1949, "english"]; // whoa!
+var Mazda6 = [4800, 2004, "Kyiv", 267000]; // whoa!
+var cities = ["Kyiv", "Chernihiv", "Odessa", "Kharkiv"];
+var phones = ["Nokia", "iPhone", "Xiaomi", "Samsung"];
+var seasons = ["summer", "spring", "autumn", "winter"];
+var coffee = ["Ferarra Caffe", 415, "Arabica", false]; // whoa!
 
 
 
@@ -112,7 +112,7 @@ coffee = ["Ferarra Caffe", 415, "Arabica", false];
 var theBestBook;
 var loggedInUser;
 var numberOfCustomers;
-var pHoneNumber;
+var phoneNumber;
 var email;
 
 
@@ -122,8 +122,7 @@ var sea = "Carribean";
 var country = "Greece";
 var salary = 3000;
 var isLoggedIn = false;
-var dog = {name: "Coper", years: 3}
-
+var dog = {name: "Coper", years: 3};
 
 
 // 7. Создать массив из элементов, значения которых представлены всеми изученными типами данных в JavaScript.
@@ -136,17 +135,18 @@ var vacation = {
     cost: 2300,
     country: "Greece",
     hasTransfer: true,
-    islands: {
-        1: "Mykonos",
-        2: "Santorini"
+    pet: {
+        name: "Bobik",
+        age: 3
     },
     hotels: ["Aegean hotel", "Rixos"]
-}
+};
 
 
 
 // 9. Написать выражения использующие все изученные арифметические операторы
 100 - 50;
+-5;
 1.5 + 6.7;
 10 / 2;
 5 * 5;
@@ -173,7 +173,7 @@ var vacation = {
 
 
 // 12. Написать выражение использующее тернарный условный оператор
-catsNumber >= 2 ? "You are a cat lover" : "Get a cat!"
+catsNumber >= 2 ? "You are a cat lover" : "Get a cat!";
 
 
 
@@ -183,6 +183,7 @@ b += 2;
 c -= 15;
 d *= 33;
 e /= 2;
+f %= 4;
 
 
 
@@ -211,7 +212,7 @@ var bag = {
     size: 45
 };
 bag.style;
-bag.color;
+bag['color'];
 bag.pockets;
 
 
