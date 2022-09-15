@@ -57,7 +57,7 @@
         Function.prototype: apply, call, bind
 
     Date
-        Date.prototype: getFullYear, getMonth, getDate, getDay, getHours, toString
+        Date.prototype: getFullYear, getMonth, getDate, getHours, getMinutes, getSeconds
     RegExp
         RegExp.prototype: test
 
