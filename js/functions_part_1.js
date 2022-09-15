@@ -17,7 +17,9 @@
 // => false
 // isUndefined(5);
 // => false
-
+var isUndefined = function (value) {
+    return value === undefined;
+};
 
 
 
@@ -30,7 +32,9 @@
 // => false
 // isNull(5);
 // => false
-
+var isNull = function (value) {
+    return value === null;
+};
 
 
 
@@ -45,7 +49,9 @@
 // => true
 // isBoolean(true);
 // => true
-
+var isBoolean = function (value) {
+    return value === true || value === false;
+};
 
 
 
@@ -55,7 +61,9 @@
 // => 3
 // size([7, 2, 3, 5, 1]);
 // => 5
-
+var size = function (list) {
+    return list.length;
+}
 
 
 
@@ -65,7 +73,9 @@
 // => 5
 // first([9, 0, 4, 7, 2]);
 // => 9
-
+var first = function (list) {
+    return list[0];
+};
 
 
 
@@ -75,7 +85,9 @@
 // => 1
 // last([8, 2, 1, 7, 3]);
 // => 3
-
+var last = function (list) {
+    return list[list.length - 1]
+};
 
 
 
@@ -87,7 +99,9 @@
 // => true
 // isEven(7);
 // => false
-
+var isEven = function (value) {
+    return value % 2 === 0;
+};
 
 
 
@@ -99,7 +113,16 @@
 // => 0
 // indexOf([7, 2, 3], 5);
 // => -1
-
+var indexOf = function (list, value) {
+    var index = 0;
+    while (index < list.length) {
+        if (list[index] === value) {
+            return index;
+        }
+        index++;
+    }
+    return -1;
+};
 
 
 
@@ -110,7 +133,16 @@
 // => 4
 // lastIndexOf([1, 2, 3, 1, 2, 3], 3);
 // => 5
-
+var lastIndexOf = function (list, value) {
+    var index = list.length - 1;
+    while (index >= 0) {
+        if (list[index] === value) {
+            return index;
+        }
+        index--;
+    }
+    return-1;
+};
 
 
 
@@ -118,7 +150,16 @@
 // Пример работы:
 // push([1, 2, 3, 4], 5);
 // => [1, 2, 3, 4, 5]
-
+var push = function (list, value) {
+    var index = 0;
+    var newList = [];
+    while (index < list.length) {
+        newList[newList.length] = list[index];
+        index++;
+    }
+    newList[newList.length] = value;
+    return newList;
+};
 
 
 
@@ -126,7 +167,16 @@
 // Пример работы:
 // unshift([1, 2, 3, 4], 5);
 // => [5, 1, 2, 3, 4]
-
+var unshift = function (list, value) {
+    var index = 0;
+    var newList = [];
+    newList[newList.length] = value;
+    while (index < list.length) {
+        newList[newList.length] = list[index];
+        index++;
+    }
+    return newList;
+};
 
 
 
@@ -134,7 +184,15 @@
 // Пример работы:
 // pop([1, 2, 3, 4]);
 // => [1, 2, 3]
-
+var pop = function (list) {
+    var index = 0;
+    var newList = [];
+    while (index < list.length-1) {
+        newList[newList.length] = list[index];
+        index++;
+    }
+    return newList;
+};
 
 
 
@@ -142,7 +200,15 @@
 // Пример работы:
 // shift([1, 2, 3, 4]);
 // => [2, 3, 4]
-
+var shift = function (list) {
+    var index = 1;
+    var newList = [];
+    while (index < list.length) {
+        newList[newList.length] = list[index];
+        index++;
+    }
+    return newList;
+};
 
 
 
@@ -150,7 +216,17 @@
 // Пример работы:
 // getPositiveNumbers([10, -5, 100, -2, 1000]);
 // => [10, 100, 1000]
-
+var getPositiveNumbers = function (list) {
+    var index = 0;
+    var newList = [];
+    while (index < list.length) {
+        if (list[index] > 0) {
+            newList[newList.length] = list[index];
+        }
+        index++;
+    }
+    return newList;
+};
 
 
 
@@ -158,7 +234,15 @@
 // Пример работы:
 // reverse([1, 'lol', 5, {}, []]);
 // => [[], {}, 5, "lol", 1]
-
+var reverse = function (list) {
+    var index = list.length - 1;
+    var newList = [];
+    while (index >= 0) {
+        newList[newList.length] = list[index];
+        index--;
+    }
+    return newList;
+};
 
 
 
@@ -166,7 +250,17 @@
 // Пример работы:
 // compact([10, 1, 4, 2, undefined, 3, null]);
 // => [10, 1, 4, 2, 3, null]
-
+var compact = function (list) {
+    var index = 0;
+    var newList = [];
+    while (index < list.length) {
+        if (list[index] !== undefined) {
+            newList[newList.length] = list[index];
+        }
+        index++;
+    }
+    return newList;
+};
 
 
 
@@ -175,7 +269,17 @@
 // Пример работы:
 // contains([1, 2, 3], 3);
 // => true
-
+var contains = function (list, value) {
+    var index = 0;
+    var newList = [];
+    while (index < list.length) {
+        if (list[index] === value) {
+            return true;
+        }
+        index++;
+    }
+    return false;
+};
 
 
 
@@ -183,7 +287,17 @@
 // Пример работы:
 // without([3, 6, 7, 'rere'], 6);
 // => [3, 7, 'rere']
-
+var without = function (list, value) {
+    var index = 0;
+    var newList = [];
+    while (index < list.length) {
+        if (list[index] !== value) {
+            newList[newList.length] = list[index];
+        }
+        index++;
+    }
+    return newList;
+};
 
 
 
@@ -191,7 +305,32 @@
 // Пример работы:
 // concat(['a', 'b', 'c'], ['d', 'e', 'f']);
 // => [ "a", "b", "c", "d", "e", "f" ]
+var concat = function (list1, list2) {
+    var newList = [];
+    var index = 0;
+    while (index < list1.length) {
+        newList[newList.length] = list1[index];
+        index++;
+    }
+    index = 0;
+    while (index < list2.length) {
+        newList[newList.length] = list2[index];
+        index++;
+    }
+    return newList;
+};
 
+var concat2 = function (list1, list2) {
+    var newArray = [];
+    var i;
+    for (i = 0; i < list1.length; i++) {
+        newList[newList.length] = list1[i];
+    }
+    for (i = 0; i < list2.length; i++) {
+        newList[newList.length] = list2[i];
+    }
+    return newList;
+};
 
 
 
@@ -199,7 +338,22 @@
 // Пример работы:
 // slice(['ant', 'bison', 'camel', 'duck', 'elephant'], 2, 3);
 // => ['camel', 'duck']
-
+var slice = function (list, begin, end) {
+    var index = begin;
+    var newList = [];
+    if (end !== undefined) {
+        while (index <= end) {
+            newList[newList.length] = list[index];
+            index++;
+        }
+    } else {
+        while (index < list.length) {
+            newList[newList.length] = list[index];
+            index++;
+        }
+    }
+    return newList;
+};
 
 
 
@@ -207,7 +361,22 @@
 // Пример работы:
 // getMatrixSum([[1, 2], [0, 4], [1, 2]]);
 // => 10
-
+var getMatrixSum = function (list) {
+    var index1 = 0;
+    var sum = 0;
+    while (index1 < list.length) {
+        console.log(`Первый цикл: индекс1 = ${index1}`);
+        var index2 = 0;
+        while (index2 < list[index1].length) {
+            console.log(`Вложенный цикл: индекс2 = ${index2} индекс1 = ${index2}`);
+            sum = sum + list[index1][index2];
+            console.log(`Сумма = ${sum} число = ${list[index1][index2]}`);
+            index2++;
+        }
+        index1++;
+    }
+    return sum;
+};
 
 
 
@@ -220,7 +389,15 @@
 // ];
 // getMatrixSumByDiagonal(matrix);
 // => 3 (1 + 0 + 2)
-
+var getMatrixSumByDiagonal = function (matrix) {
+    var index = 0;
+    var sum = 0;
+    while (index < matrix.length) {
+        sum = sum + matrix[index][index]
+        index++;
+    }
+    return sum;
+};
 
 
 
@@ -228,7 +405,17 @@
 // Пример работы:
 // min([10, 5, 100, 2, 1000]);
 // => 2
-
+var min = function (list) {
+    var index = 0;
+    var min = list[0];
+    while (index < list.length) {
+        if (list[index] < min) {
+            min = list[index];
+        }
+        index++;
+    }
+    return min;
+};
 
 
 
@@ -236,7 +423,17 @@
 // Пример работы:
 // max([10, 5, 100, 2, 1000]);
 // => 1000
-
+var max = function (list) {
+    var index = 0;
+    var max = list[0];
+    while (index < list.length) {
+        if (list[index] > max) {
+            max = list[index];
+        }
+        index++;
+    }
+    return max;
+};
 
 
 
@@ -244,7 +441,15 @@
 // Пример работы:
 // repeat('Work', 6);
 // => 'WorkWorkWorkWorkWorkWork'
-
+var repeat = function (string, count) {
+    var index = 0;
+    var newString = '';
+    while (index < count) {
+        newString = newString + string;
+        index++;
+    }
+    return newString;
+};
 
 
 
@@ -252,7 +457,15 @@
 // Пример работы:
 // sum([2, 2, 3]);
 // => 7
-
+var sum = function (list) {
+    var index = 0;
+    var sum = 0;
+    while (index < list.length) {
+        sum = sum + list[index];
+        index++;
+    }
+    return sum;
+};
 
 
 
@@ -260,7 +473,15 @@
 // Пример работы:
 // multiply([2, 2, 3]);
 // => 12
-
+var multiply = function (list) {
+    var index = 0;
+    var multiply = 1;
+    while (index < list.length) {
+        multiply = multiply * list[index];
+        index++;
+    }
+    return multiply;
+};
 
 
 
@@ -268,7 +489,9 @@
 // Пример работы:
 // abs(-4);
 // => 4
-
+var abs = function (value) {
+    return -value;
+};
 
 
 
@@ -278,11 +501,34 @@
 // => 4
 // pow(3, 3);
 // => 27
-
+var pow = function (value1, value2) {
+    var index = 0;
+    var result = 1;
+    while (index < value2) {
+        result = result * value2;
+        index++;
+    }
+    return result;
+};
 
 
 
 // Создать такие структуры данных чтобы выражение
 // dro[1]().bro вернуло в качестве результата значение true,
 // выражение a[4][1][1].y вернуло строку 'Север',
-// выражение b.y().y.z()[3].autor вернуло строку 'Дима'.
+// выражение b.y().y.z()[3].author вернуло строку 'Дима'.
+var dro = [1, function() {return {bro: true};}];
+
+var a = [1, 2, 3, 4, [1, [1, {y: 'Север'}]]];
+
+var b = {
+    y: function () {
+        return {
+            y: {
+                z: function () {
+                    return [1, 2, 3, {author: 'Дима'}];
+                }
+            }
+        }
+    }
+};
