@@ -17,7 +17,7 @@
 // => false
 // isUndefined(5);
 // => false
-var isUndefined = function (value) {
+var isUndefined = function(value) {
     return value === undefined;
 };
 
@@ -32,7 +32,7 @@ var isUndefined = function (value) {
 // => false
 // isNull(5);
 // => false
-var isNull = function (value) {
+var isNull = function(value) {
     return value === null;
 };
 
@@ -49,7 +49,7 @@ var isNull = function (value) {
 // => true
 // isBoolean(true);
 // => true
-var isBoolean = function (value) {
+var isBoolean = function(value) {
     return value === true || value === false;
 };
 
@@ -61,9 +61,9 @@ var isBoolean = function (value) {
 // => 3
 // size([7, 2, 3, 5, 1]);
 // => 5
-var size = function (list) {
+var size = function(list) {
     return list.length;
-}
+};
 
 
 
@@ -73,7 +73,7 @@ var size = function (list) {
 // => 5
 // first([9, 0, 4, 7, 2]);
 // => 9
-var first = function (list) {
+var first = function(list) {
     return list[0];
 };
 
@@ -85,7 +85,7 @@ var first = function (list) {
 // => 1
 // last([8, 2, 1, 7, 3]);
 // => 3
-var last = function (list) {
+var last = function(list) {
     return list[list.length - 1]
 };
 
@@ -99,7 +99,7 @@ var last = function (list) {
 // => true
 // isEven(7);
 // => false
-var isEven = function (value) {
+var isEven = function(value) {
     return value % 2 === 0;
 };
 
@@ -113,7 +113,7 @@ var isEven = function (value) {
 // => 0
 // indexOf([7, 2, 3], 5);
 // => -1
-var indexOf = function (list, value) {
+var indexOf = function(list, value) {
     var index = 0;
     while (index < list.length) {
         if (list[index] === value) {
@@ -125,7 +125,6 @@ var indexOf = function (list, value) {
 };
 
 
-
 // Создать функцию lastIndexOf которая паринимает два параметра (массив, значение) и ищет значение в массиве и возвращет его индекс, но делает это не с начала массива, а с его конца.
 // Т.е. возвращает позицию последнего вхождения значения в массиве значений. Иначе возвращает -1.
 // Пример работы:
@@ -133,7 +132,7 @@ var indexOf = function (list, value) {
 // => 4
 // lastIndexOf([1, 2, 3, 1, 2, 3], 3);
 // => 5
-var lastIndexOf = function (list, value) {
+var lastIndexOf = function(list, value) {
     var index = list.length - 1;
     while (index >= 0) {
         if (list[index] === value) {
@@ -141,7 +140,7 @@ var lastIndexOf = function (list, value) {
         }
         index--;
     }
-    return-1;
+    return -1;
 };
 
 
@@ -150,7 +149,7 @@ var lastIndexOf = function (list, value) {
 // Пример работы:
 // push([1, 2, 3, 4], 5);
 // => [1, 2, 3, 4, 5]
-var push = function (list, value) {
+var push = function(list, value) {
     var index = 0;
     var newList = [];
     while (index < list.length) {
@@ -167,7 +166,7 @@ var push = function (list, value) {
 // Пример работы:
 // unshift([1, 2, 3, 4], 5);
 // => [5, 1, 2, 3, 4]
-var unshift = function (list, value) {
+var unshift = function(list, value) {
     var index = 0;
     var newList = [];
     newList[newList.length] = value;
@@ -184,10 +183,10 @@ var unshift = function (list, value) {
 // Пример работы:
 // pop([1, 2, 3, 4]);
 // => [1, 2, 3]
-var pop = function (list) {
+var pop = function(list) {
     var index = 0;
     var newList = [];
-    while (index < list.length-1) {
+    while (index < list.length - 1) {
         newList[newList.length] = list[index];
         index++;
     }
@@ -200,7 +199,7 @@ var pop = function (list) {
 // Пример работы:
 // shift([1, 2, 3, 4]);
 // => [2, 3, 4]
-var shift = function (list) {
+var shift = function(list) {
     var index = 1;
     var newList = [];
     while (index < list.length) {
@@ -216,7 +215,7 @@ var shift = function (list) {
 // Пример работы:
 // getPositiveNumbers([10, -5, 100, -2, 1000]);
 // => [10, 100, 1000]
-var getPositiveNumbers = function (list) {
+var getPositiveNumbers = function(list) {
     var index = 0;
     var newList = [];
     while (index < list.length) {
@@ -234,7 +233,7 @@ var getPositiveNumbers = function (list) {
 // Пример работы:
 // reverse([1, 'lol', 5, {}, []]);
 // => [[], {}, 5, "lol", 1]
-var reverse = function (list) {
+var reverse = function(list) {
     var index = list.length - 1;
     var newList = [];
     while (index >= 0) {
@@ -250,7 +249,7 @@ var reverse = function (list) {
 // Пример работы:
 // compact([10, 1, 4, 2, undefined, 3, null]);
 // => [10, 1, 4, 2, 3, null]
-var compact = function (list) {
+var compact = function(list) {
     var index = 0;
     var newList = [];
     while (index < list.length) {
@@ -269,9 +268,8 @@ var compact = function (list) {
 // Пример работы:
 // contains([1, 2, 3], 3);
 // => true
-var contains = function (list, value) {
+var contains = function(list, value) {
     var index = 0;
-    var newList = [];
     while (index < list.length) {
         if (list[index] === value) {
             return true;
@@ -287,7 +285,7 @@ var contains = function (list, value) {
 // Пример работы:
 // without([3, 6, 7, 'rere'], 6);
 // => [3, 7, 'rere']
-var without = function (list, value) {
+var without = function(list, value) {
     var index = 0;
     var newList = [];
     while (index < list.length) {
@@ -305,7 +303,7 @@ var without = function (list, value) {
 // Пример работы:
 // concat(['a', 'b', 'c'], ['d', 'e', 'f']);
 // => [ "a", "b", "c", "d", "e", "f" ]
-var concat = function (list1, list2) {
+var concat = function(list1, list2) {
     var newList = [];
     var index = 0;
     while (index < list1.length) {
@@ -320,8 +318,8 @@ var concat = function (list1, list2) {
     return newList;
 };
 
-var concat2 = function (list1, list2) {
-    var newArray = [];
+var concat2 = function(list1, list2) {
+    var newList = [];
     var i;
     for (i = 0; i < list1.length; i++) {
         newList[newList.length] = list1[i];
@@ -338,19 +336,13 @@ var concat2 = function (list1, list2) {
 // Пример работы:
 // slice(['ant', 'bison', 'camel', 'duck', 'elephant'], 2, 3);
 // => ['camel', 'duck']
-var slice = function (list, begin, end) {
+var slice = function(list, begin, end) {
     var index = begin;
     var newList = [];
-    if (end !== undefined) {
-        while (index <= end) {
-            newList[newList.length] = list[index];
-            index++;
-        }
-    } else {
-        while (index < list.length) {
-            newList[newList.length] = list[index];
-            index++;
-        }
+    end = (end === undefined) ? list.length - 1 : end;
+    while (index <= end) {
+        newList[newList.length] = list[index];
+        index++;
     }
     return newList;
 };
@@ -361,19 +353,17 @@ var slice = function (list, begin, end) {
 // Пример работы:
 // getMatrixSum([[1, 2], [0, 4], [1, 2]]);
 // => 10
-var getMatrixSum = function (list) {
-    var index1 = 0;
+var getMatrixSum = function(list) {
+    var i = 0;
+    var j;
     var sum = 0;
-    while (index1 < list.length) {
-        console.log(`Первый цикл: индекс1 = ${index1}`);
-        var index2 = 0;
-        while (index2 < list[index1].length) {
-            console.log(`Вложенный цикл: индекс2 = ${index2} индекс1 = ${index2}`);
-            sum = sum + list[index1][index2];
-            console.log(`Сумма = ${sum} число = ${list[index1][index2]}`);
-            index2++;
+    while (i < list.length) {
+        j = 0;
+        while (j < list[i].length) {
+            sum += list[i][j];
+            j++;
         }
-        index1++;
+        i++;
     }
     return sum;
 };
@@ -389,12 +379,12 @@ var getMatrixSum = function (list) {
 // ];
 // getMatrixSumByDiagonal(matrix);
 // => 3 (1 + 0 + 2)
-var getMatrixSumByDiagonal = function (matrix) {
-    var index = 0;
+var getMatrixSumByDiagonal = function(matrix) {
+    var i = 0;
     var sum = 0;
-    while (index < matrix.length) {
-        sum = sum + matrix[index][index]
-        index++;
+    while (i < matrix.length) {
+        sum += matrix[i][i];
+        i++;
     }
     return sum;
 };
@@ -405,14 +395,14 @@ var getMatrixSumByDiagonal = function (matrix) {
 // Пример работы:
 // min([10, 5, 100, 2, 1000]);
 // => 2
-var min = function (list) {
-    var index = 0;
+var min = function(list) {
+    var i = 1;
     var min = list[0];
-    while (index < list.length) {
-        if (list[index] < min) {
-            min = list[index];
+    while (i < list.length) {
+        if (list[i] < min) {
+            min = list[i];
         }
-        index++;
+        i++;
     }
     return min;
 };
@@ -423,8 +413,8 @@ var min = function (list) {
 // Пример работы:
 // max([10, 5, 100, 2, 1000]);
 // => 1000
-var max = function (list) {
-    var index = 0;
+var max = function(list) {
+    var index = 1;
     var max = list[0];
     while (index < list.length) {
         if (list[index] > max) {
@@ -441,11 +431,11 @@ var max = function (list) {
 // Пример работы:
 // repeat('Work', 6);
 // => 'WorkWorkWorkWorkWorkWork'
-var repeat = function (string, count) {
+var repeat = function(string, count) {
     var index = 0;
     var newString = '';
     while (index < count) {
-        newString = newString + string;
+        newString += string;
         index++;
     }
     return newString;
@@ -457,11 +447,11 @@ var repeat = function (string, count) {
 // Пример работы:
 // sum([2, 2, 3]);
 // => 7
-var sum = function (list) {
+var sum = function(list) {
     var index = 0;
     var sum = 0;
     while (index < list.length) {
-        sum = sum + list[index];
+        sum += list[index];
         index++;
     }
     return sum;
@@ -473,11 +463,11 @@ var sum = function (list) {
 // Пример работы:
 // multiply([2, 2, 3]);
 // => 12
-var multiply = function (list) {
+var multiply = function(list) {
     var index = 0;
     var multiply = 1;
     while (index < list.length) {
-        multiply = multiply * list[index];
+        multiply *= list[index];
         index++;
     }
     return multiply;
@@ -489,8 +479,8 @@ var multiply = function (list) {
 // Пример работы:
 // abs(-4);
 // => 4
-var abs = function (value) {
-    return -value;
+var abs = function(value) {
+    return value < 0 ? -value : value;
 };
 
 
@@ -501,12 +491,12 @@ var abs = function (value) {
 // => 4
 // pow(3, 3);
 // => 27
-var pow = function (value1, value2) {
-    var index = 0;
+var pow = function(value, exp) {
+    var i = 0;
     var result = 1;
-    while (index < value2) {
-        result = result * value2;
-        index++;
+    while (i < exp) {
+        result *= value;
+        i++;
     }
     return result;
 };
@@ -517,18 +507,25 @@ var pow = function (value1, value2) {
 // dro[1]().bro вернуло в качестве результата значение true,
 // выражение a[4][1][1].y вернуло строку 'Север',
 // выражение b.y().y.z()[3].author вернуло строку 'Дима'.
-var dro = [1, function() {return {bro: true};}];
+var dro = [
+    0,
+    function() {
+        return {bro: true};
+    }
+];
 
-var a = [1, 2, 3, 4, [1, [1, {y: 'Север'}]]];
+var a = [0, 1, 2, 3, [0, [0, {y: 'Север'}]]];
 
 var b = {
-    y: function () {
+    y: function() {
         return {
             y: {
-                z: function () {
-                    return [1, 2, 3, {author: 'Дима'}];
+                z: function() {
+                    return [0, 1, 2, {author: 'Дима'}];
                 }
             }
-        }
+        };
     }
 };
+
+// TODO: чтобы выражение $()()[$()().hu][2] возвращало 999
