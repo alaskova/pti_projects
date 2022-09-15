@@ -13,14 +13,17 @@
 77.77;
 
 
-
 // 2. Создать 10 строковых литералов
 "Hello World";
 "Imagine Dragons";
 "London is the capital of Great Britain";
 "Smooth Criminal";
 "Avada Kedavra";
-
+"I am a string";
+"Cat";
+"Homework";
+"Michael Jackson";
+"Rock music";
 
 
 // 3. Создать 10 объектов представляющих объекты реального мира. В каждом объекте должно быть не меньше 4 свойств.
@@ -94,18 +97,18 @@ var tree = {
     years: 3
 };
 
+
 // 4. Создать 10 массивов представляющих массивы некоторых значений из реальной жизни. В каждом массиве должно быть не меньше 4 элементов.
 var films = ["Terminator", "Titanic", "Lord of The Rings", "Interstellar"];
 var materials = ["gold", "metal", "silver", "wood"];
 var years = [1990, 2007, 2017, 907];
 var fruits = ["apples", "peaches", "strawberry", "apricots"];
-var book1984 = [true, "George Orwell", 1949, "english"]; // whoa!
-var Mazda6 = [4800, 2004, "Kyiv", 267000]; // whoa!
+var authors = ["George Orwell", "Tolkien", "Stephen King", "Oscar Wilde"];
+var prices = [25.99, 199, 1852, 35.55];
 var cities = ["Kyiv", "Chernihiv", "Odessa", "Kharkiv"];
 var phones = ["Nokia", "iPhone", "Xiaomi", "Samsung"];
 var seasons = ["summer", "spring", "autumn", "winter"];
-var coffee = ["Ferarra Caffe", 415, "Arabica", false]; // whoa!
-
+var coffee = ["Ferarra Caffe", "Nescafe", "Arabica", "Lavazza"];
 
 
 // 5. Объявить 5 переменных с произвольным именем.
@@ -114,7 +117,6 @@ var loggedInUser;
 var numberOfCustomers;
 var phoneNumber;
 var email;
-
 
 
 // 6. Объявить еще 5 переменных и в момент объявления присвоить им значения произвольных типов данных.
@@ -127,7 +129,6 @@ var dog = {name: "Coper", years: 3};
 
 // 7. Создать массив из элементов, значения которых представлены всеми изученными типами данных в JavaScript.
 var dataTypes = [10384, "string", true, null, undefined, [54.2, 954.2], {name: "Mallorca", population: 923608}];
-
 
 
 // 8. Создать объект из 5 свойств. Три свойства должны иметь значения простых типов данных. Два остальных свойства должны иметь значения составного (объектного) типа данных.
@@ -143,7 +144,6 @@ var vacation = {
 };
 
 
-
 // 9. Написать выражения использующие все изученные арифметические операторы
 100 - 50;
 -5;
@@ -152,7 +152,6 @@ var vacation = {
 5 * 5;
 15 % 2;
 2 + "2";
-
 
 
 // 10. Написать выражения использующие все изученные операторы сравнения
@@ -164,17 +163,14 @@ var vacation = {
 2003 !== 2004;
 
 
-
 // 11. Написать выражения использующие все изученные логические операторы
 7 > 6 && 1 < 2;
 55 < 10 || 34 > 10;
 !117;
 
 
-
 // 12. Написать выражение использующее тернарный условный оператор
 catsNumber >= 2 ? "You are a cat lover" : "Get a cat!";
-
 
 
 // 13. Написать выражения использующие все изученные операторы присваивания
@@ -184,7 +180,6 @@ c -= 15;
 d *= 33;
 e /= 2;
 f %= 4;
-
 
 
 // 14. Создать массив из 10 элементов (чисел) и написать выражения возвращающие значение первого, третьего, пятого и восьмого элемента
@@ -200,7 +195,6 @@ var cars = ["Audi", "Kia", "BMW", "Mercedez", "Volksvagen"];
 cars[4] = "Toyota";
 cars[3] = "Honda";
 cars[2] = "Hyundai";
-
 
 
 // 16. Создать объект из 5 свойств и написать 3 выражения возвращающие значения произвольных свойств
