@@ -10,7 +10,14 @@
 // Пример работы:
 // keys({one: 1, two: 2, three: 3});
 // => ["one", "two", "three"]
-
+var keys = function(obj) {
+    var prop;
+    var list = [];
+    for (prop in obj) {
+        list[list.length] = prop;
+    }
+    return list;
+};
 
 
 
@@ -18,7 +25,14 @@
 // Пример работы:
 // values({one: 1, two: 2, three: 3});
 // => [1, 2, 3]
-
+var values = function(obj) {
+    var prop;
+    var list = [];
+    for (prop in obj) {
+        list[list.length] = obj[prop];
+    }
+    return list;
+};
 
 
 
@@ -26,7 +40,14 @@
 // Пример работы:
 // pairs({one: 1, two: 2, three: 3});
 // => [["one", 1], ["two", 2], ["three", 3]]
-
+var pairs = function(obj) {
+    var prop;
+    var list = [];
+    for (prop in obj) {
+        list[list.length] = [prop, obj[prop]];
+    }
+    return list;
+};
 
 
 
@@ -35,7 +56,14 @@
 // Пример работы:
 // invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
 // => {Moses: "Moe", Louis: "Larry", Jerome: "Curly"}
-
+var invert = function (obj) {
+    var prop;
+    var newObj = {};
+    for (prop in obj) {
+        newObj[obj[prop]] = prop;
+    }
+    return newObj;
+};
 
 
 
@@ -43,7 +71,16 @@
 // Пример работы:
 // omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
 // => {name: 'moe', age: 50}
-
+var omit = function(obj, value) {
+    var prop;
+    var newObj = {};
+    for (prop in obj) {
+        if (value !== prop ) {
+            newObj[prop] = obj[prop];
+        }
+    }
+    return newObj;
+};
 
 
 
@@ -51,7 +88,15 @@
 // Пример работы:
 // has({a: 1, b: 2, c: 3}, 'b');
 // => true
-
+var has = function(obj, value) {
+    var prop;
+    for (prop in obj) {
+        if (value === prop) {
+            return true;
+        }
+    }
+    return false;
+};
 
 
 
@@ -59,7 +104,15 @@
 // Пример работы:
 // isMatch({name: 'moe', age: 32}, {age: 32});
 // => true
-
+var isMatch = function(obj, value) {
+    var prop;
+    for (prop in obj) {
+        if (value[prop] === obj[prop]) {
+            return true;
+        }
+    }
+    return false;
+};
 
 
 
@@ -73,7 +126,13 @@
 // => true
 // isEmpty({x: 4});
 // => false
-
+var isEmpty = function(collection) {
+    var prop;
+    for (prop in collection) {
+        return false;
+    }
+    return true;
+};
 
 
 
@@ -81,7 +140,13 @@
 // Пример работы:
 // extend({name: 'moe'}, {age: 50});
 // => {name: 'moe', age: 50}
-
+var extend = function(destination, source) {
+    var prop;
+    for (prop in source) {
+        destination[prop] = source[prop];
+    }
+    return destination;
+};
 
 
 
@@ -89,3 +154,12 @@
 // Пример работы:
 // defaults({flavor: "chocolate"}, {flavor: "vanilla", sprinkles: "lots"});
 // => {flavor: "chocolate", sprinkles: "lots"}
+var defaults = function(object, objDefault) {
+    var prop;
+    for (prop in objDefault) {
+        if (object[prop] === undefined) {
+            object[prop] = objDefault[prop]
+        }
+    }
+    return object;
+};
