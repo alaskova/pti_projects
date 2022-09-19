@@ -56,7 +56,7 @@ var pairs = function(obj) {
 // Пример работы:
 // invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
 // => {Moses: "Moe", Louis: "Larry", Jerome: "Curly"}
-var invert = function (obj) {
+var invert = function(obj) {
     var prop;
     var newObj = {};
     for (prop in obj) {
@@ -71,11 +71,11 @@ var invert = function (obj) {
 // Пример работы:
 // omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
 // => {name: 'moe', age: 50}
-var omit = function(obj, value) {
+var omit = function(obj, targetProp) {
     var prop;
     var newObj = {};
     for (prop in obj) {
-        if (value !== prop ) {
+        if (prop !== targetProp) {
             newObj[prop] = obj[prop];
         }
     }
@@ -88,10 +88,10 @@ var omit = function(obj, value) {
 // Пример работы:
 // has({a: 1, b: 2, c: 3}, 'b');
 // => true
-var has = function(obj, value) {
+var has = function(obj, targetProp) {
     var prop;
     for (prop in obj) {
-        if (value === prop) {
+        if (prop === targetProp) {
             return true;
         }
     }
@@ -104,10 +104,10 @@ var has = function(obj, value) {
 // Пример работы:
 // isMatch({name: 'moe', age: 32}, {age: 32});
 // => true
-var isMatch = function(obj, value) {
+var isMatch = function(obj, matchObj) {
     var prop;
     for (prop in obj) {
-        if (value[prop] === obj[prop]) {
+        if (obj[prop] === matchObj[prop]) {
             return true;
         }
     }
@@ -158,7 +158,7 @@ var defaults = function(object, objDefault) {
     var prop;
     for (prop in objDefault) {
         if (object[prop] === undefined) {
-            object[prop] = objDefault[prop]
+            object[prop] = objDefault[prop];
         }
     }
     return object;
