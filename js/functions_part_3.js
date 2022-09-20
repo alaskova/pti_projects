@@ -98,7 +98,7 @@ var reject = function(list, predicate) {
     var i = 0;
     var newList = [];
     while (i < list.length) {
-        if (predicate(list[i]) !== true) {
+        if (!predicate(list[i])) {
             newList[newList.length] = list[i];
         }
         i++;
