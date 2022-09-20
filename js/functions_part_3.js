@@ -11,7 +11,13 @@
 // Пример работы:
 // each([1, 2, 3], function(element, index) { console.log(element, index); });
 // => выведет в консоль все цифры и соответствующие им индексы по очереди
-
+var each = function(list, iteratee) {
+    var i = 0;
+    while (i < list.length) {
+        iteratee(list[i], i);
+        i++;
+    }
+};
 
 
 
@@ -20,7 +26,15 @@
 // Пример работы:
 // map([1, 2, 3], function(value) { return value * 3; });
 // => [3, 6, 9]
-
+var map = function(list, iteratee) {
+    var i = 0;
+    var newList = [];
+    while (i < list.length) {
+        newList[newList.length] = iteratee(list[i], i);
+        i++;
+    }
+    return newList;
+};
 
 
 
@@ -28,7 +42,16 @@
 // Пример работы:
 // findIndex([4, 6, 8, 12], function(value) { return value === 8; });
 // => 2
-
+var findIndex = function(list, predicate) {
+    var i = 0;
+    while (i < list.length) {
+        if (predicate(list[i])) {
+            return i;
+        }
+        i++;
+    }
+    return -1;
+};
 
 
 
@@ -36,7 +59,16 @@
 // Пример работы:
 // find([1, 2, 3, 4, 5, 6], function(num) { return num % 2 === 0; });
 // => 2
-
+var find = function(list, predicate) {
+    var i = 0;
+    while (i < list. length) {
+        if (predicate(list[i])) {
+            return list[i];
+        }
+        i++;
+    }
+    return undefined;
+};
 
 
 
@@ -44,7 +76,17 @@
 // Пример работы:
 // filter([1, 2, 3, 4, 5, 6], function(num) { return num % 2 === 0; });
 // => [2, 4, 6]
-
+var filter = function(list, predicate) {
+    var i = 0;
+    var newList = [];
+    while (i < list.length) {
+        if (predicate(list[i])) {
+            newList[newList.length] = list[i];
+        }
+        i++;
+    }
+    return newList;
+};
 
 
 
@@ -52,7 +94,17 @@
 // Пример работы:
 // reject([1, 2, 3, 4, 5, 6], function(num){ return num % 2 === 0; });
 // => [1, 3, 5]
-
+var reject = function(list, predicate) {
+    var i = 0;
+    var newList = [];
+    while (i < list.length) {
+        if (predicate(list[i]) !== true) {
+            newList[newList.length] = list[i];
+        }
+        i++;
+    }
+    return newList;
+};
 
 
 
@@ -60,7 +112,16 @@
 // Пример работы:
 // every([2, 4, 5], function(num) { return num % 2 === 0; });
 // => false
-
+var every = function(list, predicate) {
+    var i = 0;
+    while (i < list.length) {
+        if (!predicate(list[i])) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+};
 
 
 
@@ -68,7 +129,16 @@
 // Пример работы:
 // some([2, 4, 5], function(num) { return num % 2 === 0; });
 // => true
-
+var some = function(list, predicate) {
+    var i = 0;
+    while (i < list.length) {
+        if (predicate(list[i])) {
+            return true;
+        }
+        i++;
+    }
+    return false;
+};
 
 
 
@@ -76,3 +146,17 @@
 // Пример работы:
 // partition([0, 1, 2, 3, 4, 5], function(num) { return num % 2 === 0; });
 // => [[0, 2, 4], [1, 3, 5]]
+var partition = function(array, predicate) {
+    var i = 0;
+    var firstArray = [];
+    var secondArray = [];
+    while (i < array.length) {
+        if (predicate(array[i])) {
+            firstArray[firstArray.length] = array[i];
+        } else {
+            secondArray[secondArray.length] = array[i];
+        }
+        i++;
+    }
+    return [firstArray, secondArray];
+};
