@@ -510,7 +510,9 @@ var pow = function(value, exp) {
 var dro = [
     0,
     function() {
-        return {bro: true};
+        return {
+            bro: true
+        };
     }
 ];
 
@@ -529,3 +531,11 @@ var b = {
 };
 
 // TODO: чтобы выражение $()()[$()().hu][2] возвращало 999
+var $ = function () {
+    return function () {
+        return {
+            hu: 'one',
+            one: [0, 1, 999]
+        };
+    };
+};
