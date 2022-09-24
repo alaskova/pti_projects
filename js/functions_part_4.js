@@ -10,7 +10,15 @@
 // а getX и changeX это методы которые манипулируют значением этого свойства "x".
 // getX возвращает значение свойства "x", а changeX принимает в качестве аргумента число
 // и результатом работы этого метода является присваивание этого числа свойству "x" объекта.
-
+var obj = {
+    x: 10,
+    getX: function () {
+        return this.x;
+    },
+    changeX: function(value) {
+        return this.x = value;
+    }
+};
 
 
 
@@ -28,7 +36,23 @@
 // => 31.41592653589793
 // circle.getSquare();
 // => 78.53981633974483
+var Circle = function(x, y, radius) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+};
 
+Circle.prototype.getDiameter = function() {
+    return 2 * this.radius;
+};
+
+Circle.prototype.getPerimeter = function() {
+    return 3.14 * this.getDiameter();
+};
+
+Circle.prototype.getSquare = function() {
+    return 3.14 * (this.radius * this.radius);
+}
 
 
 
@@ -48,7 +72,28 @@
 // => 650
 // pear.getCashbackAmount();
 // => 0
+var Product = function({title, price, discountRate, cashbackRate}) {
+    this.title = title;
+    this.price = price;
+    this.discountRate = discountRate;
+    this.cashbackRate = cashbackRate;
+}
 
+Product.prototype.getPriceWithDiscount = function() {
+    if (this.discountRate !== undefined) {
+        return this.price - this.price * this.discountRate / 100;
+    } else {
+        return this.price;
+    }
+};
+
+Product.prototype.getCashbackAmount = function() {
+    if (this.cashbackRate !== undefined) {
+        return this.getPriceWithDiscount() * this.cashbackRate / 100;
+    } else {
+        return 0;
+    }
+};
 
 
 
@@ -71,20 +116,113 @@
 
 // [2, 2, 3].sum();
 // => 7
+Array.prototype.size = function() {
+    return this.length;
+};
 
+Array.prototype.last = function() {
+    return this[this.length - 1];
+};
 
+Array.prototype.getPositiveNumbers = function () {
+    var i = 0;
+    var result = [];
+    while (i < this.length) {
+        if (this[i] > 0) {
+            result[result.length] = this[i];
+        }
+        i++;
+    }
+    return result;
+};
+
+Array.prototype.without = function(value) {
+    var i = 0;
+    var result = [];
+    while (i < this.length) {
+        if (value !== this[i]) {
+            result[result.length] = this[i];
+        }
+        i++;
+    }
+    return result;
+};
+
+Array.prototype.min = function() {
+    var i = 0;
+    var result = this[0];
+    while (i < this.length) {
+        if (this[i] < result) {
+            result = this[i];
+        }
+        i++;
+    }
+    return result;
+};
+
+Array.prototype.sum = function() {
+    var i = 0;
+    var sum = 0;
+    while (i < this.length) {
+        sum += this[i];
+        i++;
+    }
+    return sum;
+};
 
 
 // Создать функции keys, values, pairs, extend, как методы объектов
+Object.prototype.keys = function() {
+    var prop;
+    var result = [];
+    for (prop in this) {
+        if (this.hasOwnProperty(prop)) {
+            result[result.length] = prop;
+        }
+    }
+    return result;
+};
 
+Object.prototype.values = function() {
+    var prop;
+    var result = [];
+    for (prop in this) {
+        if (this.hasOwnProperty(prop)) {
+            result[result.length] = this[prop];
+        }
+    }
+    return result;
+};
 
+Object.prototype.pairs = function() {
+    var prop;
+    var result = [];
+    for (prop in this) {
+        if (this.hasOwnProperty(prop)) {
+            result[result.length] = [prop, this[prop]]
+        }
+    }
+    return result;
+};
+
+Object.prototype.extend = function (source) {
+    var prop;
+    for (prop in source) {
+        if (source.hasOwnProperty(prop)) {
+            this[prop] = source[prop];
+        }
+    }
+    return this;
+};
 
 
 // Создать функцию charAt которая принимает строку и индекс и возвращает указанный символ из строки.
 // Пример работы:
 // charAt('March', 0);
 // => 'M'
-
+var charAt = function(str, index) {
+    return str[index];
+};
 
 
 
@@ -94,7 +232,19 @@
 // => "1,lol,5,dro"
 // join([1, 'lol', 5, 'dro'], '+');
 // => "1+lol+5+dro"
-
+var join = function(list, separator) {
+    var i = 0;
+    var result = '';
+    while (i < list.length - 1) {
+        if (separator === undefined) {
+            result += list[i] + ',';
+        } else {
+            result += list[i] + separator;
+        }
+        i++;
+    }
+    return result + list[list.length - 1];
+};
 
 
 
@@ -114,6 +264,83 @@
 
 // Привести примеры использования ниже
 
+// Number
+var num = 1.99;
+num.toFixed();
+
+// String
+var str = 'London is the capital ';
+
+str.charAt(1);
+str.concat('of Great Britain');
+str.includes('London');
+str.indexOf('t');
+str.lastIndexOf('t');
+str.repeat(3);
+str.replace('London', 'Liverpool');
+str.slice(6, 9);
+str.split('');
+str.substr(14);
+str.substring(0, 9);
+str.toLowerCase();
+str.toUpperCase();
+str.trim();
+
+// Array
+var list = [1, 2, 3, 3, 3];
+
+list.concat([4, 5, 6]);
+list.forEach(function(elem, index) {console.log('element ' + elem + ' index ' + index)});
+list.includes(2);
+list.indexOf(1);
+list.join();
+list.lastIndexOf(3);
+list.pop();
+list.push(4);
+list.reverse();
+list.shift();
+list.slice(2, 4);
+list.splice(1, 3, 55);
+list.unshift(0, 11);
+list.length;
+list.sort();
+list.map(function(elem) {return elem * 2});
+list.filter(function(elem) {return elem > 0});
+list.every(function(elem) {return elem === 0});
+list.some(function(elem) {return elem === 3});
+list.reduce(function(sum, elem) {return sum + elem}, 0);
+list.reduceRight(function(mult, elem) {return mult * elem}, 0);
+
+// Object
+var obj2 = {
+    name: 'Frodo',
+    age: 25,
+    hasRing: true
+};
+
+var obj3 = {
+    name: 'abc'
+}
+
+Object.keys(obj2);
+Object.values(obj2);
+Object.create(Product.prototype);
+Object.assign(obj2, obj3);
+Object.entries(obj2);
+obj2.hasOwnProperty('age');
+
+// Function
+var book = {
+    year: 1984,
+    name: 'Unknown'
+}
+var func = function() {
+    console.log('Год ' + this.year + ' Автор ' + this.author)
+}
+
+func.apply(book);
+func.call(book);
+var newFunc = func.bind(book);
 
 
 
@@ -121,8 +348,14 @@
 // Пример работы:
 // reduce([1, 2, 3], function(memo, num) { return memo + num; }, 0);
 // => 6
-var reduce = function(list, iteratee, memo) {
-    // write your code here
+var reduce = function (list, iteratee, memo) {
+    var i = 0;
+    var num = 0;
+    while (i < list.length) {
+        num += list[i];
+        i++;
+    }
+    return iteratee(memo, num);
 };
 
 
@@ -135,7 +368,9 @@ var reduce = function(list, iteratee, memo) {
 // => [2, 6, 5]
 var uniq = function(list) {
     return list.reduce((memo, item) => {
-        // write your code here
+        list.forEach(function(item, i, list) {
+
+        });
     }, []);
 };
 
@@ -162,3 +397,8 @@ var count = function(list) {
 // => {}
 // getSearchParams('?a=6&b=9');
 // => {a: '6', b: '9'}
+var getSearchParams = function(string) {
+    var result;
+    result = string.split('&');
+    return result;
+};
