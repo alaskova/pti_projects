@@ -12,11 +12,11 @@
 // и результатом работы этого метода является присваивание этого числа свойству "x" объекта.
 var obj = {
     x: 10,
-    getX: function () {
+    getX: function() {
         return this.x;
     },
     changeX: function(value) {
-        return this.x = value;
+        this.x = value;
     }
 };
 
@@ -52,7 +52,7 @@ Circle.prototype.getPerimeter = function() {
 
 Circle.prototype.getSquare = function() {
     return 3.14 * (this.radius * this.radius);
-}
+};
 
 
 
@@ -77,7 +77,7 @@ var Product = function({title, price, discountRate, cashbackRate}) {
     this.price = price;
     this.discountRate = discountRate;
     this.cashbackRate = cashbackRate;
-}
+};
 
 Product.prototype.getPriceWithDiscount = function() {
     if (this.discountRate !== undefined) {
@@ -199,13 +199,13 @@ Object.prototype.pairs = function() {
     var result = [];
     for (prop in this) {
         if (this.hasOwnProperty(prop)) {
-            result[result.length] = [prop, this[prop]]
+            result[result.length] = [prop, this[prop]];
         }
     }
     return result;
 };
 
-Object.prototype.extend = function (source) {
+Object.prototype.extend = function(source) {
     var prop;
     for (prop in source) {
         if (source.hasOwnProperty(prop)) {
@@ -233,14 +233,11 @@ var charAt = function(str, index) {
 // join([1, 'lol', 5, 'dro'], '+');
 // => "1+lol+5+dro"
 var join = function(list, separator) {
+    separator = separator === undefined ? ',' : separator;
     var i = 0;
     var result = '';
     while (i < list.length - 1) {
-        if (separator === undefined) {
-            result += list[i] + ',';
-        } else {
-            result += list[i] + separator;
-        }
+        result += list[i] + separator;
         i++;
     }
     return result + list[list.length - 1];
@@ -287,7 +284,7 @@ str.toUpperCase();
 str.trim();
 
 // Array
-var list = [1, 2, 3, 3, 3];
+var list = [1, 2, 3, 4, 3];
 
 list.concat([4, 5, 6]);
 list.forEach(function(elem, index) {console.log('element ' + elem + ' index ' + index)});
@@ -309,6 +306,15 @@ list.filter(function(elem) {return elem > 0});
 list.every(function(elem) {return elem === 0});
 list.some(function(elem) {return elem === 3});
 list.reduce(function(sum, elem) {return sum + elem}, 0);
+list.reduce(function(memo, n) {
+    if (n % 2 === 0) {
+        memo.push(n);
+    }
+    return memo;
+}, []);
+list.reduce(function(memo, n) {
+    return n % 2 === 0 ? memo.concat(n) : memo;
+}, []);
 list.reduceRight(function(mult, elem) {return mult * elem}, 0);
 
 // Object
@@ -320,7 +326,7 @@ var obj2 = {
 
 var obj3 = {
     name: 'abc'
-}
+};
 
 Object.keys(obj2);
 Object.values(obj2);
@@ -333,13 +339,21 @@ obj2.hasOwnProperty('age');
 var book = {
     year: 1984,
     name: 'Unknown'
-}
-var func = function() {
-    console.log('Год ' + this.year + ' Автор ' + this.author)
-}
+};
+var book2 = {
+    year: 1984,
+    name: 'Timmy'
+};
+var func = function(before, after) {
+    before = before === undefined ? '' : before;
+    after = after === undefined ? '' : after;
+    console.log(before + 'Год ' + this.year + ' Автор ' + this.name + after);
+};
 
-func.apply(book);
-func.call(book);
+func.apply(book, ['-> ', '!!']);
+func.apply(book2);
+func.call(book, '=> ', '??');
+
 var newFunc = func.bind(book);
 
 
@@ -348,14 +362,8 @@ var newFunc = func.bind(book);
 // Пример работы:
 // reduce([1, 2, 3], function(memo, num) { return memo + num; }, 0);
 // => 6
-var reduce = function (list, iteratee, memo) {
-    var i = 0;
-    var num = 0;
-    while (i < list.length) {
-        num += list[i];
-        i++;
-    }
-    return iteratee(memo, num);
+var reduce = function(list, iteratee, memo) {
+    // write your code here
 };
 
 
@@ -368,9 +376,7 @@ var reduce = function (list, iteratee, memo) {
 // => [2, 6, 5]
 var uniq = function(list) {
     return list.reduce((memo, item) => {
-        list.forEach(function(item, i, list) {
-
-        });
+        // write your code here
     }, []);
 };
 
@@ -397,8 +403,3 @@ var count = function(list) {
 // => {}
 // getSearchParams('?a=6&b=9');
 // => {a: '6', b: '9'}
-var getSearchParams = function(string) {
-    var result;
-    result = string.split('&');
-    return result;
-};
