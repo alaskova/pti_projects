@@ -24,8 +24,7 @@ var getMatrixSum = function(list) {
         }
     }
     return sum;
-}
-
+};
 
 
 // Перепиши вызовы функций ниже используя call и apply:
@@ -44,7 +43,7 @@ Array.prototype.indexOf.call([1,3,5,7], 5);
 [].join.call([1,3,5,7], '/');
 Array.prototype.join.call([1,3,5,7], '/');
 
-''.replace.apply('Вася любит яблоки', ['яблоки', 'Киев'])
+''.replace.apply('Вася любит яблоки', ['яблоки', 'Киев']);
 String.prototype.replace.apply('Вася любит яблоки', ['яблоки', 'Киев']);
 
 ''.slice.apply('Киев — столица Украины', [7, 14]);
@@ -81,21 +80,25 @@ var trim = function(str) {
     var firstIdx;
     var lastIdx;
     var result = '';
+
     for (var i = 0; i < str.length; i++) {
         if (str[i] !== ' ') {
             firstIdx = i;
             break;
         }
     }
+
     for (i = str.length - 1; i >= 0; i--) {
         if (str[i] !== ' ') {
             lastIdx = i;
             break;
         }
     }
+
     for (i = firstIdx; i <= lastIdx; i++) {
         result += str[i];
     }
+
     return result;
 };
 
@@ -121,7 +124,7 @@ var myObj = {
     name: 'Sally',
     age: 5,
     favoriteFood: 'Tofu'
-}
+};
 
 JSON.stringify(myObj);
 
