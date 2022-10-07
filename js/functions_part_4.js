@@ -364,6 +364,7 @@ var newFunc = func.bind(book);
 // => 6
 var reduce = function(list, iteratee, memo) {
     // write your code here
+    // TODO:
 };
 
 
@@ -377,6 +378,7 @@ var reduce = function(list, iteratee, memo) {
 var uniq = function(list) {
     return list.reduce((memo, item) => {
         // write your code here
+        // TODO:
     }, []);
 };
 
@@ -390,6 +392,7 @@ var uniq = function(list) {
 var count = function(list) {
     return list.reduce((memo, item) => {
         // write your code here
+        // TODO:
     }, {});
 };
 
@@ -403,3 +406,4 @@ var count = function(list) {
 // => {}
 // getSearchParams('?a=6&b=9');
 // => {a: '6', b: '9'}
+// TODO:
