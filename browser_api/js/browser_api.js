@@ -45,19 +45,19 @@ document.querySelector('.b11').addEventListener('click', function() {
     document.querySelector('.t11').classList.toggle('hi');
 });
 
-document.addEventListener('click', function() {
-    document.querySelector('.t12').innerText = document.querySelector('.t12').getAttribute('class');
+document.addEventListener('click', function(e) {
+    document.querySelector('.t12').innerText = e.target.className;
 });
 
 document.querySelector('.b13').addEventListener('click', function() {
-    document.querySelector('.t13').innerText = document.querySelector('.t13').getAttribute('data-en')
+    document.querySelector('.t13').innerText = document.querySelector('.t13').dataset.en;
 });
 
 window.addEventListener('resize', function() {
     var red = Math.ceil(Math.random() * 255);
     var green = Math.ceil(Math.random() * 255);
     var blue = Math.ceil(Math.random() * 255);
-    // document.querySelector('.t99').style.backgroundColor = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+    // document.querySelector('.t99').style.backgroundColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
     document.querySelector('.t99').style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 });
 
@@ -67,81 +67,102 @@ document.querySelector('.t98').addEventListener('input', function(e) {
 
 // Girls
 // 1
-var newWhore = document.querySelector('.whore').cloneNode(true);
-newWhore.querySelector('.whore-name').innerText = jasmine.name;
-newWhore.querySelector('.whore img').src = 'images/zhasmin.jpg';
-newWhore.querySelector('.whore-age').innerText = 'Возраст: ' + jasmine.age;
-newWhore.querySelector('.whore-boobs').innerText = 'Размер груди: ' + jasmine.boobs;
-newWhore.querySelector('.whore-height').innerText = 'Рост: ' + jasmine.height;
-newWhore.querySelector('.whore-weight').innerText = 'Вес: ' + jasmine.weight;
-newWhore.querySelector('.whore-phone').innerText = jasmine.phone;
-newWhore.querySelector('.whore-can-come').innerText = 'Выезд: ' + jasmine.can_come === true ? '+' : '-';
-newWhore.querySelector('.whore-teaser').innerText = jasmine.teaser;
+var whore1 = document.querySelector('.whore').cloneNode(true);
+whore1.querySelector('.whore-name').innerText = jasmine.name;
+whore1.querySelector('.whore img').src = jasmine.photo;
+whore1.querySelector('.whore-age').innerText = 'Возраст: ' + jasmine.age;
+whore1.querySelector('.whore-boobs').innerText = 'Размер груди: ' + jasmine.boobs;
+whore1.querySelector('.whore-height').innerText = 'Рост: ' + jasmine.height;
+whore1.querySelector('.whore-weight').innerText = 'Вес: ' + jasmine.weight;
+whore1.querySelector('.whore-phone').innerText = jasmine.phone;
+whore1.querySelector('.whore-can-come').innerText = 'Выезд: ' + jasmine.can_come === true ? '+' : '-';
+whore1.querySelector('.whore-teaser').innerText = jasmine.teaser;
 
 document.querySelector('.b14').addEventListener('click', function() {
-    document.querySelector('.whores-container').appendChild(newWhore);
+    document.querySelector('.whores-container').appendChild(whore1);
 });
 
 // 2
 document.querySelector('.b14').addEventListener('click', function() {
     var container = document.querySelector('.whores-container');
-    var newWhore = document.createElement('div')
-    newWhore.classList.add('whore');
+
+    var whore2 = document.createElement('div');
+    whore2.classList.add('whore');
 
     var whoreName = document.createElement('div');
     whoreName.classList.add('whore-name');
     whoreName.innerText = jasmine.name;
-    newWhore.appendChild(whoreName);
+    whore2.appendChild(whoreName);
 
     var whoreImg = document.createElement('img');
-    whoreImg.src = 'images/zhasmin.jpg';
+    whoreImg.src = jasmine.photo;
     whoreImg.width = 200;
-    newWhore.appendChild(whoreImg);
+    whore2.appendChild(whoreImg);
 
     var whoreAge = document.createElement('div');
     whoreAge.classList.add('whore-age');
     whoreAge.innerText = 'Возраст: ' + jasmine.age;
-    newWhore.appendChild(whoreAge);
+    whore2.appendChild(whoreAge);
 
     var whoreBoobs = document.createElement('div');
     whoreBoobs.classList.add('whore-boobs');
     whoreBoobs.innerText = 'Размер груди: ' + jasmine.boobs;
-    newWhore.appendChild(whoreBoobs);
+    whore2.appendChild(whoreBoobs);
 
     var whoreHeight = document.createElement('div');
     whoreHeight.classList.add('whore-height');
     whoreHeight.innerText = 'Рост: ' + jasmine.height;
-    newWhore.appendChild(whoreHeight);
+    whore2.appendChild(whoreHeight);
 
     var whoreWeight = document.createElement('div');
     whoreWeight.classList.add('whore-weight');
     whoreWeight.innerText = 'Вес: ' + jasmine.weight;
-    newWhore.appendChild(whoreWeight);
+    whore2.appendChild(whoreWeight);
 
     var whorePhone = document.createElement('div');
     whorePhone.classList.add('whore-phone');
     whorePhone.innerText = jasmine.phone;
-    newWhore.appendChild(whorePhone);
+    whore2.appendChild(whorePhone);
 
     var whoreCanCome = document.createElement('div');
     whoreCanCome.classList.add('whore-can-come');
     whoreCanCome.innerText = 'Выезд: ' + jasmine.can_come ? '+' : '-';
-    newWhore.appendChild(whoreCanCome);
+    whore2.appendChild(whoreCanCome);
 
     var whoreTeaser = document.createElement('div');
     whoreTeaser.classList.add('whore-teaser');
     whoreTeaser.innerText = jasmine.teaser;
-    newWhore.appendChild(whoreTeaser);
+    whore2.appendChild(whoreTeaser);
 
-    container.appendChild(newWhore);
+    container.appendChild(whore2);
 });
+
+document.querySelector('.b14').addEventListener('click', function() {
+    document.querySelector('.whores-container').innerHTML += whore3;
+});
+
+//3
+var whore3 = `
+    <div class="whore">
+        <div class="whore-name">TODO:</div>
+        <img src="images/silvia.jpg" width="200">
+        <div class="whore-age">Возраст: ${jasmine.age}</div>
+        <div class="whore-boobs">Размер груди: 3</div>
+        <div class="whore-height">Рост: 170</div>
+        <div class="whore-weight">Вес: 60</div>
+        <div class="whore-phone">+380960000000</div>
+        <div class="whore-can-come">Выезд: -</div>
+        <div class="whore-teaser">Я - симпатичная девочка экзотической внешности без комплексов и с огромной любовью к сексу! Я непревзойденная любовница, страстная, доступная и яркая! Я невероятно сексуальна и изобретательна, мила и непосредственна. Не теряй времени, звони мне, мой друг! Я скрашу твоё одиночество :)</div>
+    </div>
+`;
 
 // Fish
 document.querySelector('.b15').addEventListener('click', function() {
+    var fish = document.querySelector('.fish');
     if (document.querySelector('.cat-container-1 .fish')) {
-        document.querySelector('.cat-container-2').appendChild(document.querySelector('.fish'))
+        document.querySelector('.cat-container-2').appendChild(fish);
     } else {
-        document.querySelector('.cat-container-1').appendChild(document.querySelector('.fish'))
+        document.querySelector('.cat-container-1').appendChild(fish);
     }
 });
 
@@ -157,6 +178,7 @@ document.querySelector('.b17').addEventListener('click', function() {
         x += 5;
         document.querySelector('.skier').style.left = x + 'px';
     }, 16);
+
     document.querySelector('.b17-2').addEventListener('click', function() {
         clearInterval(timerId);
     })
@@ -165,12 +187,12 @@ document.querySelector('.b17').addEventListener('click', function() {
 // Mikki
 for (var i = 0; i < mikki.length; i++) {
     for (var j = 0; j < mikki[i].length; j++) {
-        var item = document.createElement('div');
-        item.classList.add('mikki_tile');
+        var tile = document.createElement('div');
+        tile.classList.add('mikki_tile');
         if (mikki[i][j] === 'X') {
-            item.style.backgroundColor = 'black';
+            tile.style.backgroundColor = 'black';
         }
-        document.querySelector('.mikki_tiles').appendChild(item);
+        document.querySelector('.mikki_tiles').appendChild(tile);
     }
 }
 
@@ -237,30 +259,29 @@ document.querySelector('.faq').addEventListener('click', function(e) {
 
 // Tabs
 document.querySelector('.tabs').addEventListener('click', function(e) {
+    if (!e.target.classList.contains('item')) {
+        return;
+    }
+
     var activeTab = document.querySelector('.tabs .item.active');
     var activeContent = document.querySelector('.tabs-content .item.active');
-    var tabsContent = document.querySelectorAll('.tabs-content .item');
+
     activeTab.classList.remove('active');
     activeContent.classList.remove('active');
+
     e.target.classList.add('active');
-    tabsContent.forEach(function(tab) {
-        if (e.target.getAttribute('data-tab') === tab.getAttribute('data-tab')) {
-            tab.classList.add('active');
-        }
-    })
+    document.querySelector(`.tabs-content [data-tab="${e.target.dataset.tab}"]`).classList.add('active');
 });
 
 // Login
 document.querySelector('.show-login-pop-up').addEventListener('click', function() {
-    var hiddenItem = document.querySelectorAll('.hidden');
-    hiddenItem.forEach(function(hidden) {
-        hidden.classList.remove('hidden')
-    });
+    document.querySelector('.overlay').classList.remove('hidden');
+    document.querySelector('.pop-up').classList.remove('hidden');
+});
 
-    document.querySelector('.pop-up .close').addEventListener('click', function() {
-        document.querySelector('.overlay').classList.add('hidden');
-        document.querySelector('.pop-up').classList.add('hidden');
-    });
+document.querySelector('.pop-up .close').addEventListener('click', function() {
+    document.querySelector('.overlay').classList.add('hidden');
+    document.querySelector('.pop-up').classList.add('hidden');
 });
 
 // Link
@@ -270,13 +291,10 @@ document.querySelector('.link-ebanoe').addEventListener('click', function(e) {
 
 // Local storage
 document.querySelector('.b97').addEventListener('click', function() {
-    localStorage.setItem('name', 'true');
+    localStorage.setItem('hideAd', 'true');
     document.querySelector('.t97').classList.add('hidden');
 });
 
-if (localStorage.getItem('name') === 'true') {
+if (localStorage.getItem('hideAd') === 'true') {
     document.querySelector('.t97').classList.add('hidden');
 }
-
-
-
