@@ -10,11 +10,11 @@ document.querySelector('.b2').addEventListener('click', function() {
 });
 
 document.querySelector('.b3').addEventListener('click', function() {
-    document.querySelector('a').href = 'https://google.com';
+    document.querySelector('.t3 a').href = 'https://google.com';
 });
 
 document.querySelector('.b4').addEventListener('click', function() {
-    document.querySelector('img').src = 'images/fish.jpg';
+    document.querySelector('.t4 img').src = 'images/fish.jpg';
 });
 
 document.querySelector('.b5').addEventListener('click', function() {
@@ -54,9 +54,9 @@ document.querySelector('.b13').addEventListener('click', function() {
 });
 
 window.addEventListener('resize', function() {
-    var red = Math.ceil(Math.random() * 255);
-    var green = Math.ceil(Math.random() * 255);
-    var blue = Math.ceil(Math.random() * 255);
+    var red = Math.round(Math.random() * 255);
+    var green = Math.round(Math.random() * 255);
+    var blue = Math.round(Math.random() * 255);
     // document.querySelector('.t99').style.backgroundColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
     document.querySelector('.t99').style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 });
@@ -254,6 +254,9 @@ document.querySelector('.previous').addEventListener('click', function() {
 
 // FAQ
 document.querySelector('.faq').addEventListener('click', function(e) {
+    if (e.target.className === 'answer') {
+        return;
+    }
     e.target.classList.toggle('active');
 });
 
