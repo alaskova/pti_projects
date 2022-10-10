@@ -10,10 +10,10 @@
 // и результатом работы этого метода является присваивание этого числа свойству "x" объекта.
 var obj = {
     x: 10,
-    getX: function () {
+    getX: function() {
         return this.x;
     },
-    changeX: function (value) {
+    changeX: function(value) {
         this.x = value;
     }
 };
@@ -33,21 +33,21 @@ var obj = {
 // => 31.41592653589793
 // circle.getSquare();
 // => 78.53981633974483
-var Circle = function (x, y, radius) {
+var Circle = function(x, y, radius) {
     this.x = x;
     this.y = y;
     this.radius = radius;
 };
 
-Circle.prototype.getDiameter = function () {
+Circle.prototype.getDiameter = function() {
     return 2 * this.radius;
 };
 
-Circle.prototype.getPerimeter = function () {
+Circle.prototype.getPerimeter = function() {
     return 3.14 * this.getDiameter();
 };
 
-Circle.prototype.getSquare = function () {
+Circle.prototype.getSquare = function() {
     return 3.14 * (this.radius * this.radius);
 };
 
@@ -68,14 +68,14 @@ Circle.prototype.getSquare = function () {
 // => 650
 // pear.getCashbackAmount();
 // => 0
-var Product = function ({title, price, discountRate, cashbackRate}) {
+var Product = function({title, price, discountRate, cashbackRate}) {
     this.title = title;
     this.price = price;
     this.discountRate = discountRate;
     this.cashbackRate = cashbackRate;
 };
 
-Product.prototype.getPriceWithDiscount = function () {
+Product.prototype.getPriceWithDiscount = function() {
     if (this.discountRate !== undefined) {
         return this.price - this.price * this.discountRate / 100;
     } else {
@@ -83,7 +83,7 @@ Product.prototype.getPriceWithDiscount = function () {
     }
 };
 
-Product.prototype.getCashbackAmount = function () {
+Product.prototype.getCashbackAmount = function() {
     if (this.cashbackRate !== undefined) {
         return this.getPriceWithDiscount() * this.cashbackRate / 100;
     } else {
@@ -111,15 +111,15 @@ Product.prototype.getCashbackAmount = function () {
 
 // [2, 2, 3].sum();
 // => 7
-Array.prototype.size = function () {
+Array.prototype.size = function() {
     return this.length;
 };
 
-Array.prototype.last = function () {
+Array.prototype.last = function() {
     return this[this.length - 1];
 };
 
-Array.prototype.getPositiveNumbers = function () {
+Array.prototype.getPositiveNumbers = function() {
     var i = 0;
     var result = [];
     while (i < this.length) {
@@ -131,7 +131,7 @@ Array.prototype.getPositiveNumbers = function () {
     return result;
 };
 
-Array.prototype.without = function (value) {
+Array.prototype.without = function(value) {
     var i = 0;
     var result = [];
     while (i < this.length) {
@@ -143,7 +143,7 @@ Array.prototype.without = function (value) {
     return result;
 };
 
-Array.prototype.min = function () {
+Array.prototype.min = function() {
     var i = 0;
     var result = this[0];
     while (i < this.length) {
@@ -155,7 +155,7 @@ Array.prototype.min = function () {
     return result;
 };
 
-Array.prototype.sum = function () {
+Array.prototype.sum = function() {
     var i = 0;
     var sum = 0;
     while (i < this.length) {
@@ -167,7 +167,7 @@ Array.prototype.sum = function () {
 
 
 // Создать функции keys, values, pairs, extend, как методы объектов
-Object.prototype.keys = function () {
+Object.prototype.keys = function() {
     var prop;
     var result = [];
     for (prop in this) {
@@ -178,7 +178,7 @@ Object.prototype.keys = function () {
     return result;
 };
 
-Object.prototype.values = function () {
+Object.prototype.values = function() {
     var prop;
     var result = [];
     for (prop in this) {
@@ -189,7 +189,7 @@ Object.prototype.values = function () {
     return result;
 };
 
-Object.prototype.pairs = function () {
+Object.prototype.pairs = function() {
     var prop;
     var result = [];
     for (prop in this) {
@@ -200,7 +200,7 @@ Object.prototype.pairs = function () {
     return result;
 };
 
-Object.prototype.extend = function (source) {
+Object.prototype.extend = function(source) {
     var prop;
     for (prop in source) {
         if (source.hasOwnProperty(prop)) {
@@ -215,7 +215,7 @@ Object.prototype.extend = function (source) {
 // Пример работы:
 // charAt('March', 0);
 // => 'M'
-var charAt = function (str, index) {
+var charAt = function(str, index) {
     return str[index];
 };
 
@@ -226,7 +226,7 @@ var charAt = function (str, index) {
 // => "1,lol,5,dro"
 // join([1, 'lol', 5, 'dro'], '+');
 // => "1+lol+5+dro"
-var join = function (list, separator) {
+var join = function(list, separator) {
     separator = separator === undefined ? ',' : separator;
     var i = 0;
     var result = '';
@@ -280,7 +280,7 @@ str.trim();
 var list = [1, 2, 3, 4, 3];
 
 list.concat([4, 5, 6]);
-list.forEach(function (elem, index) {
+list.forEach(function(elem, index) {
     console.log('element ' + elem + ' index ' + index)
 });
 list.includes(2);
@@ -296,31 +296,31 @@ list.splice(1, 3, 55);
 list.unshift(0, 11);
 list.length;
 list.sort();
-list.map(function (elem) {
+list.map(function(elem) {
     return elem * 2
 });
-list.filter(function (elem) {
+list.filter(function(elem) {
     return elem > 0
 });
-list.every(function (elem) {
+list.every(function(elem) {
     return elem === 0
 });
-list.some(function (elem) {
+list.some(function(elem) {
     return elem === 3
 });
-list.reduce(function (sum, elem) {
+list.reduce(function(sum, elem) {
     return sum + elem
 }, 0);
-list.reduce(function (memo, n) {
+list.reduce(function(memo, n) {
     if (n % 2 === 0) {
         memo.push(n);
     }
     return memo;
 }, []);
-list.reduce(function (memo, n) {
+list.reduce(function(memo, n) {
     return n % 2 === 0 ? memo.concat(n) : memo;
 }, []);
-list.reduceRight(function (mult, elem) {
+list.reduceRight(function(mult, elem) {
     return mult * elem
 }, 0);
 
@@ -351,7 +351,7 @@ var book2 = {
     year: 1984,
     name: 'Timmy'
 };
-var func = function (before, after) {
+var func = function(before, after) {
     before = before === undefined ? '' : before;
     after = after === undefined ? '' : after;
     console.log(before + 'Год ' + this.year + ' Автор ' + this.name + after);
@@ -368,7 +368,7 @@ var newFunc = func.bind(book);
 // Пример работы:
 // reduce([1, 2, 3], function(memo, num) { return memo + num; }, 0);
 // => 6
-var reduce = function (list, iteratee, memo) {
+var reduce = function(list, iteratee, memo) {
     var i = 0;
     while (i < list.length) {
         memo = iteratee(memo, list[i]);
@@ -383,7 +383,7 @@ var reduce = function (list, iteratee, memo) {
 // Пример работы:
 // uniq([2, 6, 2, 5, 2]);
 // => [2, 6, 5]
-var uniq = function (list) {
+var uniq = function(list) {
     return list.reduce((memo, item) => {
         if (!memo.includes(item)) {
             memo[memo.length] = item;
@@ -397,7 +397,7 @@ var uniq = function (list) {
 // Пример работы:
 // count(['apple', 'plum', 'apple', 'banana', 'pear', 'pear']);
 // => {apple: 2, plum: 1, banana: 1, pear: 2}
-var count = function (list) {
+var count = function(list) {
     return list.reduce((memo, item) => {
         if (memo[item] === undefined) {
             memo[item] = 1;
@@ -416,43 +416,6 @@ var count = function (list) {
 // => {}
 // getSearchParams('?a=6&b=9');
 // => {a: '6', b: '9'}
-// TODO:
-var getSearchParams = function (str) {
-    var result = '';
-    for (i = 0; i < str.length; i++) {
-        if (str[i] !== '?') {
-            result += str[i];
-        }
-    }
-    var list = result.split('&');
-    var pair;
-    for (i = 0; i < list.length; i++) {
-            pair = list[i].split('=');
-            var key = pair[0];
-            var value = pair[1];
-        console.log(pair, key, value);
-    }
-    return pair.reduce(function (memo, item) {
-            memo[key] = item;
-            return memo;
-        }, {});
+var getSearchParams = function(str) {
+    // TODO:
 };
-
-
-    // var result = '';
-    // var list;
-    // i = 0;
-    // while (i < str.length) {
-    //     if (str[i] !== '?' && str[i] !== '&') {
-    //         result += str[i];
-    //         list = result[i].split('=')
-    //     }
-    //     i++;
-    // }
-    // var list = result.split('=');
-    // console.log(pair, key, value);
-    // return list.reduce(function (memo, item, index) {
-    //     memo[item] = item;
-    //     return memo;
-    // }, {});
-// };
