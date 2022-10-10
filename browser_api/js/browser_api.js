@@ -254,7 +254,7 @@ document.querySelector('.previous').addEventListener('click', function() {
 
 // FAQ
 document.querySelector('.faq').addEventListener('click', function(e) {
-    if (e.target.className === 'answer') {
+    if (!e.target.classList.contains('question')) {
         return;
     }
     e.target.classList.toggle('active');
