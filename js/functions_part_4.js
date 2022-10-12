@@ -417,5 +417,9 @@ var count = function(list) {
 // getSearchParams('?a=6&b=9');
 // => {a: '6', b: '9'}
 var getSearchParams = function(str) {
-    // TODO:
+    return str.slice(1).split('&').reduce(function(memo, pair) {
+        var pairItem = pair.split('=');
+        memo[pairItem[0]] = pairItem[1];
+        return memo;
+    }, {});
 };
