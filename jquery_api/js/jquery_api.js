@@ -6,7 +6,7 @@ $('.b1').click(function() {
 });
 
 $('.b2').click(function() {
-    $('.t2').css('background-color', 'red')
+    $('.t2').css('background-color', 'red');
 });
 
 $('.b3').on('click', function() {
@@ -18,31 +18,31 @@ $('.b4').on('click', function() {
 });
 
 $('.b5').on('click', function() {
-    $('.t5').attr('id', 'new-id')
+    $('.t5').attr('id', 'new-id');
 });
 
 $('.b6').on('click', function() {
-    $('.t6').text('lorem')
+    $('.t6').text('lorem');
 });
 
 $('.b7').on('click', function() {
-    $('.t7').html('<h2>Цветы</h2>')
+    $('.t7').html('<h2>Цветы</h2>');
 });
 
 $('.b8').on('click', function() {
-    $('.t8').css('font-size', '30px')
+    $('.t8').css('font-size', '30px');
 });
 
 $('.b9').on('click', function() {
-    $('.t9').addClass('hi')
+    $('.t9').addClass('hi');
 });
 
 $('.b10').on('click', function() {
-    $('.t10').removeClass('hi')
+    $('.t10').removeClass('hi');
 });
 
 $('.b11').on('click', function() {
-    $('.t11').toggleClass('hi')
+    $('.t11').toggleClass('hi');
 });
 
 $(document).on('click', function(e) {
@@ -50,9 +50,7 @@ $(document).on('click', function(e) {
 });
 
 $('.b13').on('click', function() {
-    $('.t13').text(function() {
-        return $(this).attr('data-en');
-    });
+    $('.t13').text($('.t13').data('en'));
 });
 
 $(window).on('resize', function() {
@@ -68,23 +66,16 @@ $('.t98 input').on('input', function() {
 
 //1
 $('.b14').click(function() {
-
     var whore1 = $('<div class="whore">');
 
     $('<div class="whore-name">').text(jasmine.name).appendTo(whore1);
-
-    var whoreImg = $('<img>', {
-        src: jasmine.photo,
-        width: 200
-    });
-    $(whoreImg).appendTo(whore1);
-
+    $(`<img src="${jasmine.photo}" width="200">`).appendTo(whore1);
     $('<div class="whore-age">').text('Возраст: ' + jasmine.age).appendTo(whore1);
     $('<div class="whore-boobs">').text('Размер груди: ' + jasmine.boobs).appendTo(whore1);
     $('<div class="whore-height">').text('Рост: ' + jasmine.height).appendTo(whore1);
     $('<div class="whore-weight">').text('Вес: ' + jasmine.weight).appendTo(whore1);
     $('<div class="whore-phone">').text(jasmine.phone).appendTo(whore1);
-    $('<div class="whore-can-come">').text('Выезд: ' + jasmine.can_come ? '+' : '-').appendTo(whore1);
+    $('<div class="whore-can-come">').text('Выезд: ' + (jasmine.can_come ? '+' : '-')).appendTo(whore1);
     $('<div class="whore-teaser">').text(jasmine.teaser).appendTo(whore1);
 
     $(whore1).appendTo($('.whores-container'));
@@ -107,10 +98,10 @@ $('.b14').on('click', function() {
 
 // Fish
 $('.b15').on('click', function() {
-    if ($('.cat-container-1 .fish')) {
-        $('.fish').appendTo($('.cat-container-2'))
+    if ($('.cat-container-1 .fish').length) {
+        $('.fish').appendTo($('.cat-container-2'));
     } else {
-        $('.fish').appendTo($('.cat-container-1'))
+        $('.fish').appendTo($('.cat-container-1'));
     }
 });
 
@@ -137,7 +128,7 @@ for (var i = 0; i < mikki.length; i++) {
     for (var j = 0; j < mikki[i].length; j++) {
         var tile = $('<div class="mikki_tile">');
         if (mikki[i][j] === 'X') {
-            $(tile).css('background-color', 'black')
+            $(tile).css('background-color', 'black');
         }
         $(tile).appendTo('.mikki_tiles');
     }
@@ -151,28 +142,28 @@ $('.b18').on('click', function() {
             $(tile).css('top', i * 16 + 'px');
             $(tile).css('left', j * 16 + 'px');
             if (map[i][j] === 'z') {
-                $(tile).addClass('x_z')
+                $(tile).addClass('x_z');
             }
             if (map[i][j] === 'k') {
-                $(tile).addClass('x_k')
+                $(tile).addClass('x_k');
             }
             if (map[i][j] === 'c') {
-                $(tile).addClass('x_c')
+                $(tile).addClass('x_c');
             }
             if (map[i][j] === 't') {
-                $(tile).addClass('x_t')
+                $(tile).addClass('x_t');
             }
             if (map[i][j] === 'g') {
-                $(tile).addClass('x_g')
+                $(tile).addClass('x_g');
             }
             if (map[i][j] === 'b') {
-                $(tile).addClass('x_b')
+                $(tile).addClass('x_b');
             }
             if (map[i][j] === 'd') {
-                $(tile).addClass('x_d')
+                $(tile).addClass('x_d');
             }
             if (map[i][j] === 'w') {
-                $(tile).addClass('x_w')
+                $(tile).addClass('x_w');
             }
             $(tile).appendTo('.scene');
         }
@@ -183,7 +174,7 @@ $('.b18').on('click', function() {
 $('.pagination .next').on('click', function() {
     var activeSlide = $('.slide.active');
     var nextSlide = $('.slide.active').next();
-    if (nextSlide) {
+    if (nextSlide.length) {
         activeSlide.removeClass('active');
         nextSlide.addClass('active');
     } else {
@@ -195,7 +186,7 @@ $('.pagination .next').on('click', function() {
 $('.pagination .previous').on('click', function() {
     var activeSlide = $('.slide.active');
     var prevSlide = $('.slide.active').prev();
-    if (prevSlide) {
+    if (prevSlide.length) {
         activeSlide.removeClass('active');
         prevSlide.addClass('active');
     } else {
@@ -215,8 +206,7 @@ $('.tabs .item').on('click', function() {
     $('.tabs-content .active').removeClass('active');
 
     $(this).addClass('active');
-
-    $(`.tabs-content [data-tab="${$(this).attr('data-tab')}"]`).addClass('active');
+    $(`.tabs-content [data-tab="${$(this).data('tab')}"]`).addClass('active');
 });
 
 // Login
@@ -244,14 +234,3 @@ $('.b97').click(function() {
 if (localStorage.getItem('hideAd') === 'true') {
     $('.t97').addClass('hidden');
 }
-
-
-
-
-
-
-
-
-
-
-
