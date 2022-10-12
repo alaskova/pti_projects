@@ -75,7 +75,7 @@ whore1.querySelector('.whore-boobs').innerText = 'Размер груди: ' + j
 whore1.querySelector('.whore-height').innerText = 'Рост: ' + jasmine.height;
 whore1.querySelector('.whore-weight').innerText = 'Вес: ' + jasmine.weight;
 whore1.querySelector('.whore-phone').innerText = jasmine.phone;
-whore1.querySelector('.whore-can-come').innerText = 'Выезд: ' + jasmine.can_come === true ? '+' : '-';
+whore1.querySelector('.whore-can-come').innerText = 'Выезд: ' + jasmine.can_come ? '+' : '-';
 whore1.querySelector('.whore-teaser').innerText = jasmine.teaser;
 
 document.querySelector('.b14').addEventListener('click', function() {
@@ -144,14 +144,14 @@ document.querySelector('.b14').addEventListener('click', function() {
 //3
 var whore3 = `
     <div class="whore">
-        <div class="whore-name">TODO:</div>
-        <img src="images/silvia.jpg" width="200">
+        <div class="whore-name">${jasmine.name}</div>
+        <img src=${jasmine.photo} width="200">
         <div class="whore-age">Возраст: ${jasmine.age}</div>
-        <div class="whore-boobs">Размер груди: 3</div>
-        <div class="whore-height">Рост: 170</div>
-        <div class="whore-weight">Вес: 60</div>
-        <div class="whore-phone">+380960000000</div>
-        <div class="whore-can-come">Выезд: -</div>
+        <div class="whore-boobs">Размер груди: ${jasmine.boobs}</div>
+        <div class="whore-height">Рост: ${jasmine.height}</div>
+        <div class="whore-weight">Вес: ${jasmine.weight}</div>
+        <div class="whore-phone">${jasmine.phone}</div>
+        <div class="whore-can-come">Выезд: ${jasmine.can_come ? '+' : '-'}</div>
         <div class="whore-teaser">Я - симпатичная девочка экзотической внешности без комплексов и с огромной любовью к сексу! Я непревзойденная любовница, страстная, доступная и яркая! Я невероятно сексуальна и изобретательна, мила и непосредственна. Не теряй времени, звони мне, мой друг! Я скрашу твоё одиночество :)</div>
     </div>
 `;
