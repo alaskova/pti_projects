@@ -418,8 +418,8 @@ var count = function(list) {
 // => {a: '6', b: '9'}
 var getSearchParams = function(str) {
     return str.slice(1).split('&').reduce(function(memo, pair) {
-        var pairItem = pair.split('=');
-        memo[pairItem[0]] = pairItem[1];
+        var pairItems = pair.split('=');
+        memo[pairItems[0]] = pairItems[1];
         return memo;
     }, {});
 };
