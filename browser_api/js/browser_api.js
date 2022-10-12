@@ -75,7 +75,7 @@ whore1.querySelector('.whore-boobs').innerText = 'Размер груди: ' + j
 whore1.querySelector('.whore-height').innerText = 'Рост: ' + jasmine.height;
 whore1.querySelector('.whore-weight').innerText = 'Вес: ' + jasmine.weight;
 whore1.querySelector('.whore-phone').innerText = jasmine.phone;
-whore1.querySelector('.whore-can-come').innerText = 'Выезд: ' + jasmine.can_come ? '+' : '-';
+whore1.querySelector('.whore-can-come').innerText = 'Выезд: ' + (jasmine.can_come ? '+' : '-');
 whore1.querySelector('.whore-teaser').innerText = jasmine.teaser;
 
 document.querySelector('.b14').addEventListener('click', function() {
@@ -152,7 +152,7 @@ var whore3 = `
         <div class="whore-weight">Вес: ${jasmine.weight}</div>
         <div class="whore-phone">${jasmine.phone}</div>
         <div class="whore-can-come">Выезд: ${jasmine.can_come ? '+' : '-'}</div>
-        <div class="whore-teaser">Я - симпатичная девочка экзотической внешности без комплексов и с огромной любовью к сексу! Я непревзойденная любовница, страстная, доступная и яркая! Я невероятно сексуальна и изобретательна, мила и непосредственна. Не теряй времени, звони мне, мой друг! Я скрашу твоё одиночество :)</div>
+        <div class="whore-teaser">${jasmine.teaser}</div>
     </div>
 `;
 
