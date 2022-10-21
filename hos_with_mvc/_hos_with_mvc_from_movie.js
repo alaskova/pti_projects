@@ -59,7 +59,7 @@ var listView = {
         // Отрисовать элементы компонента
     },
 
-    handleClickOnWhore: function() {
+    handleClickOnWhore: function(e) {
         // Обработчик события 'клик' по шлюхе
     },
 
@@ -92,7 +92,7 @@ var formView = {
         // Показать форму добавления
     },
 
-    showEditRemoveForm: function() {
+    showEditRemoveForm: function(whore) {
         // Показать форму редактирования/удаления
     },
 
