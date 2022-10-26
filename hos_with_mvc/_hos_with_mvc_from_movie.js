@@ -5,16 +5,14 @@ var whores = {
         // Добавить модель в коллекцию
         // Возбудить событие 'change' на коллекции
         this.models.push(whore);
-        // this.setModelsToStorage();
         $(this).trigger('change');
     },
 
     update: function(updatedWhore) {
         // Найти модель в коллекции и обновить ее
         // Возбудить событие 'change' на коллекции
-        var whore = _.findWhere(this.models, {id: updatedWhore.id});
+        var whore = this.get(updatedWhore.id);
         _.extend(whore, updatedWhore);
-        // this.setModelsToStorage();
         $(this).trigger('change');
     },
 
@@ -24,7 +22,6 @@ var whores = {
         this.models = _.reject(this.models, function(whore) {
             return whore.id === whoreId;
         });
-        // this.setModelsToStorage();
         $(this).trigger('change');
     },
 
@@ -47,10 +44,7 @@ var whores = {
         // Забрать данные из localStorage и сохранить их в this.models
         // Подписаться на изменения в коллекции для синхронизизации коллекции с localStorage
         this.models = this.getModelsFromStorage();
-
-        $(this).on('change', function() {
-            this.setModelsToStorage();
-        }.bind(this));
+        $(this).on('change', this.setModelsToStorage.bind(this));
     }
 };
 
@@ -68,41 +62,34 @@ var listView = {
         // Подписаться на события
         // Подписаться на изменения в коллекции для обновления пользовательского интерфейса
         this.render();
-        $('.add-whore-btn').on('click', this.handleClickOnAddBtn.bind(this));
-
-        $(this.collection).on('change', function() {
-            this.render();
-        }.bind(this));
+        this.subscribe();
     },
 
     subscribe: function() {
         // Подписаться на события:
         // 1. Клик по шлюхе
         // 2. Клик по кнопке 'Добавить'
-        $('.whore-list').on('click', this.handleClickOnWhore.bind(this));
+        $('.whore-list-container').on('click', this.handleClickOnWhore.bind(this));
+        $('.add-whore-btn').on('click', this.handleClickOnAddBtn.bind(this));
+        $(this.collection).on('change', this.render.bind(this));
     },
 
     render: function() {
         // Отрисовать элементы компонента
         $('.whore-list-container').html(this.tmplFn(this.collection.models));
-        this.subscribe();
     },
 
     handleClickOnWhore: function(e) {
         // Обработчик события 'клик' по шлюхе
         if ($(e.target).hasClass('whore')) {
-            var whore = this.collection.get(e.target.id);
+            var whore = this.collection.get(e.target.dataset.id);
             formView.showEditRemoveForm(whore);
-            $('.whore-form').attr('id', e.target.id);
         }
     },
 
     handleClickOnAddBtn: function() {
         // Обработчик события 'клик' по кнопке 'Добавить'
-        console.log('клик по добавить');
         formView.showAddForm();
-        formView.resetForm();
-        $('.whore-form').removeAttr('id');
     }
 };
 
@@ -132,19 +119,27 @@ var formView = {
 
     showAddForm: function() {
         // Показать форму добавления
-        $('.whore-form').removeClass('hidden');
+        $('.whore-form').removeClass('hidden').removeAttr('id');
+
         $('.save-whore-btn').removeClass('hidden');
         $('.update-whore-btn').addClass('hidden');
         $('.delete-whore-btn').addClass('hidden');
+
+        this.resetForm();
     },
 
     showEditRemoveForm: function(whore) {
         // Показать форму редактирования/удаления
-        $('.whore-form').removeClass('hidden');
+        $('.whore-form').removeClass('hidden').attr('id', whore.id);
+
         $('.save-whore-btn').addClass('hidden');
         $('.update-whore-btn').removeClass('hidden');
         $('.delete-whore-btn').removeClass('hidden');
 
+        this.prefillForm(whore);
+    },
+
+    prefillForm: function(whore) {
         $('#name').val(whore.name);
         $('#surname').val(whore.surname);
         $('#alias').val(whore.alias);
@@ -189,13 +184,16 @@ var formView = {
     highlightFields: function() {
         // Подсветить невалидные и валидные поля формы
         this.$fields.each(function(index, input) {
-            $(input).val() === '' ? $(input).addClass('empty-input') : $(input).removeClass('empty-input');
-        })
+            $(input).val() === '' ?
+                $(input).addClass('empty-input') :
+                $(input).removeClass('empty-input');
+
+            //$(input).toggleClass('empty-input', $(input).val() === '');
+        });
     },
 
     handleSave: function() {
         // Обработчик события 'клик' по кнопке 'Сохранить'
-        console.log('клик по сохранить');
         if (this.isFormDataValid()) {
             this.collection.add(this.getFormData());
             this.resetForm();
@@ -207,7 +205,6 @@ var formView = {
 
     handleUpdate: function() {
         // Обработчик события 'клик' по кнопке 'Обновить'
-        console.log('клик по обновить');
         this.collection.update(this.getFormData());
         this.resetForm();
         this.hideForm();
@@ -215,7 +212,6 @@ var formView = {
 
     handleDelete: function() {
         // Обработчик события 'клик' по кнопке 'Удалить'
-        console.log('клик по удалить');
         var id = $('.whore-form').attr('id');
         this.collection.remove(id);
         this.resetForm();
