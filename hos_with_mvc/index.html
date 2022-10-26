@@ -11,24 +11,9 @@
 
 <body>
     <div class="left-column">
-        <button class="open-whore-form-btn btn">Добавить</button>
+        <button class="add-whore-btn btn">Добавить</button>
 
-        <div class="whore-list">
-            <span class="empty-whore-list">Шлюх пока нет</span>
-            <ul class="whore-list-items"></ul>
-
-            <script type="text/template" id="whore-template">
-                {{~ it :whore:index}}
-                <li class="whore">
-                    <a id="{{= whore.id}}" class="whore-link" href="#">
-                        <span class="alias">{{= whore.alias}}</span>
-                        <span class="age">{{= whore.age}},</span>
-                        <span class="price">${{= whore.price}}</span>
-                    </a>
-                </li>
-                {{~}}
-            </script>
-        </div>
+        <div class="whore-list-container"></div>
     </div>
 
     <div class="right-column">
@@ -38,12 +23,24 @@
             <input type="text" id="alias" placeholder="Псевдоним" name="alias">
             <input type="text" id="age" placeholder="Возраст" name="age">
             <input type="text" id="price" placeholder="Цена" name="price">
-            <button class="save-whore-form-btn btn" type="button">Сохранить</button>
-            <button class="update-whore-form-btn btn hidden" type="button">Обновить</button>
-            <button class="delete-whore-form-btn btn hidden" type="button">Удалить</button>
+            <button class="save-whore-btn btn" type="button">Сохранить</button>
+            <button class="update-whore-btn btn hidden" type="button">Обновить</button>
+            <button class="delete-whore-btn btn hidden" type="button">Удалить</button>
         </form>
     </div>
 
-    <script src="js/main.js"></script>
+    <script type="text/template" id="whore-template">
+        {{? it.length}}
+            <ul class="whore-list">
+                {{~ it :whore:index}}
+                    <li class="whore" id="{{= whore.id}}">{{= whore.alias}} {{= whore.age}}, ${{= whore.price}}</li>
+                {{~}}
+            </ul>
+        {{??}}
+            <span class="empty-whore-list">Шлюх пока нет</span>
+        {{?}}
+    </script>
+
+    <script src="_hos_with_mvc_from_movie.js"></script>
 </body>
 </html>

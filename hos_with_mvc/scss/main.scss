@@ -32,17 +32,13 @@ input:focus {
     outline: none;
 }
 
-li {
+li.whore {
     list-style: none;
-}
-
-a {
-    color: #000000;
     font-weight: normal;
-    text-decoration: none;
 
     &:hover {
         text-decoration: underline;
+        cursor: pointer;
     }
 }
 
@@ -50,7 +46,7 @@ a {
     display: none;
 }
 
-.open-whore-form-btn {
+.add-whore-btn {
     margin-bottom: 10px;
     float: right;
 }
@@ -64,7 +60,7 @@ a {
 .left-column {
     padding: 0 25px 25px 10px;
 
-    .whore-list {
+    .whore-list-container {
         width: 265px;
         background-color: #bcd4f3;
         clear: both;
@@ -91,12 +87,12 @@ a {
             box-shadow: 0 0 2px 1px red;
         }
 
-        .save-whore-form-btn,
-        .update-whore-form-btn {
+        .save-whore-btn,
+        .update-whore-btn {
             float: right;
         }
 
-        .delete-whore-form-btn {
+        .delete-whore-btn {
             float: left;
         }
 
