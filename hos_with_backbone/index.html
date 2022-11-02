@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Girls</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/dot.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/backbone.js"></script>
+</head>
+
+<body>
+    <div class="left-column">
+        <button class="add-whore-btn btn">Добавить</button>
+
+        <div class="whore-list-container"></div>
+    </div>
+
+    <div class="right-column">
+        <form class="whore-form hidden">
+            <input type="text" id="name" placeholder="Имя" name="name">
+            <input type="text" id="surname" placeholder="Фамилия" name="surname">
+            <input type="text" id="alias" placeholder="Псевдоним" name="alias">
+            <input type="text" id="age" placeholder="Возраст" name="age">
+            <input type="text" id="price" placeholder="Цена" name="price">
+            <button class="save-whore-btn btn" type="button">Сохранить</button>
+            <button class="update-whore-btn btn hidden" type="button">Обновить</button>
+            <button class="delete-whore-btn btn hidden" type="button">Удалить</button>
+        </form>
+    </div>
+
+    <script type="text/template" id="whore-template">
+        {{? it.length}}
+            <ul class="whore-list">
+                {{~ it :whore:index}}
+                    <li class="whore" id="{{= whore.id}}">{{= whore.alias}} {{= whore.age}}, ${{= whore.price}}</li>
+                {{~}}
+            </ul>
+        {{??}}
+            <span class="empty-whore-list">Шлюх пока нет</span>
+        {{?}}
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
