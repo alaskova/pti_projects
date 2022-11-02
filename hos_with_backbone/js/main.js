@@ -1,11 +1,7 @@
 var Whores = Backbone.Collection.extend({
     initialize: function() {
         this.reset(this.getModelsFromStorage());
-        this.setModelsToStorage();
-
-        this.on('all', function() {
-            this.setModelsToStorage();
-        });
+        this.on('all', this.setModelsToStorage);
     },
 
     setModelsToStorage: function() {
@@ -14,9 +10,7 @@ var Whores = Backbone.Collection.extend({
 
     getModelsFromStorage: function() {
         return JSON.parse(localStorage.getItem('whores')) || [];
-    },
-
-    model: Backbone.Model,
+    }
 });
 
 var whores = new Whores;
@@ -27,10 +21,7 @@ var ListView = Backbone.View.extend({
     el: '.left-column',
 
     initialize: function() {
-        this.listenTo(this.collection, 'all', function() {
-            this.render();
-        });
-
+        this.listenTo(this.collection, 'all', this.render);
         this.render();
     },
 
@@ -41,21 +32,16 @@ var ListView = Backbone.View.extend({
 
     handleClickOnAddBtn: function() {
         formView.showAddForm();
-        formView.resetForm();
-        $('.whore-form').removeAttr('id');
     },
 
     handleClickOnWhore: function(e) {
-        if ($(e.target).hasClass('whore')) {
-            var whore = this.collection.get(e.target.id);
-            formView.showEditRemoveForm(whore);
-            $('.whore-form').attr('id', e.target.id);
-        }
+        var whore = this.collection.get(e.target.dataset.id);
+        formView.showEditRemoveForm(whore);
     },
 
     render: function() {
         this.$('.whore-list-container').html(this.tmplFn(this.collection.toJSON()));
-    },
+    }
 });
 
 var listView = new ListView({
@@ -69,10 +55,11 @@ var FormView = Backbone.View.extend({
 
     resetForm: function() {
         this.$fields.val('');
+        this.$fields.removeClass('empty-input');
     },
 
     hideForm: function() {
-        $('.whore-form').addClass('hidden');
+        this.$('.whore-form').addClass('hidden');
     },
 
     showAddForm: function() {
@@ -128,7 +115,7 @@ var FormView = Backbone.View.extend({
 
     highlightFields: function() {
         this.$fields.each(function(index, input) {
-            if ($(input).val().length === 0) {
+            if ($(input).val() === '') {
                 $(input).addClass('empty-input');
             }
         });
@@ -137,8 +124,7 @@ var FormView = Backbone.View.extend({
     events: {
         'click .save-whore-btn': 'handleSave',
         'click .update-whore-btn': 'handleUpdate',
-        'click .delete-whore-btn': 'handleDelete',
-        'click input': 'handleHighlightingOnInput'
+        'click .delete-whore-btn': 'handleDelete'
     },
 
     handleSave: function() {
@@ -152,9 +138,13 @@ var FormView = Backbone.View.extend({
     },
 
     handleUpdate: function() {
-        this.collection.add(this.getFormData(), {merge: true});
-        this.resetForm();
-        this.hideForm();
+        if (this.isFormDataValid()) {
+            this.collection.add(this.getFormData(), {merge: true});
+            this.resetForm();
+            this.hideForm();
+        } else {
+            this.highlightFields();
+        }
     },
 
     handleDelete: function() {
@@ -162,10 +152,6 @@ var FormView = Backbone.View.extend({
         this.collection.remove(id);
         this.resetForm();
         this.hideForm();
-    },
-
-    handleHighlightingOnInput: function(e) {
-        $(e.target).removeClass('empty-input');
     }
 });
 

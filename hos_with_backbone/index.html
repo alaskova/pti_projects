@@ -34,7 +34,7 @@
         {{? it.length}}
             <ul class="whore-list">
                 {{~ it :whore:index}}
-                    <li class="whore" id="{{= whore.id}}">{{= whore.alias}} {{= whore.age}}, ${{= whore.price}}</li>
+                    <li class="whore" data-id="{{= whore.id}}">{{= whore.alias}} {{= whore.age}}, ${{= whore.price}}</li>
                 {{~}}
             </ul>
         {{??}}
