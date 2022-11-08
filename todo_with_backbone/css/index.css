@@ -140,3 +140,7 @@
     font-weight: bold;
     color: #d44343;
 }
+
+.hidden {
+    display: none;
+}
