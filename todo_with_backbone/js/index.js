@@ -2,9 +2,6 @@ var Tasks = Backbone.Collection.extend({
     initialize: function() {
         this.reset(this.getTasksFromStorage());
         this.on('all', this.setTasksToStorage);
-        this.on('all', this.counterCompletedAndRemaining);
-        this.counterCompletedAndRemaining();
-        this.on('all', this.resetDefaultActionAsActive);
     },
 
     setTasksToStorage: function() {
@@ -13,20 +10,15 @@ var Tasks = Backbone.Collection.extend({
 
     getTasksFromStorage: function() {
         return JSON.parse(localStorage.getItem('tasks')) || [];
-    },
-
-    counterCompletedAndRemaining: function() {
-        $('.item-completed').text(this.where({completed: true}).length);
-        $('.item-incompleted').text(this.where({completed: false}).length);
-    },
-
-    resetDefaultActionAsActive: function() {
-        $('button').removeClass('active');
-        $('button[data-filter="all"]').addClass('active');
-    },
+    }
 });
 
 var tasks = new Tasks;
+
+var appModel = new Backbone.Model({
+    needle: '',     // any search text
+    filter: 'all'   // all incompleted completed
+});
 
 var AppView = Backbone.View.extend({
     el: '.app',
@@ -34,22 +26,35 @@ var AppView = Backbone.View.extend({
     events: {
         'keypress input.title': 'handleAddNewTaskOnKeypress',
         'keyup input.needle': 'handleSearch',
-        'click .filters .actions': 'handleActions'
+        'click .filters .actions button': 'handleFilter'
     },
 
-    resetTitle: function() {
-        this.$('input.title').val('');
+    initialize: function() {
+        this.listenTo(this.collection, 'all', this.counterCompletedAndRemaining);
+        this.counterCompletedAndRemaining();
     },
 
     handleAddNewTaskOnKeypress: function(e) {
-        if (e.which === 13 && this.isFieldValid(this.$('input.title'))) {
+        if (e.keyCode === 13 && this.isFieldValid(this.$('input.title'))) {
             this.collection.add(this.getTaskData());
             this.resetTitle();
         }
     },
 
-    getUniqId: function() {
-        return '_' + Math.random().toString(36).substr(2, 9);
+    handleSearch: function(e) {
+        appModel.set('needle', e.target.value);
+    },
+
+    handleFilter: function(e) {
+        appModel.set('filter', e.target.dataset.filter);
+
+        this.$('.filters .actions button').removeClass('active');
+        this.$(e.target).addClass('active');
+    },
+
+    counterCompletedAndRemaining: function() {
+        this.$('.item-completed').text(this.collection.where({completed: true}).length);
+        this.$('.item-incompleted').text(this.collection.where({completed: false}).length);
     },
 
     getTaskData: function() {
@@ -61,14 +66,16 @@ var AppView = Backbone.View.extend({
         }
     },
 
-    isFieldValid: function(input) {
-        return $(input).val() !== '';
+    getUniqId: function() {
+        return '_' + Math.random().toString(36).substr(2, 9);
     },
 
-    handleActions: function(e) {
-        var activeFilter = this.$('button.active');
-        this.$(activeFilter).removeClass('active');
-        this.$(e.target).addClass('active');
+    isFieldValid: function($input) {
+        return $input.val() !== '';
+    },
+
+    resetTitle: function() {
+        this.$('input.title').val('');
     }
 });
 
@@ -79,25 +86,43 @@ var appView = new AppView({
 var ListView = Backbone.View.extend({
     tmplFn: doT.template($('#tasks-template').html()),
 
-    el: '.app',
+    el: '#tasks',
 
     initialize: function() {
         this.listenTo(this.collection, 'all', this.render);
+        this.listenTo(appModel, 'all', this.render);
         this.render();
-    },
-
-    render: function() {
-        this.$('#tasks').html(this.tmplFn(this.collection.toJSON()));
     },
 
     events: {
         'click button.delete': 'handleDelete',
-        'dblclick span.title': 'handleCompletedTask',
         'click button.important': 'handleImportantTask',
-        'click .actions [data-filter="all"]': 'handleAllFilter',
-        'click .actions [data-filter="incompleted"]': 'handleIncompletedFilter',
-        'click .actions [data-filter="completed"]': 'handleCompletedFilter',
-        'keyup input.needle': 'handleSearch'
+        'dblclick span.title': 'handleCompletedTask'
+    },
+
+    render: function() {
+        this.$el.html(this.tmplFn(this.getFilteredTasks()));
+    },
+
+    getFilteredTasks: function() {
+        var tasks = this.collection.toJSON();
+        var needle = appModel.get('needle');
+        var filter = appModel.get('filter'); // all incompleted completed
+
+        return tasks
+            .filter(function(task) {
+                return task.title.toLowerCase().includes(needle.toLowerCase());
+            })
+            .filter(function(task) {
+                switch (filter) {
+                    case 'completed':
+                        return task.completed;
+                    case 'incompleted':
+                        return !task.completed;
+                    default:
+                        return true;
+                }
+            });
     },
 
     handleDelete: function(e) {
@@ -105,60 +130,16 @@ var ListView = Backbone.View.extend({
         this.collection.remove(id);
     },
 
-    handleCompletedTask: function(e) {
-        var id = $(e.target).closest('.item').data('id');
-        $(e.target).closest('.item').toggleClass('completed');
-        if ($(e.target).closest('.item').hasClass('completed')) {
-            this.collection.get(id).set('completed', true);
-        } else {
-            this.collection.get(id).set('completed', false);
-        }
-    },
-
     handleImportantTask: function(e) {
         var id = $(e.target).closest('.item').data('id');
-        $(e.target).closest('.item').toggleClass('important');
-        if ($(e.target).closest('.item').hasClass('important')) {
-            this.collection.get(id).set('important', true);
-        } else {
-            this.collection.get(id).set('important', false);
-        }
+        var task = this.collection.get(id);
+        task.set('important', !task.get('important'));
     },
 
-    handleAllFilter: function() {
-        $('#tasks .item').removeClass('hidden');
-    },
-
-    handleIncompletedFilter: function() {
-        var $tasks = $('#tasks .item');
-        $tasks.removeClass('hidden');
-        $tasks.each(function(index, task) {
-            if ($(task).hasClass('completed')) {
-                $(task).addClass('hidden');
-            }
-        });
-    },
-
-    handleCompletedFilter: function() {
-        var $tasks = $('#tasks .item');
-        $tasks.removeClass('hidden');
-        $tasks.each(function(index, task) {
-            if (!$(task).hasClass('completed')) {
-                $(task).addClass('hidden');
-            }
-        });
-    },
-
-    handleSearch: function() {
-        var val = $('input.needle').val();
-        var tasks = $('span.title');
-        tasks.each(function(index, item) {
-            if ($(item).text().includes(val)) {
-                $(item).closest('div.item').removeClass('hidden')
-            } else {
-                $(item).closest('div.item').addClass('hidden')
-            }
-        })
+    handleCompletedTask: function(e) {
+        var id = $(e.target).closest('.item').data('id');
+        var task = this.collection.get(id);
+        task.set('completed', !task.get('completed'));
     }
 });
 
