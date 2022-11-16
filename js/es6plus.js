@@ -62,7 +62,7 @@ var name = 'Вася';
 
 var o = {
     name,
-    getName() {return this.name}
+    getName() { return this.name; }
 };
 
 
@@ -90,11 +90,11 @@ var vasya = {
 //     age: 31
 // });
 
-whores = [...whores, ...[{ name: 'Ванесса', age: 22 }]];
+whores = [...whores, { name: 'Ванесса', age: 22 }];
 
 var fruits3 = [...fruits1, ...fruits2];
 
-var person = {...{}, ...vasya, ...{age: 31}};
+var person = {...vasya, ...{age: 31}};
 
 
 // Перепиши определения функций используя стрелочные функции
@@ -119,7 +119,6 @@ var f4 = () => 'Хуй мусорам!';
 
 // Перепиши класс Circle из файла js/functions_part_4.js используя синтаксис классов
 
-// TODO: Write your code here
 class Circle {
     constructor(x, y, radius) {
         this.x = x;
@@ -132,7 +131,7 @@ class Circle {
     }
 
     getPerimeter() {
-        return 3.14 * this.getDiameter;
+        return 3.14 * this.getDiameter();
     }
 
     getSquare() {
@@ -152,8 +151,8 @@ var config = {
 // var port2 = config.port;
 // var dbName = config.dbName !== undefined ? config.dbName : 'default' ;
 
-var {host} = config;
+var { host } = config;
 
-var {port: port2} = config;
+var { port: port2 } = config;
 
-var {dbName = 'default'} = config;
+var { dbName = 'default' } = config;
