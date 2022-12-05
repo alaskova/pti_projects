@@ -433,28 +433,49 @@
 
     <script type="text/babel">
         class TaskChangeColor extends React.Component {
+            state = {
+                color: '#000000'
+            };
+
+            onClick = () => {
+                this.setState({
+                    color: 'red'
+                });
+            };
+
             render() {
+                const {color} = this.state;
+                const {onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить цвет текста</p>
-                        <p className="t t1">Тест</p>
-                        <button className="b b1" onClick={() => document.querySelector('.t1').style.color = 'red'}>Изменить цвет текста</button>
+                        <p className="t t1" style={{color}}>Тест</p>
+                        <button className="b b1" onClick={onClick}>Изменить цвет текста</button>
                     </>
                 );
             }
         }
 
         class TaskChangeBackgroundColor extends React.Component {
+            state = {
+                backgroundColor: 'transparent'
+            };
+
             onClick = () => {
-                document.querySelector('.t2').style.backgroundColor = "red"
-            }
+                this.setState({
+                    backgroundColor: 'red'
+                });
+            };
 
             render() {
+                const {backgroundColor} = this.state;
                 const {onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить цвет фона</p>
-                        <p className="t t2">Тест</p>
+                        <p className="t t2" style={{backgroundColor}}>Тест</p>
                         <button className="b b2" onClick={onClick}>Изменить цвет фона</button>
                     </>
                 );
@@ -462,12 +483,25 @@
         }
 
         class TaskChangeHref extends React.Component {
+            state = {
+                href: 'https://habrahabr.ru/'
+            };
+
+            onClick = () => {
+                this.setState({
+                    href: 'https://google.com/'
+                });
+            };
+
             render() {
+                const {href} = this.state;
+                const {onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить путь ссылки</p>
-                        <p className="t t3"><a href="https://habrahabr.ru/">Тест</a></p>
-                        <button className="b b3" onClick={() => document.querySelector('.t3 a').href = 'https://google.com/'}>Изменить путь ссылки</button>
+                        <p className="t t3"><a href={href}>Тест</a></p>
+                        <button className="b b3" onClick={onClick}>Изменить путь ссылки</button>
                     </>
                 );
             }
