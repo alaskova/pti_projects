@@ -438,19 +438,24 @@
                     <>
                         <p className="z">При клике на кнопку изменить цвет текста</p>
                         <p className="t t1">Тест</p>
-                        <button className="b b1">Изменить цвет текста</button>
+                        <button className="b b1" onClick={() => document.querySelector('.t1').style.color = 'red'}>Изменить цвет текста</button>
                     </>
                 );
             }
         }
 
         class TaskChangeBackgroundColor extends React.Component {
+            onClick = () => {
+                document.querySelector('.t2').style.backgroundColor = "red"
+            }
+
             render() {
+                const {onClick} = this;
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить цвет фона</p>
                         <p className="t t2">Тест</p>
-                        <button className="b b2">Изменить цвет фона</button>
+                        <button className="b b2" onClick={onClick}>Изменить цвет фона</button>
                     </>
                 );
             }
@@ -462,7 +467,7 @@
                     <>
                         <p className="z">При клике на кнопку изменить путь ссылки</p>
                         <p className="t t3"><a href="https://habrahabr.ru/">Тест</a></p>
-                        <button className="b b3">Изменить путь ссылки</button>
+                        <button className="b b3" onClick={() => document.querySelector('.t3 a').href = 'https://google.com/'}>Изменить путь ссылки</button>
                     </>
                 );
             }
@@ -474,7 +479,7 @@
                     <>
                         <p className="z">При клике на кнопку изменить путь к картинке</p>
                         <p className="t t4">Тест <img src="images/kaktus.jpg" width="100" /></p>
-                        <button className="b b4">Изменить путь к картинке</button>
+                        <button className="b b4" onClick={() => document.querySelector('.t4 img').src = 'images/fish.jpg'}>Изменить путь к картинке</button>
                     </>
                 );
             }
@@ -486,7 +491,7 @@
                     <>
                         <p className="z">При клике на кнопку изменить id элемента</p>
                         <p className="t t5" id="ab">Тест</p>
-                        <button className="b b5">Изменить id элемента</button>
+                        <button className="b b5" onClick={() => document.querySelector('.t5').id = 'ac'}>Изменить id элемента</button>
                     </>
                 );
             }
@@ -498,7 +503,7 @@
                     <>
                         <p className="z">При клике на кнопку изменить текст</p>
                         <p className="t t6">Тест</p>
-                        <button className="b b6">Изменить текст</button>
+                        <button className="b b6" onClick={() => document.querySelector('.t6').innerText = 'new text'}>Изменить текст</button>
                     </>
                 );
             }
@@ -510,7 +515,7 @@
                     <>
                         <p className="z">При клике на кнопку изменить HTML</p>
                         <p className="t t7">Тест <b>Цветы</b></p>
-                        <button className="b b7">Изменить HTML</button>
+                        <button className="b b7" onClick={() => document.querySelector('.t7').innerHTML = '<span>Коты</span>'}>Изменить HTML</button>
                     </>
                 );
             }
@@ -522,7 +527,7 @@
                     <>
                         <p className="z">При клике на кнопку изменить размер шрифта</p>
                         <p className="t t8">Тест</p>
-                        <button className="b b8">Изменить размер шрифта</button>
+                        <button className="b b8" onClick={() => document.querySelector('.t8').style.fontSize = "25px"}>Изменить размер шрифта</button>
                     </>
                 );
             }
@@ -534,7 +539,7 @@
                     <>
                         <p className="z">При клике на кнопку добавить класс 'hi'</p>
                         <p className="t t9">Тест</p>
-                        <button className="b b9">Добавить класс 'hi'</button>
+                        <button className="b b9" onClick={() => document.querySelector('.t9').classList.add('hi')}>Добавить класс 'hi'</button>
                     </>
                 );
             }
@@ -546,7 +551,7 @@
                     <>
                         <p className="z">При клике на кнопку удалить класс 'hi'</p>
                         <p className="t t10 hi">Тест</p>
-                        <button className="b b10">Удалить класс 'hi'</button>
+                        <button className="b b10" onClick={() => document.querySelector('.t10').classList.remove('hi')}>Удалить класс 'hi'</button>
                     </>
                 );
             }
@@ -558,18 +563,24 @@
                     <>
                         <p className="z">При клике на кнопку добавлять/удалять (в зависимости от наличия) класс 'hi'</p>
                         <p className="t t11">Тест</p>
-                        <button className="b b11">Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
+                        <button className="b b11" onClick={() => document.querySelector('.t11').classList.toggle('hi')}>Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
                     </>
                 );
             }
         }
 
         class TaskShowClass extends React.Component {
+            handleClick() {
+                document.addEventListener('click', function(e) {
+                    document.querySelector('.t12').innerText = e.target.className;
+                });
+            }
+
             render() {
                 return (
                     <>
                         <p className="z">При клике на любом элементе страницы выводить значение атрибута class элемента</p>
-                        <p className="t t12">Тест</p>
+                        <p className="t t12" onClick={this.handleClick}>Тест</p>
                     </>
                 );
             }
@@ -589,11 +600,21 @@
         }
 
         class TaskChangeBackgroundColorOnResize extends React.Component {
+            handleResize() {
+                window.addEventListener('resize', () => {
+                    const R = Math.round(Math.random() * 255);
+                    const G = Math.round(Math.random() * 255);
+                    const B = Math.round(Math.random() * 255);
+
+                    document.querySelector('.t99').style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
+                });
+            }
+
             render() {
                 return (
                     <>
                         <p className="z">При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца (использовать RGB и Math.random)</p>
-                        <p className="t t99">Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because drugs are bad.</p>
+                        <p className="t t99" onClick={this.handleResize}>Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because drugs are bad.</p>
                     </>
                 );
             }
