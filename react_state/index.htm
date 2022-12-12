@@ -508,113 +508,231 @@
         }
 
         class TaskChangeSrc extends React.Component {
+            state = {
+                src: 'images/kaktus.jpg'
+            };
+
+            onClick = () => {
+                this.setState({
+                    src: 'images/fish.jpg'
+                });
+            };
+
             render() {
+                const{src} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить путь к картинке</p>
-                        <p className="t t4">Тест <img src="images/kaktus.jpg" width="100" /></p>
-                        <button className="b b4" onClick={() => document.querySelector('.t4 img').src = 'images/fish.jpg'}>Изменить путь к картинке</button>
+                        <p className="t t4">Тест <img src={src} width="100" /></p>
+                        <button className="b b4" onClick={onClick}>Изменить путь к картинке</button>
                     </>
                 );
             }
         }
 
         class TaskChangeId extends React.Component {
+            state = {
+                id: 'ab'
+            };
+
+            onClick = () => {
+                this.setState({
+                    id: 'er'
+                });
+            };
+
             render() {
+                const{id} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить id элемента</p>
-                        <p className="t t5" id="ab">Тест</p>
-                        <button className="b b5" onClick={() => document.querySelector('.t5').id = 'ac'}>Изменить id элемента</button>
+                        <p className="t t5" id={id}>Тест</p>
+                        <button className="b b5" onClick={onClick}>Изменить id элемента</button>
                     </>
                 );
             }
         }
 
         class TaskChangeText extends React.Component {
+            state = {
+                innerText: 'Тест'
+            };
+
+            onClick = () => {
+                this.setState({
+                    innerText: 'new text'
+                });
+            };
+
             render() {
+                const{innerText} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить текст</p>
-                        <p className="t t6">Тест</p>
-                        <button className="b b6" onClick={() => document.querySelector('.t6').innerText = 'new text'}>Изменить текст</button>
+                        <p className="t t6">{innerText}</p>
+                        <button className="b b6" onClick={onClick}>Изменить текст</button>
                     </>
                 );
             }
         }
 
         class TaskChangeHtml extends React.Component {
+            state = {
+                innerHtml: <b>Цветы</b>
+            };
+
+            onClick = () => {
+                this.setState({
+                    innerHtml: <span>Коты</span>
+                });
+            };
+
             render() {
+                const{innerHtml} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить HTML</p>
-                        <p className="t t7">Тест <b>Цветы</b></p>
-                        <button className="b b7" onClick={() => document.querySelector('.t7').innerHTML = '<span>Коты</span>'}>Изменить HTML</button>
+                        <p className="t t7">Тест {innerHtml}</p>
+                        <button className="b b7" onClick={onClick}>Изменить HTML</button>
                     </>
                 );
             }
         }
 
         class TaskChangeFontSize extends React.Component {
+            state = {
+                fontSize: '18.4px'
+            };
+
+            onClick = () => {
+                this.setState({
+                    fontSize: '27px'
+                });
+            };
+
             render() {
+                const{fontSize} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить размер шрифта</p>
-                        <p className="t t8">Тест</p>
-                        <button className="b b8" onClick={() => document.querySelector('.t8').style.fontSize = "25px"}>Изменить размер шрифта</button>
+                        <p className="t t8" style={{fontSize}}>Тест</p>
+                        <button className="b b8" onClick={onClick}>Изменить размер шрифта</button>
                     </>
                 );
             }
         }
 
         class TaskChangeAddClass extends React.Component {
+            state = {
+                className: ''
+            };
+
+            onClick = () => {
+                this.setState({
+                    className: 'hi'
+                });
+            };
+
             render() {
+                const{className} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку добавить класс 'hi'</p>
-                        <p className="t t9">Тест</p>
-                        <button className="b b9" onClick={() => document.querySelector('.t9').classList.add('hi')}>Добавить класс 'hi'</button>
+                        <p className={`t t9 ${className}`} >Тест</p>
+                        <button className="b b9" onClick={onClick}>Добавить класс 'hi'</button>
                     </>
                 );
             }
         }
 
         class TaskChangeRemoveClass extends React.Component {
+            state = {
+                className: 'hi'
+            };
+
+            onClick = () => {
+                this.setState({
+                    className: ''
+                });
+            };
+
             render() {
+                const{className} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку удалить класс 'hi'</p>
-                        <p className="t t10 hi">Тест</p>
-                        <button className="b b10" onClick={() => document.querySelector('.t10').classList.remove('hi')}>Удалить класс 'hi'</button>
+                        <p className={`t t10 ${className}`}>Тест</p>
+                        <button className="b b10" onClick={onClick}>Удалить класс 'hi'</button>
                     </>
                 );
             }
         }
 
         class TaskChangeToggleClass extends React.Component {
+            state = {
+                className: ''
+            };
+
+            onClick = () => {
+                this.setState((prevState) => ({
+                    className: prevState.className ? '' : 'hi'
+                }));
+            };
+
             render() {
+                const{className} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку добавлять/удалять (в зависимости от наличия) класс 'hi'</p>
-                        <p className="t t11">Тест</p>
-                        <button className="b b11" onClick={() => document.querySelector('.t11').classList.toggle('hi')}>Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
+                        <p className={`t t11 ${className}`}>Тест</p>
+                        <button className="b b11" onClick={onClick}>Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
                     </>
                 );
             }
         }
 
         class TaskShowClass extends React.Component {
-            handleClick() {
-                document.addEventListener('click', function(e) {
-                    document.querySelector('.t12').innerText = e.target.className;
+            state = {
+                innerText: 'Тест'
+            };
+
+            onClick = e => {
+                this.setState({
+                    innerText: e.target.className
                 });
+            };
+
+            componentDidMount() {
+                document.addEventListener('click', this.onClick);
+            }
+
+            componentWillUnmount() {
+                document.removeEventListener('click', this.onClick);
             }
 
             render() {
+                const{innerText} = this.state;
+
                 return (
                     <>
                         <p className="z">При клике на любом элементе страницы выводить значение атрибута class элемента</p>
-                        <p className="t t12" onClick={this.handleClick}>Тест</p>
+                        <p className="t t12">{innerText}</p>
                     </>
                 );
             }
@@ -634,39 +752,81 @@
         }
 
         class TaskChangeBackgroundColorOnResize extends React.Component {
-            handleResize() {
-                window.addEventListener('resize', () => {
-                    const R = Math.round(Math.random() * 255);
-                    const G = Math.round(Math.random() * 255);
-                    const B = Math.round(Math.random() * 255);
+            state = {
+                backgroundColor: 'rgb(' + 143 + ',' + 255 + ',' + 0 +')'
+            };
 
-                    document.querySelector('.t99').style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
-                });
+            onResize = () => {
+                const R = Math.round(Math.random() * 255);
+                const G = Math.round(Math.random() * 255);
+                const B = Math.round(Math.random() * 255);
+
+                this.setState({
+                    backgroundColor: `rgb(${R}, ${G}, ${B})`
+                })
+            };
+
+            componentDidMount() {
+                window.addEventListener('resize', this.onResize);
+            }
+
+            componentWillUnmount() {
+                window.removeEventListener('resize', this.onResize);
             }
 
             render() {
+                const{backgroundColor} = this.state;
+
                 return (
                     <>
                         <p className="z">При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца (использовать RGB и Math.random)</p>
-                        <p className="t t99" onClick={this.handleResize}>Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because drugs are bad.</p>
+                        <p className="t t99" style={{backgroundColor}}>Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because drugs are bad.</p>
                     </>
                 );
             }
         }
 
         class TaskInputWithCounter extends React.Component {
+            state = {
+                length: 24
+            };
+
+            onChange = e => {
+                this.setState({
+                    length: e.target.value.length
+                });
+            };
+
             render() {
+                const{length} = this.state;
+                const{onChange} = this;
+
                 return (
                     <>
                         <p className="z">При изменении значения элемента формы выводить количество символов которое оно содержит</p>
-                        <p className="t t98"><input type="text" defaultValue="Я не касался писи козла!" /> <span className="t98-2">24</span></p>
+                        <p className="t t98"><input type="text" onChange={onChange} defaultValue="Я не касался писи козла!" /> <span className="t98-2">{length}</span></p>
                     </>
                 );
             }
         }
 
         class TaskWhores extends React.Component {
+            state = {
+                whores: []
+            };
+
+            onClick = () => {
+                this.setState((state) => ({
+                        whores: [
+                            ...state.whores,
+                        ]
+                    }));
+            };
+
             render() {
+                const{whores} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">Вывести на экран анкету Жасмин используя переменную jasmine (смотри исходный код)</p>
@@ -690,14 +850,27 @@
                             </div>
                         </div>
 
-                        <button className="b b14">Добавить анкету</button>
+                        <button className="b b14" onClick={onClick}>Добавить анкету</button>
                     </>
                 );
             }
         }
 
         class TaskFish extends React.Component {
+            state = {
+                fish: true
+            };
+
+            onClick = () => {
+                this.setState((prevState) => ({
+                    fish: !prevState.fish
+                }));
+            };
+
             render() {
+                const{fish} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">Переместить рыбу из первого контейнера во второй (при повторном клике из второго в первый и т.д.)</p>
@@ -705,61 +878,117 @@
                         <div className="cats-container">
                             <div className="cat-container-1">
                                 <img className="cat" src="images/kat.png" width="100" />
-                                <img className="fish" src="images/fish.jpg" width="100" />
+                                {fish && <img className="fish" src="images/fish.jpg" width="100" />}
                             </div>
 
                             <div className="cat-container-2">
                                 <img className="cat" src="images/kat.png" width="100" />
+                                {fish || <img className="fish" src="images/fish.jpg" width="100" />}
                             </div>
                         </div>
 
-                        <button className="b b15">Переместить рыбу</button>
+                        <button className="b b15" onClick={onClick}>Переместить рыбу</button>
                     </>
                 );
             }
         }
 
         class TaskTooth extends React.Component {
+            state = {
+                tooth: true
+            };
+
+            onClick = () => {
+                this.setState({
+                    tooth: false
+                });
+            };
+
             render() {
+                const{tooth} = this.state;
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">Удалить зуб</p>
 
                         <div className="tooth-container">
-                            <img className="tooth" src="images/tooth.jpg" width="200" />
+                            {tooth && <img className="tooth" src="images/tooth.jpg" width="200" />}
                             <img className="boy" src="images/bro.jpg" width="600" />
                         </div>
 
-                        <button className="b b16">Удалить зуб</button>
+                        <button className="b b16" onClick={onClick}>Удалить зуб</button>
                     </>
                 );
             }
         }
 
         class TaskSkier extends React.Component {
+            state = {
+                x: 0
+            };
+
+            handleMove = () => {
+                this.interval = setInterval(() => {
+                    this.setState(prevState => ({
+                        x: prevState.x + 5
+                    }));
+                }, 16);
+            };
+
+            handleStop = () => {
+                clearInterval(this.interval);
+            };
+
             render() {
+                const{x} = this.state;
+                const{handleMove} = this;
+                const{handleStop} = this;
+
                 return (
                     <>
                         <p className="z">Хочу чтоб лыжник бесконечно ехал вправо (сдвиг на 5px каждые 16ms). При нажатии на кнопку "Стоп!" останавливался.</p>
 
                         <div className="ski-resort">
-                            <img className="skier" src="images/skier.gif" />
+                            <img className="skier" src="images/skier.gif" style={{left: x + 'px'}}/>
                         </div>
 
-                        <button className="b b17">Поехали!</button>
-                        <button className="b b17-2">Стоп!</button>
+                        <button className="b b17" onClick={handleMove}>Поехали!</button>
+                        <button className="b b17-2" onClick={handleStop}>Стоп!</button>
                     </>
                 );
             }
         }
 
         class TaskMikki extends React.Component {
+            state = {
+                backgroundColor: ''
+            };
+
+            componentDidMount() {
+                this.setState({
+                    backgroundColor: '#000000'
+                });
+            }
+
             render() {
+                const{backgroundColor} = this.state;
+
                 return (
                     <>
                         <p className="z">Хочу такое (смотри исходный код) <img src="images/mikki.png" /></p>
 
-                        <div className="mikki_tiles"></div>
+                        <div className="mikki_tiles">
+                            {
+                                mikki.map(line => {
+                                    return [...line].map(tile => {
+                                        return tile === 'X'
+                                        ? <div className="mikki_tile" style={{backgroundColor}}></div>
+                                        : <div className="mikki_tile"></div>
+                                    });
+                                })
+                            }
+                        </div>
                     </>
                 );
             }
@@ -767,11 +996,14 @@
 
         class TaskMario extends React.Component {
             render() {
+
                 return (
                     <>
                         <p className="z">Создать мир Марио <img src="images/mario.png" /></p>
 
-                        <div className="scene"></div>
+                        <div className="scene">
+
+                        </div>
 
                         <button className="b b18">Создать мир</button>
                     </>
@@ -780,22 +1012,48 @@
         }
 
         class TaskSlider extends React.Component {
+            slides = [
+                {src: 'images/slide1.jpg'},
+                {src: 'images/slide2.jpg'},
+                {src: 'images/slide3.jpg'},
+                {src: 'images/slide4.jpg'},
+                {src: 'images/slide5.jpg'}
+            ];
+
+            state = {
+                activeSlide: 0,
+                length: this.slides.length
+            };
+
+            nextSlide = () => {
+                this.setState((prevState) => ({
+                    activeSlide: prevState.activeSlide === prevState.length - 1 ? 0 : prevState.activeSlide + 1
+                }));
+            };
+
+            prevSlide = () => {
+                this.setState((prevState) => ({
+                    activeSlide: prevState.activeSlide === 0 ? prevState.length - 1 : prevState.activeSlide - 1
+                }));
+            };
+
             render() {
+                const{nextSlide, prevSlide, slides} = this;
+                const{activeSlide} = this.state;
+
                 return (
                     <>
                         <p className="z">Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись соответственно слайды</p>
 
                         <div className="slider">
-                            <img src="images/slide1.jpg" className="slide active" />
-                            <img src="images/slide2.jpg" className="slide" />
-                            <img src="images/slide3.jpg" className="slide" />
-                            <img src="images/slide4.jpg" className="slide" />
-                            <img src="images/slide5.jpg" className="slide" />
+                            {
+                                slides.map((slide, index) => index === activeSlide && <img src={slide.src} className="slide active" />)
+                            }
                         </div>
 
                         <div className="pagination">
-                            <button className="previous">Previous</button>
-                            <button className="next">Next</button>
+                            <button className="previous" onClick={prevSlide}>Previous</button>
+                            <button className="next" onClick={nextSlide}>Next</button>
                         </div>
                     </>
                 );
@@ -917,12 +1175,18 @@
         }
 
         class TaskLink extends React.Component {
+            onClick = (e) => {
+                e.preventDefault();
+            }
+
             render() {
+                const{onClick} = this;
+
                 return (
                     <>
                         <p className="z">Отменить действие по-умолчанию при клике на ссылку</p>
 
-                        <p><a href="https://ebanoe.it/" className="link-ebanoe" target="_blank">Ebanoe.IT — голая правда о нашем айти</a></p>
+                        <p><a href="https://ebanoe.it/" className="link-ebanoe" target="_blank" onClick={onClick}>Ebanoe.IT — голая правда о нашем айти</a></p>
                     </>
                 );
             }
