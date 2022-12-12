@@ -519,8 +519,8 @@
             };
 
             render() {
-                const{src} = this.state;
-                const{onClick} = this;
+                const {src} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
@@ -544,8 +544,8 @@
             };
 
             render() {
-                const{id} = this.state;
-                const{onClick} = this;
+                const {id} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
@@ -559,23 +559,23 @@
 
         class TaskChangeText extends React.Component {
             state = {
-                innerText: 'Тест'
+                text: 'Тест'
             };
 
             onClick = () => {
                 this.setState({
-                    innerText: 'new text'
+                    text: 'new text'
                 });
             };
 
             render() {
-                const{innerText} = this.state;
-                const{onClick} = this;
+                const {text} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить текст</p>
-                        <p className="t t6">{innerText}</p>
+                        <p className="t t6">{text}</p>
                         <button className="b b6" onClick={onClick}>Изменить текст</button>
                     </>
                 );
@@ -584,23 +584,23 @@
 
         class TaskChangeHtml extends React.Component {
             state = {
-                innerHtml: <b>Цветы</b>
+                html: 'Тест <b>Цветы</b>'
             };
 
             onClick = () => {
                 this.setState({
-                    innerHtml: <span>Коты</span>
+                    html: 'Тест <span>Коты</span>'
                 });
             };
 
             render() {
-                const{innerHtml} = this.state;
-                const{onClick} = this;
+                const {html} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить HTML</p>
-                        <p className="t t7">Тест {innerHtml}</p>
+                        <p className="t t7" dangerouslySetInnerHTML={{__html: html}} />
                         <button className="b b7" onClick={onClick}>Изменить HTML</button>
                     </>
                 );
@@ -619,8 +619,8 @@
             };
 
             render() {
-                const{fontSize} = this.state;
-                const{onClick} = this;
+                const {fontSize} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
@@ -644,13 +644,13 @@
             };
 
             render() {
-                const{className} = this.state;
-                const{onClick} = this;
+                const {className} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
                         <p className="z">При клике на кнопку добавить класс 'hi'</p>
-                        <p className={`t t9 ${className}`} >Тест</p>
+                        <p className={`t t9 ${className}`}>Тест</p>
                         <button className="b b9" onClick={onClick}>Добавить класс 'hi'</button>
                     </>
                 );
@@ -669,8 +669,8 @@
             };
 
             render() {
-                const{className} = this.state;
-                const{onClick} = this;
+                const {className} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
@@ -689,13 +689,13 @@
 
             onClick = () => {
                 this.setState((prevState) => ({
-                    className: prevState.className ? '' : 'hi'
+                    className: prevState.className !== '' ? '' : 'hi'
                 }));
             };
 
             render() {
-                const{className} = this.state;
-                const{onClick} = this;
+                const {className} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
@@ -709,12 +709,12 @@
 
         class TaskShowClass extends React.Component {
             state = {
-                innerText: 'Тест'
+                className: ''
             };
 
             onClick = e => {
                 this.setState({
-                    innerText: e.target.className
+                    className: e.target.className
                 });
             };
 
@@ -727,12 +727,12 @@
             }
 
             render() {
-                const{innerText} = this.state;
+                const {className} = this.state;
 
                 return (
                     <>
                         <p className="z">При клике на любом элементе страницы выводить значение атрибута class элемента</p>
-                        <p className="t t12">{innerText}</p>
+                        <p className="t t12">{className}</p>
                     </>
                 );
             }
@@ -753,16 +753,16 @@
 
         class TaskChangeBackgroundColorOnResize extends React.Component {
             state = {
-                backgroundColor: 'rgb(' + 143 + ',' + 255 + ',' + 0 +')'
+                backgroundColor: 'rgb(143, 255, 0)'
             };
 
             onResize = () => {
-                const R = Math.round(Math.random() * 255);
-                const G = Math.round(Math.random() * 255);
-                const B = Math.round(Math.random() * 255);
+                const r = Math.round(Math.random() * 255);
+                const g = Math.round(Math.random() * 255);
+                const b = Math.round(Math.random() * 255);
 
                 this.setState({
-                    backgroundColor: `rgb(${R}, ${G}, ${B})`
+                    backgroundColor: `rgb(${r}, ${g}, ${b})`
                 })
             };
 
@@ -775,7 +775,7 @@
             }
 
             render() {
-                const{backgroundColor} = this.state;
+                const {backgroundColor} = this.state;
 
                 return (
                     <>
@@ -788,27 +788,43 @@
 
         class TaskInputWithCounter extends React.Component {
             state = {
-                length: 24
+                text: 'Я не касался писи козла!'
             };
 
             onChange = e => {
                 this.setState({
-                    length: e.target.value.length
+                    text: e.target.value
                 });
             };
 
             render() {
-                const{length} = this.state;
-                const{onChange} = this;
+                const {text} = this.state;
+                const {onChange} = this;
 
                 return (
                     <>
                         <p className="z">При изменении значения элемента формы выводить количество символов которое оно содержит</p>
-                        <p className="t t98"><input type="text" onChange={onChange} defaultValue="Я не касался писи козла!" /> <span className="t98-2">{length}</span></p>
+                        <p className="t t98"><input type="text" onChange={onChange} value={text} /> <span className="t98-2">{text.length}</span></p>
                     </>
                 );
             }
         }
+
+        var Whore = function(props) {
+            return (
+                <div className="whore">
+                    <div className="whore-name">{props.name}</div>
+                    <img src={props.photo} width="200" />
+                    <div className="whore-age">Возраст: {props.age}</div>
+                    <div className="whore-boobs">Размер груди: {props.boobs}</div>
+                    <div className="whore-height">Рост: {props.height}</div>
+                    <div className="whore-weight">Вес: {props.weight}</div>
+                    <div className="whore-phone">{props.phone}</div>
+                    <div className="whore-can-come">Выезд: {props.can_come ? '+' : '-'}</div>
+                    <div className="whore-teaser">{props.teaser}</div>
+                </div>
+            );
+        };
 
         class TaskWhores extends React.Component {
             state = {
@@ -816,16 +832,17 @@
             };
 
             onClick = () => {
-                this.setState((state) => ({
-                        whores: [
-                            ...state.whores,
-                        ]
-                    }));
+                this.setState((prevState) => ({
+                    whores: [
+                        ...prevState.whores,
+                        jasmine
+                    ]
+                }));
             };
 
             render() {
-                const{whores} = this.state;
-                const{onClick} = this;
+                const {whores} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
@@ -848,6 +865,7 @@
                                     одиночество :)
                                 </div>
                             </div>
+                            { whores.map(whore => <Whore {...whore} />) }
                         </div>
 
                         <button className="b b14" onClick={onClick}>Добавить анкету</button>
@@ -858,18 +876,19 @@
 
         class TaskFish extends React.Component {
             state = {
-                fish: true
+                fishInContainer: 1
             };
 
             onClick = () => {
                 this.setState((prevState) => ({
-                    fish: !prevState.fish
+                    fishInContainer: prevState.fishInContainer === 1 ? 2 : 1
                 }));
             };
 
             render() {
-                const{fish} = this.state;
-                const{onClick} = this;
+                const {fishInContainer} = this.state;
+                const {onClick} = this;
+                const fish = <img className="fish" src="images/fish.jpg" width="100" />;
 
                 return (
                     <>
@@ -878,12 +897,12 @@
                         <div className="cats-container">
                             <div className="cat-container-1">
                                 <img className="cat" src="images/kat.png" width="100" />
-                                {fish && <img className="fish" src="images/fish.jpg" width="100" />}
+                                { fishInContainer === 1 && fish }
                             </div>
 
                             <div className="cat-container-2">
                                 <img className="cat" src="images/kat.png" width="100" />
-                                {fish || <img className="fish" src="images/fish.jpg" width="100" />}
+                                { fishInContainer === 2 && fish }
                             </div>
                         </div>
 
@@ -895,25 +914,25 @@
 
         class TaskTooth extends React.Component {
             state = {
-                tooth: true
+                hasTooth: true
             };
 
             onClick = () => {
                 this.setState({
-                    tooth: false
+                    hasTooth: false
                 });
             };
 
             render() {
-                const{tooth} = this.state;
-                const{onClick} = this;
+                const {hasTooth} = this.state;
+                const {onClick} = this;
 
                 return (
                     <>
                         <p className="z">Удалить зуб</p>
 
                         <div className="tooth-container">
-                            {tooth && <img className="tooth" src="images/tooth.jpg" width="200" />}
+                            { hasTooth && <img className="tooth" src="images/tooth.jpg" width="200" /> }
                             <img className="boy" src="images/bro.jpg" width="600" />
                         </div>
 
@@ -928,33 +947,37 @@
                 x: 0
             };
 
-            handleMove = () => {
-                this.interval = setInterval(() => {
-                    this.setState(prevState => ({
-                        x: prevState.x + 5
-                    }));
-                }, 16);
+            move = () => {
+                this.setState(prevState => ({
+                    x: prevState.x + 5
+                }));
             };
 
-            handleStop = () => {
+            onStart = () => {
+                this.interval = setInterval(this.move, 16);
+            };
+
+            onStop = () => {
                 clearInterval(this.interval);
             };
 
             render() {
-                const{x} = this.state;
-                const{handleMove} = this;
-                const{handleStop} = this;
+                const style = {
+                    left: this.state.x + 'px'
+                };
+                const {onStart} = this;
+                const {onStop} = this;
 
                 return (
                     <>
                         <p className="z">Хочу чтоб лыжник бесконечно ехал вправо (сдвиг на 5px каждые 16ms). При нажатии на кнопку "Стоп!" останавливался.</p>
 
                         <div className="ski-resort">
-                            <img className="skier" src="images/skier.gif" style={{left: x + 'px'}}/>
+                            <img className="skier" src="images/skier.gif" style={style} />
                         </div>
 
-                        <button className="b b17" onClick={handleMove}>Поехали!</button>
-                        <button className="b b17-2" onClick={handleStop}>Стоп!</button>
+                        <button className="b b17" onClick={onStart}>Поехали!</button>
+                        <button className="b b17-2" onClick={onStop}>Стоп!</button>
                     </>
                 );
             }
