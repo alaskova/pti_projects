@@ -1084,51 +1084,70 @@
         }
 
         class TaskFaq extends React.Component {
+            faq = [
+                {
+                    question: 'В чем разница между 32-разрядной и 64-разрядной версиями Windows?',
+                    answer: 'Термины "32-разрядный" и "64-разрядный" описывают, каким образом процессор компьютера (он также называется ЦП) обрабатывает информацию. 64-разрядная версия Windows обрабатывает большие объемы оперативной памяти (ОЗУ) более эффективно по сравнению с 32-разрядной версией. Не все устройства могут работать под управлением 64-разрядных версий Windows.'
+                },
+                {
+                    question: 'Моя копия Windows приобретена через учебное заведение. Можно ли скачать ее здесь?',
+                    answer: 'Да, но вам потребуется ключ продукта. Перейдите на страницу загрузок <b>Академические продукты</b> и выберите версию Windows, чтобы начать.'
+                },
+                {
+                    question: 'Что делать после создания носителя с помощью средства создания носителя?',
+                    answer: '<p>Чтобы установить Windows, после создания установочного носителя выполните одно из следующих действий:</p>\n' +
+                                '<ul>\n' +
+                                    '<li>\n' +
+                                        ' Подключите USB-устройство флэш-памяти к компьютеру, на который необходимо\n' +
+                                        ' установить Windows, найдите его в проводнике и откройте файл setup.exe.\n' +
+                                        'Выполняйте инструкции, отображаемые в ходе установки.\n' +
+                                    '</li>\n' +
+                                    '<li>\n' +
+                                        'Если ваш компьютер настроен на загрузку с USB-накопителя, подключите\n' +
+                                        'USB-устройство флэш-памяти к компьютеру, на который необходимо установить\n' +
+                                        'Windows, перезагрузите его, а затем следуйте инструкциям по установке.\n' +
+                                    '</li>\n' +
+                                    '<li>\n' +
+                                        'Если компьютер настроен на загрузку с DVD-дисковода, вставьте DVD-диск в\n' +
+                                        'компьютер, перезагрузите компьютер, а затем следуйте инструкциям по установке.\n' +
+                                    '</li>\n' +
+                                '</ul>'
+                },
+                {
+                    question: 'Этот образ диска загрузочный?',
+                    answer: 'Образ диска с этого сайта можно использовать для создания загрузочных USB-носителей и DVD-дисков, которые предоставляют доступ к средствам восстановления.'
+                }
+            ];
+
+            state = {
+                activeQuestion: 0
+            };
+
+            onClick = (index) => {
+                this.setState({
+                    activeQuestion: index
+                });
+            };
+
             render() {
+                const {activeQuestion} = this.state;
+                const {onClick, faq} = this;
+
                 return (
                     <>
                         <p className="z">Кликая вопросам я хочу видеть ответы на них</p>
 
                         <dl className="faq">
-                            <dt className="question active">В чем разница между 32-разрядной и 64-разрядной версиями Windows?</dt>
-                            <dd className="answer">
-                                Термины "32-разрядный" и "64-разрядный" описывают, каким образом процессор компьютера
-                                (он также называется ЦП) обрабатывает информацию. 64-разрядная версия Windows
-                                обрабатывает большие объемы оперативной памяти (ОЗУ) более эффективно по сравнению с
-                                32-разрядной версией. Не все устройства могут работать под управлением 64-разрядных
-                                версий Windows.
-                            </dd>
-                            <dt className="question">Моя копия Windows приобретена через учебное заведение. Можно ли скачать ее здесь?</dt>
-                            <dd className="answer">
-                                Да, но вам потребуется ключ продукта. Перейдите на страницу загрузок <b>Академические
-                                продукты</b> и выберите версию Windows, чтобы начать.
-                            </dd>
-                            <dt className="question">Что делать после создания носителя с помощью средства создания носителя?</dt>
-                            <dd className="answer">
-                                <p>Чтобы установить Windows, после создания установочного носителя выполните одно из следующих действий:</p>
-
-                                <ul>
-                                    <li>
-                                        Подключите USB-устройство флэш-памяти к компьютеру, на который необходимо
-                                        установить Windows, найдите его в проводнике и откройте файл setup.exe.
-                                        Выполняйте инструкции, отображаемые в ходе установки.
-                                    </li>
-                                    <li>
-                                        Если ваш компьютер настроен на загрузку с USB-накопителя, подключите
-                                        USB-устройство флэш-памяти к компьютеру, на который необходимо установить
-                                        Windows, перезагрузите его, а затем следуйте инструкциям по установке.
-                                    </li>
-                                    <li>
-                                        Если компьютер настроен на загрузку с DVD-дисковода, вставьте DVD-диск в
-                                        компьютер, перезагрузите компьютер, а затем следуйте инструкциям по установке.
-                                    </li>
-                                </ul>
-                            </dd>
-                            <dt className="question">Этот образ диска загрузочный?</dt>
-                            <dd className="answer">
-                                Образ диска с этого сайта можно использовать для создания загрузочных USB-носителей и
-                                DVD-дисков, которые предоставляют доступ к средствам восстановления.
-                            </dd>
+                            {
+                                faq.map((item, index) => {
+                                    return (
+                                        <>
+                                            <dt className={`question ${activeQuestion === index ? 'active' : ''}`} onClick={() => onClick(index)}>{item.question}</dt>
+                                            <dd className="answer" dangerouslySetInnerHTML={{__html: item.answer}}></dd>
+                                        </>
+                                    );
+                                })
+                            }
                         </dl>
                     </>
                 );
@@ -1136,7 +1155,48 @@
         }
 
         class TaskTabs extends React.Component {
+            tabs = [
+                {
+                    tabName: 'Сегодня',
+                    tabContent: '<ul>\n' +
+                                    '<li>Звёздные войны: Последние джедаи</li>\n' +
+                                    '<li>Счастливый день смерти</li>\n' +
+                                    '<li>Дыши</li>\n' +
+                                '</ul>'
+                },
+                {
+                    tabName: 'Завтра',
+                    tabContent: '<ul>\n' +
+                                    '<li>Киборги</li>\n' +
+                                    '<li>Земля троллей</li>\n' +
+                                    '<li>За пропастью во ржи</li>\n' +
+                                '</ul>'
+                },
+                {
+                    tabName: '23 декабря',
+                    tabContent: '<ul>\n' +
+                                    '<li>Мой любимый динозавр</li>\n' +
+                                    '<li>Фердинанд</li>\n' +
+                                    '<li>Джуманджи: Зов джунглей</li>\n' +
+                                '</ul>'
+                }
+
+            ];
+
+            state = {
+                activeTab: 0
+            };
+
+            onClick = (index) => {
+                this.setState({
+                    activeTab: index
+                })
+            };
+
             render() {
+                const{onClick, tabs} = this;
+                const{activeTab} = this.state;
+
                 return (
                     <>
                         <p className="z">Кликая по вкладкам я хочу видеть связанное содержимое</p>
@@ -1144,33 +1204,19 @@
                         <h2>Сеансы</h2>
 
                         <div className="tabs">
-                            <div className="item active">Сегодня</div>
-                            <div className="item">Завтра</div>
-                            <div className="item">23 декабря</div>
+                            {
+                                tabs.map((tab, index) => {
+                                    return <div className={`item ${activeTab === index ? 'active' : ''}`} onClick={() => onClick(index)}>{tab.tabName}</div>
+                                })
+                            }
                         </div>
 
                         <div className="tabs-content">
-                            <div className="item active">
-                                <ul>
-                                    <li>Звёздные войны: Последние джедаи</li>
-                                    <li>Счастливый день смерти</li>
-                                    <li>Дыши</li>
-                                </ul>
-                            </div>
-                            <div className="item">
-                                <ul>
-                                    <li>Киборги</li>
-                                    <li>Земля троллей</li>
-                                    <li>За пропастью во ржи</li>
-                                </ul>
-                            </div>
-                            <div className="item">
-                                <ul>
-                                    <li>Мой любимый динозавр</li>
-                                    <li>Фердинанд</li>
-                                    <li>Джуманджи: Зов джунглей</li>
-                                </ul>
-                            </div>
+                            {
+                                tabs.map((tab, index) => {
+                                    return <div className={`item ${activeTab === index ? 'active' : ''}`} dangerouslySetInnerHTML={{__html: tab.tabContent}}></div>
+                                })
+                            }
                         </div>
                     </>
                 );
@@ -1178,20 +1224,33 @@
         }
 
         class TaskPopUp extends React.Component {
+            state = {
+                hidden: true
+            };
+
+            onClick = () => {
+                this.setState((prevState) => ({
+                    hidden: !prevState.hidden
+                }));
+            };
+
             render() {
+                const {onClick} = this;
+                const {hidden} = this.state;
+
                 return (
                     <>
                         <p className="z">Кликая на кнопку Login я хочу чтобы затенялся экран и по середине экрана появлялось окошко для авторизации закрыть которое можно кликнув по кнопке с крестиком</p>
 
-                        <div className="overlay hidden"></div>
-                        <div className="pop-up pop-up--login hidden">
-                            <button className="close">x</button>
+                        <div className={`overlay ${hidden === true ? 'hidden' : ''}`}></div>
+                        <div className={`pop-up pop-up--login ${hidden === true ? 'hidden' : ''}`}>
+                            <button className="close" onClick={onClick}>x</button>
                             <input type="text" placeholder="Username" />
                             <input type="password" placeholder="Password" />
                             <button className="login">Login</button>
                         </div>
 
-                        <button className="show-login-pop-up">Login</button>
+                        <button className="show-login-pop-up" onClick={onClick}>Login</button>
                     </>
                 );
             }
@@ -1216,11 +1275,28 @@
         }
 
         class TaskAd extends React.Component {
+            state = {
+                value: false
+            };
+
+            onClick = () => {
+                this.setState({
+                    value: true
+                });
+                localStorage.setItem('hideAd', JSON.stringify(!this.value));
+            };
+
             render() {
+                const {onClick} = this;
+
                 return (
                     <>
                         <p className="z">Надоела реклама про увеличение члена? При клике на кнопку "Больше не показывать" заноси в localStorage значение которое будешь проверять при загрузке страницы</p>
-                        <p className="t t97">Хочешь увеличить член? Заходи <a href="http://pornhub.com" target="_blank">сюда</a>! <button className="b97">Больше не показывать</button></p>
+                        {
+                            localStorage.getItem('hideAd') === 'true'
+                            ? null
+                            : <p className="t t97">Хочешь увеличить член? Заходи <a href="http://pornhub.com" target="_blank">сюда</a>! <button className="b97" onClick={onClick}>Больше не показывать</button></p>
+                        }
                     </>
                 );
             }
