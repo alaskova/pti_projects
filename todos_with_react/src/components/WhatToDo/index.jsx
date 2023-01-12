@@ -2,29 +2,26 @@ import React from 'react';
 
 class WhatToDo extends React.Component {
     state = {
-        todoName: '',
-        id: '',
-        important: false,
-        completed: false
+        todoTitle: ''
     };
 
     onChange = (e) => {
         this.setState({
-            todoName: e.target.value
+            todoTitle: e.target.value
         });
     };
 
     onSubmit = (e) => {
         if (e.code === 'Enter') {
-            const todo = {
-                ...this.state,
-                id: this.getUniqId()
-            };
-
-            this.props.onAdd(todo);
+            this.props.onAdd({
+                id: this.getUniqId(),
+                title: this.state.todoTitle,
+                important: false,
+                completed: false
+            });
 
             this.setState({
-                todoName: ''
+                todoTitle: ''
             });
         }
     };
@@ -33,11 +30,11 @@ class WhatToDo extends React.Component {
 
     render() {
         const {onSubmit, onChange} = this;
-        const {todoName} = this.state;
+        const {todoTitle} = this.state;
 
         return (
             <div className="source">
-                <input onChange={onChange} onKeyUp={onSubmit} value={todoName} name="todoName" className="title" type="text" placeholder="Что нужно сделать?" />
+                <input onChange={onChange} onKeyUp={onSubmit} value={todoTitle} className="title" type="text" placeholder="Что нужно сделать?" />
             </div>
         );
     }

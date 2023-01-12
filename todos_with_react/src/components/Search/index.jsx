@@ -17,10 +17,10 @@ class Search extends React.Component {
 
     render() {
         const {onChange} = this;
-        const {search} = this.state;
+        const {searchText} = this.state;
 
         return (
-            <input className="needle" type="text" placeholder="Что будем искать?" value={search} onChange={onChange}/>
+            <input className="needle" type="text" placeholder="Что будем искать?" value={searchText} onChange={onChange} />
         );
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Filters = ({filtersEventListener, activeFilter}) => {
+const Filters = ({onFilterChange, activeFilter}) => {
     const buttons = [
         {name: 'all', title: 'Все'},
         {name: 'incompleted', title: 'Незавершенные'},
@@ -12,11 +12,11 @@ const Filters = ({filtersEventListener, activeFilter}) => {
             {
                 buttons.map(button => {
                     const className = activeFilter === button.name ? 'active' : null;
-                    return <button data-filter={button.name} className={className} onClick={filtersEventListener}>{button.title}</button>;
+                    return <button className={className} onClick={() => onFilterChange(button.name)}>{button.title}</button>;
                 })
             }
         </div>
-    )
+    );
 };
 
 export default Filters;

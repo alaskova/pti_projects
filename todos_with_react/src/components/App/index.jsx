@@ -17,7 +17,7 @@ class App extends React.Component {
         const todos = this.getTodosFromStorage();
 
         this.setState({ todos });
-    };
+    }
 
     componentDidUpdate(prevProps, prevState) {
         if (this.state.todos !== prevState.todos) {
@@ -38,7 +38,7 @@ class App extends React.Component {
             todos: [
                 ...state.todos,
                 todo
-            ],
+            ]
         }));
     };
 
@@ -49,83 +49,75 @@ class App extends React.Component {
     };
 
     onImportant = (id) => {
-        const todo = this.state.todos.find(todo => todo.id === id);
-        const updatedTodo = {
-            ...todo,
-            important: !todo.important
-        };
-
         this.setState((state) => ({
-            todos: state.todos.map((todo) => todo.id === id ? updatedTodo: todo)
+            todos: state.todos.map((todo) => todo.id === id ? {
+                ...todo,
+                important: !todo.important
+            } : todo)
         }));
     };
 
     onCompleted = (id) => {
-        const todo = this.state.todos.find(todo => todo.id === id);
-        const updatedTodo = {
-            ...todo,
-            completed: !todo.completed
-        };
-
         this.setState((state) => ({
-            todos: state.todos.map((todo) => todo.id === id ? updatedTodo: todo)
+            todos: state.todos.map((todo) => todo.id === id ? {
+                ...todo,
+                completed: !todo.completed
+            } : todo)
         }));
     };
 
-    onFilter = (todos, filter) => {
-        switch(filter) {
-            case 'all':
-                return todos;
-            case 'incompleted':
-                return todos.filter(todo => !todo.completed);
-            case 'completed':
-                return todos.filter(todo => todo.completed);
-        }
-    };
+    getFilteredTodos = () => {
+        const {todos, activeFilter, searchText} = this.state;
 
-    onSearch = (todos, searchText) => {
-        return todos.filter(todo => {
-            return todo.todoName.toLowerCase().includes(searchText.toLowerCase());
-        });
+        return todos
+            .filter(todo => todo.title.toLowerCase().includes(searchText.toLowerCase()))
+            .filter(todo => {
+                switch (activeFilter) {
+                    case 'incompleted':
+                        return !todo.completed;
+                    case 'completed':
+                        return todo.completed;
+                    default:
+                        return true;
+                }
+            });
     };
 
     onSearchChange = (searchText) => {
         this.setState({
-            searchText: searchText
+            searchText
         });
     };
 
-    filtersEventListener = (e) => {
+    onFilterChange = (activeFilter) => {
         this.setState({
-            activeFilter: e.target.dataset.filter
+            activeFilter
         });
     };
 
     render() {
-        const {onAdd, onRemove, onImportant, onCompleted, filtersEventListener, onSearchChange, onFilter, onSearch} = this;
+        const {getFilteredTodos, onAdd, onRemove, onImportant, onCompleted, onFilterChange, onSearchChange} = this;
         const {todos, activeFilter, searchText} = this.state;
 
-        const visibleTodos = onFilter(onSearch(todos, searchText), activeFilter);
-
-        const completed = this.state.todos.filter(todo => !todo.completed).length;
-        const incompleted = this.state.todos.filter(todo => todo.completed).length;
+        const completedCount = todos.filter(todo => !todo.completed).length;
+        const incompletedCount = todos.filter(todo => todo.completed).length;
 
         return (
-            <>
-                <Statistics completed={completed} incompleted={incompleted}/>
+            <div className="app">
+                <Statistics completedCount={completedCount} incompletedCount={incompletedCount} />
                 <div className="filters">
                     <Search onSearchChange={onSearchChange} />
-                    <Filters filtersEventListener={filtersEventListener} activeFilter={activeFilter} />
+                    <Filters onFilterChange={onFilterChange} activeFilter={activeFilter} />
                 </div>
                 <WhatToDo onAdd={onAdd} />
                 <Todos
-                    todos={visibleTodos}
+                    todos={getFilteredTodos()}
                     onRemove={onRemove}
                     onImportant={onImportant}
                     onCompleted={onCompleted}
                 />
-            </>
-        )
+            </div>
+        );
     }
 }
 
